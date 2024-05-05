@@ -55,6 +55,8 @@
 
     /* Border radius for card, input and buttons */
     --radius: 0.5rem;
+
+    --space-content: 2.5rem;
   }
 
   .dark {
@@ -114,7 +116,9 @@
   }
 
   body {
-    padding: 0 0 30px 0;
+    /* padding: 0 0 30px 0; */
+    margin: 0;
+    padding: 0;
     letter-spacing: -0.3px;
     font-size: 14px;
     line-height: 1.6;

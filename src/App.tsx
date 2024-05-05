@@ -7,27 +7,25 @@ import { routes } from './types/routes'
 function App() {
   return (
     <>
-      <div className='App'>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route element={<Main />}>
-              {routes.map((route, index) => {
-                return (
-                  <Route
-                    key={index}
-                    path={route.path}
-                    element={
-                      <Suspense fallback={<div>loading...</div>}>
-                        <route.component />
-                      </Suspense>
-                    }
-                  />
-                )
-              })}
-            </Route>
-          </Routes>
-        </Suspense>
-      </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route element={<Main />}>
+            {routes.map((route, index) => {
+              return (
+                <Route
+                  key={index}
+                  path={route.path}
+                  element={
+                    <Suspense fallback={<div>loading...</div>}>
+                      <route.component />
+                    </Suspense>
+                  }
+                />
+              )
+            })}
+          </Route>
+        </Routes>
+      </Suspense>
     </>
   )
 }

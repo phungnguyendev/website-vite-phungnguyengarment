@@ -1,3 +1,4 @@
+import Logo from './logo.svg'
 import NoImage from './no-image.jpg'
 
-export { NoImage }
+export { Logo, NoImage }

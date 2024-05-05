@@ -1,14 +1,14 @@
 import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
 
-const AboutPage = () => {
-  useTitle('Phung Nguyen - About')
+const CareerPage = () => {
+  useTitle('Phung Nguyen - Careers')
 
   return (
     <>
-      <BaseLayout title='About page'></BaseLayout>
+      <BaseLayout title='Career page'></BaseLayout>
     </>
   )
 }
 
-export default AboutPage
+export default CareerPage

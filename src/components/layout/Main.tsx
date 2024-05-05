@@ -1,74 +1,46 @@
 import { Layout } from 'antd'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { cn } from '~/utils/helpers'
 import Footer from './Footer'
 import Header from './Header'
-import SideNav from './sidenav/SideNav'
 
-const { Sider, Content } = Layout
+const { Content } = Layout
 
 const Main: React.FC = () => {
-  const [openDrawer, setOpenDrawer] = useState(false)
+  const [isHidden, setIsHidden] = useState(false)
+  const [offsetY, setOffsetY] = useState<number>(0)
+
+  // Saving last scroll position
+  const lastScrollTop = useRef(0)
+
+  const handleScroll = () => {
+    const scrollYOffset = window.scrollY
+    setOffsetY(scrollYOffset)
+    // Visible/Unvisitable state navbar
+    setIsHidden(scrollYOffset > lastScrollTop.current)
+    lastScrollTop.current = scrollYOffset
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
-    <Layout className='w-full bg-background' hasSider>
-      {/* <Drawer
-        title={false}
-        placement='left'
-        closable={true}
-        onClose={() => setOpenDrawer(false)}
-        open={openDrawer}
-        width={250}
-        className='m-0'
-      >
-        <Layout>
-          <Sider trigger={null}>
-            <SideNav openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
-          </Sider>
-        </Layout>
-      </Drawer> */}
-      <Sider
-        breakpoint='lg'
-        collapsedWidth={0}
-        collapsible
-        trigger={null}
-        width={openDrawer ? 250 : 80}
-        style={{
-          position: 'fixed',
-          left: '0px',
-          top: '0px',
-          bottom: '0px',
-          overflow: 'auto',
-          height: '100vh',
-          zIndex: 10
-        }}
-      >
-        <SideNav openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
-      </Sider>
-      <Layout
-        className={cn({
-          '250px': openDrawer,
-          '80px': !openDrawer
+    <Layout className='w-full bg-background'>
+      <Header
+        className={cn('sticky left-0 right-0 top-0 z-10 transition-transform duration-200', {
+          '-translate-y-full': isHidden && offsetY > 70
         })}
-      >
-        <Header
-          collapsed={openDrawer}
-          setCollapsed={setOpenDrawer}
-          onMenuClick={() => {
-            setOpenDrawer(!openDrawer)
-          }}
-        />
-        <Content
-          className={cn('min-h-screen bg-background p-5 transition-all duration-200', {
-            'ml-[250px]': openDrawer,
-            'ml-[80px]': !openDrawer
-          })}
-        >
-          <Outlet />
-        </Content>
-        <Footer className=''>Ant Design ©2023 Created by Ant UED</Footer>
-      </Layout>
+      />
+      <Content className={'m-0 min-h-[1200px] p-0 transition-all duration-200'}>
+        <Outlet />
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>Ant Design ©{new Date().getFullYear()} Created by Ant UED</Footer>
     </Layout>
   )
 }
