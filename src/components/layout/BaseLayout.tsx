@@ -82,7 +82,7 @@ const BaseLayout: React.FC<Props> = ({
           {props.title}
         </Typography.Title>
       )}
-      <Flex vertical gap={20} className='w-full'>
+      <Flex vertical className='w-full'>
         <Flex vertical gap={20} className='w-full'>
           {onSearch && (
             <Search
