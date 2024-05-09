@@ -28,15 +28,15 @@ const BannerCarousel: React.FC<Props> = ({ items, ...props }) => {
                 />
                 <Flex align='start' justify='center' className='absolute bottom-0 left-10 top-0 z-10 w-1/2' vertical>
                   <Typography.Title
-                    className='to-bg-opacity-[10%] w-fit bg-opacity-[65%] bg-gradient-to-r from-black px-5 py-5'
                     level={1}
+                    className='to-bg-opacity-[10%] w-fit rounded-sm bg-opacity-[65%] bg-gradient-to-r from-black px-5 py-5'
                   >
-                    <span className='font-roboto-condensed text-5xl uppercase text-white'>{item.title}</span>
+                    <span className='font-roboto-condensed text-7xl uppercase text-white'>{item.title}</span>
                   </Typography.Title>
                   <Button className='w-fit rounded-sm' type='primary' size='large'>
                     <Link to={`${item.id}`}>
                       <Flex gap={10} align='center' justify='center'>
-                        <span className='text-sm'>Xem chi tiết</span>
+                        <span>Xem chi tiết</span>
                         <span>
                           <MoveRight size={14} />
                         </span>
