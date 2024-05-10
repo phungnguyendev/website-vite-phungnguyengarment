@@ -17,21 +17,22 @@ const BannerCarousel: React.FC<Props> = ({ items, ...props }) => {
         <Carousel {...props} autoplay>
           {items.map((item, index) => {
             return (
-              <Space key={index} className='relative'>
-                <Image
-                  preview={false}
+              <Space className='relative' key={index}>
+                <img
                   key={index}
                   src={item.imageUrl ?? NoImage}
-                  className='object-cover'
-                  height='680px'
-                  width='100%'
+                  className='sm:h-480px h-[380px] w-full object-cover md:h-[580px] lg:h-[680px]'
+                  // height='680px'
+                  // width='100%'
                 />
                 <Flex align='start' justify='center' className='absolute bottom-0 left-10 top-0 z-10 w-1/2' vertical>
                   <Typography.Title
                     level={1}
-                    className='to-bg-opacity-[10%] w-fit rounded-sm bg-opacity-[65%] bg-gradient-to-r from-black px-5 py-5'
+                    className='to-bg-opacity-[10%] w-fit rounded-sm bg-gradient-to-r from-black px-5 py-5'
                   >
-                    <span className='font-roboto-condensed text-7xl uppercase text-white'>{item.title}</span>
+                    <span className='font-roboto-condensed text-xl uppercase text-white sm:text-3xl md:text-5xl lg:text-7xl'>
+                      {item.title}
+                    </span>
                   </Typography.Title>
                   <Button className='w-fit rounded-sm' type='primary' size='large'>
                     <Link to={`${item.id}`}>
