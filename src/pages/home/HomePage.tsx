@@ -6,6 +6,7 @@ import BaseLayout from '~/components/layout/BaseLayout'
 import useAPIService from '~/hooks/useAPIService'
 import { HeroBanner } from '~/typing'
 import BannerCarousel from './components/BannerCarousel'
+import Specification from './components/Specification'
 
 const HomePage: React.FC = () => {
   useTitle('Phung Nguyen - Home')
@@ -28,6 +29,7 @@ const HomePage: React.FC = () => {
     <>
       <BaseLayout>
         <BannerCarousel items={heroBanners} />
+        <Specification />
       </BaseLayout>
     </>
   )

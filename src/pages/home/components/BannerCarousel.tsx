@@ -17,7 +17,7 @@ const BannerCarousel: React.FC<Props> = ({ items, ...props }) => {
         <Carousel {...props} autoplay>
           {items.map((item, index) => {
             return (
-              <Space className='relative'>
+              <Space key={index} className='relative'>
                 <Image
                   preview={false}
                   key={index}
