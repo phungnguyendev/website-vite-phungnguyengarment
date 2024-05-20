@@ -1,69 +1,19 @@
-import { Breadcrumb, Button, Flex, Input, Switch, Typography } from 'antd'
-import { SwitchChangeEventHandler } from 'antd/es/switch'
-import { TitleProps } from 'antd/es/typography/Title'
-import { Plus } from 'lucide-react'
+import { Flex, FlexProps } from 'antd'
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import useBreadcrumbs from 'use-react-router-breadcrumbs'
-import { routes } from '~/types/routes'
 import { cn } from '~/utils/helpers'
 
-interface ActionProps {
-  onClick?: (e?: React.MouseEvent<HTMLElement, MouseEvent>) => void
-  isShow?: boolean
-  disabled?: boolean
-}
-
-interface Props extends React.HTMLAttributes<HTMLElement> {
-  titleProps?: TitleProps
-  searchPlaceHolder?: string
-  defaultSearchValue?: string | number | readonly string[] | undefined
-  searchValue?: string | undefined
-  onSearch?: (
-    value: string,
-    event?:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.MouseEvent<HTMLElement, MouseEvent>
-      | React.KeyboardEvent<HTMLInputElement>
-      | undefined,
-    info?: {
-      source?: 'clear' | 'input'
-    }
-  ) => void
-  breadcrumb?: boolean
+interface Props extends FlexProps {
   onLoading?: (enable: boolean) => void
-  onSearchChange?: React.ChangeEventHandler<HTMLInputElement> | undefined
-  showDeleted?: boolean
-  onSortChange?: SwitchChangeEventHandler
-  onDeletedRecordStateChange?: SwitchChangeEventHandler
-  onResetClick?: ActionProps
-  onAddNewClick?: ActionProps
+  header?: React.ReactNode
 }
 
-const { Search } = Input
-
-const BaseLayout: React.FC<Props> = ({
-  searchPlaceHolder,
-  onSearchChange,
-  searchValue,
-  defaultSearchValue,
-  onSearch,
-  onSortChange,
-  showDeleted,
-  onDeletedRecordStateChange,
-  onResetClick,
-  onAddNewClick,
-  children,
-  titleProps,
-  breadcrumb,
-  ...props
-}) => {
-  const { pathname } = useLocation()
-  const breadcrumbs = useBreadcrumbs(routes)
+const BaseLayout: React.FC<Props> = ({ header, children, ...props }) => {
+  // const { pathname } = useLocation()
+  // const breadcrumbs = useBreadcrumbs(routes)
 
   return (
-    <div {...props} className={cn('w-full', props.className)}>
-      {breadcrumb && (
+    <Flex {...props} vertical className={cn('w-full gap-[20px] sm:gap-[40px]', props.className)}>
+      {/* {breadcrumb && (
         <Breadcrumb
           items={breadcrumbs.map((breadcrumb) => {
             return {
@@ -76,92 +26,12 @@ const BaseLayout: React.FC<Props> = ({
             }
           })}
         />
-      )}
-      {props.title && (
-        <Typography.Title className='w-fit' {...titleProps} level={titleProps?.level ? titleProps.level : 2}>
-          {props.title}
-        </Typography.Title>
-      )}
-      <Flex vertical className='w-full'>
-        <Flex vertical gap={20} className='w-full'>
-          {onSearch && (
-            <Search
-              placeholder={searchPlaceHolder ? searchPlaceHolder : 'Search...'}
-              size='middle'
-              enterButton
-              className='w-full lg:hidden'
-              name='search'
-              allowClear
-              value={searchValue}
-              defaultValue={defaultSearchValue}
-              onSearch={onSearch}
-              onChange={onSearchChange}
-            />
-          )}
-          <Flex justify='space-between' className='w-full' align='center'>
-            <Flex gap={10} align='center' wrap='wrap'>
-              {/* <Switch
-                checkedChildren='Admin'
-                unCheckedChildren='Admin'
-                defaultChecked={false}
-                checked={user.isAdmin}
-                onChange={(val) => {
-                  dispatch(setAdminAction(val))
-                }}
-              /> */}
-              {onSortChange && (
-                <Switch
-                  checkedChildren='Sorted'
-                  unCheckedChildren='Sorted'
-                  defaultChecked={false}
-                  onChange={onSortChange}
-                />
-              )}
-              {onDeletedRecordStateChange && (
-                <Switch
-                  checkedChildren='Deleted'
-                  unCheckedChildren='Deleted'
-                  defaultChecked={showDeleted}
-                  onChange={onDeletedRecordStateChange}
-                />
-              )}
-              {onSearch && (
-                <Search
-                  placeholder={searchPlaceHolder ? searchPlaceHolder : 'Search...'}
-                  size='middle'
-                  enterButton
-                  className='hidden w-[450px] lg:block'
-                  name='search'
-                  allowClear
-                  value={searchValue}
-                  defaultValue={defaultSearchValue}
-                  onSearch={onSearch}
-                  onChange={onSearchChange}
-                />
-              )}
-            </Flex>
-            <Flex gap={10} align='center' wrap='wrap' justify='flex-end' className='w-full'>
-              {onResetClick?.isShow && (
-                <Button onClick={onResetClick.onClick} className='flex items-center' type='default'>
-                  Reset
-                </Button>
-              )}
-              {onAddNewClick?.isShow && (
-                <Button
-                  onClick={onAddNewClick.onClick}
-                  className='flex items-center'
-                  type='primary'
-                  icon={<Plus size={20} />}
-                >
-                  New
-                </Button>
-              )}
-            </Flex>
-          </Flex>
-        </Flex>
+      )} */}
+      {header}
+      <Flex vertical className='w-full gap-[200px] px-5 sm:px-10 md:px-10 lg:px-10 xl:px-20'>
         {children}
       </Flex>
-    </div>
+    </Flex>
   )
 }
 

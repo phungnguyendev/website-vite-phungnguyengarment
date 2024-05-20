@@ -40,7 +40,7 @@ const Main: React.FC = () => {
       <Content className={'m-0 min-h-[1200px] p-0 transition-all duration-200'}>
         <Outlet />
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©{new Date().getFullYear()} Created by Ant UED</Footer>
+      <Footer />
     </Layout>
   )
 }

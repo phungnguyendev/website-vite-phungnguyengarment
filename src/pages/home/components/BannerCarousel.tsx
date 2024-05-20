@@ -1,73 +1,88 @@
-import type { CarouselProps } from 'antd'
-import { Button, Carousel, Flex, Image, Skeleton, Space, Typography } from 'antd'
+import { Skeleton as AntSkeleton, Button, Flex, Typography } from 'antd'
 import { MoveRight } from 'lucide-react'
 import React from 'react'
+import { SkeletonTheme } from 'react-loading-skeleton'
 import { Link } from 'react-router-dom'
-import { NoImage } from '~/assets'
 import { HeroBanner } from '~/typing'
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-interface Props extends CarouselProps {
+// import required modules
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'
+import { SwiperOptions } from 'swiper/types'
+import { imageValidatorDisplay } from '~/utils/helpers'
+
+interface Props extends SwiperOptions {
   items: HeroBanner[]
 }
 
 const BannerCarousel: React.FC<Props> = ({ items, ...props }) => {
   return (
     <>
-      {items.length > 0 ? (
-        <Carousel {...props} autoplay>
-          {items.map((item, index) => {
+      <Swiper
+        {...props}
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false
+        }}
+        modules={[Autoplay, Pagination, Navigation]}
+        className='h-full w-full'
+      >
+        {items.length > 0 ? (
+          items.map((item, index) => {
             return (
-              <Space className='relative' key={index}>
-                <img
-                  key={index}
-                  src={item.imageUrl ?? NoImage}
-                  className='sm:h-480px h-[380px] w-full object-cover md:h-[580px] lg:h-[680px]'
-                  // height='680px'
-                  // width='100%'
-                />
-                <Flex align='start' justify='center' className='absolute bottom-0 left-10 top-0 z-10 w-1/2' vertical>
-                  <Typography.Title
-                    level={1}
-                    className='to-bg-opacity-[10%] w-fit rounded-sm bg-gradient-to-r from-black px-5 py-5'
+              <SwiperSlide draggable={false} key={index} className='items-center justify-center'>
+                <Flex className='relative' key={index}>
+                  <img
+                    src={imageValidatorDisplay(item.imageUrl)}
+                    className='h-[380px] w-full object-cover sm:h-[480px] md:h-[580px] lg:h-[680px]'
+                  />
+                  <Flex
+                    gap={20}
+                    align='start'
+                    justify='center'
+                    className='absolute bottom-5 left-5 z-10 w-2/3 md:bottom-10 md:left-10'
+                    vertical
                   >
-                    <span className='font-roboto-condensed text-xl uppercase text-white sm:text-3xl md:text-5xl lg:text-7xl'>
+                    <Typography.Text className='to-bg-opacity-[10%] w-fit rounded-sm bg-gradient-to-r from-black px-5 py-2 font-roboto-condensed text-xl font-semibold uppercase leading-10 text-white sm:text-3xl md:text-5xl lg:text-7xl'>
                       {item.title}
-                    </span>
-                  </Typography.Title>
-                  <Button className='w-fit rounded-sm' type='primary' size='large'>
-                    <Link to={`${item.id}`}>
-                      <Flex gap={10} align='center' justify='center'>
-                        <span>Xem chi tiết</span>
-                        <span>
-                          <MoveRight size={14} />
-                        </span>
-                      </Flex>
-                    </Link>
-                  </Button>
+                    </Typography.Text>
+                    <Button className='w-fit rounded-sm' type='primary' size='large'>
+                      <Link to={`${item.id}`}>
+                        <Flex gap={10} align='center' justify='center'>
+                          <span>Xem chi tiết</span>
+                          <span>
+                            <MoveRight size={14} />
+                          </span>
+                        </Flex>
+                      </Link>
+                    </Button>
+                  </Flex>
                 </Flex>
-              </Space>
+              </SwiperSlide>
             )
-          })}
-        </Carousel>
-      ) : (
-        <Carousel {...props} autoplay>
-          <Space className='relative'>
-            <Image preview={false} src={NoImage} className='object-cover' height='680px' width='100%' />
-            <Flex vertical gap={40} className='absolute bottom-10 left-10 z-10 w-full'>
-              <Skeleton
-                active
-                paragraph={{
-                  rows: 1,
-                  width: '50%'
-                }}
-              />
-              <Skeleton.Button active size='large' />
-            </Flex>
-          </Space>
-          {/* <Image preview={false} src={NoImage} className='object-cover' height='680px' width='100%' />
-          <Image preview={false} src={NoImage} className='object-cover' height='680px' width='100%' /> */}
-        </Carousel>
-      )}
+          })
+        ) : (
+          <Flex className='h-[380px] w-screen sm:h-[480px] md:h-[580px]'>
+            <AntSkeleton.Image
+              active
+              style={{
+                width: '100%',
+                height: '100%'
+              }}
+              className='absolute bottom-0 left-0 right-0 top-0'
+            />
+            <SkeletonTheme baseColor='var(--grey)' highlightColor='var(--light-grey)'>
+              <Flex vertical gap={20} className='absolute bottom-10 left-10 w-1/2'>
+                <AntSkeleton className='' active />
+                <AntSkeleton.Button size='large' active style={{ width: '140px' }} />
+              </Flex>
+            </SkeletonTheme>
+          </Flex>
+        )}
+      </Swiper>
     </>
   )
 }

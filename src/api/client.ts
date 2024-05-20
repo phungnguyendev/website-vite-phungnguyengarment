@@ -52,7 +52,7 @@ export const defaultRequestBody: RequestBodyType = {
   },
   sorting: {
     column: 'id', // id
-    direction: 'desc' // direction: asc|desc sắp xếp trước sau
+    direction: 'asc' // direction: asc|desc sắp xếp trước sau
   }
 }
 

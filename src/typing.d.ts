@@ -89,15 +89,6 @@ export interface HeroBanner {
   updatedAt?: string
 }
 
-export interface HomeProduct {
-  id?: number
-  title?: string | null
-  imageUrl?: string | null
-  orderNumber?: number | null
-  createdAt?: string
-  updatedAt?: string
-}
-
 export interface IndustrySector {
   id?: number
   title?: string | null

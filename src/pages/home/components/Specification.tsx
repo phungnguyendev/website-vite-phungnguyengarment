@@ -1,4 +1,4 @@
-import { Divider, Flex, Typography } from 'antd'
+import { Col, ColProps, Flex, Row, Typography } from 'antd'
 import React, { HTMLAttributes } from 'react'
 import { NoImage } from '~/assets'
 import { ExperienceIcon, LocationIcon, MemberIcon, StaffIcon } from '~/assets/icons'
@@ -11,51 +11,41 @@ type SpecificationItemType = {
   desc: string
 }
 
-interface SpecificationItemProps extends HTMLAttributes<HTMLElement> {
+interface SpecificationItemProps extends ColProps {
   item: SpecificationItemType
 }
 
 const SpecificationItem: React.FC<SpecificationItemProps> = ({ item, ...props }) => {
   return (
-    <Flex {...props} className={cn('w-[25%]', props.className)}>
-      <Flex
-        vertical
-        align='center'
-        justify='start'
-        className='h-[164px] w-full gap-1 p-2 sm:h-[204px] sm:gap-2 sm:p-3 md:h-[244px] md:gap-3 md:p-4 lg:h-[294px] lg:gap-4 lg:p-5'
-      >
-        <img
-          className='h-[32px] w-[32px] sm:h-[42px] sm:w-[42px] md:h-[52px] md:w-[52px] lg:h-[72px] lg:w-[72px]'
-          draggable={false}
-          src={item.icon ?? NoImage}
-        />
-        <Typography.Text
-          className='text-center font-roboto-condensed text-base font-bold sm:text-lg md:text-xl lg:text-2xl'
-          type='secondary'
-        >
+    <Col
+      {...props}
+      className={cn('flex items-center justify-center rounded-sm', props.className)}
+      xs={24}
+      sm={24}
+      md={12}
+      lg={6}
+      xl={6}
+    >
+      <Flex vertical align='center' justify='center' gap={8} className='h-72 w-72 p-5'>
+        <img className='h-[72px] w-[72px]' draggable={false} src={item.icon ?? NoImage} />
+        <Typography.Text className='line-clamp-1 text-center font-roboto-condensed text-2xl font-bold' type='secondary'>
           {item.title}
         </Typography.Text>
-        <Typography.Text className='text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl'>
-          {item.parameter}
-        </Typography.Text>
-        <Typography.Text
-          type='secondary'
-          className='line-clamp-2 text-center text-xs md:line-clamp-3 md:text-sm lg:line-clamp-none'
-        >
+        <Typography.Text className='line-clamp-1 text-4xl font-bold'>{item.parameter}</Typography.Text>
+        <Typography.Text type='secondary' className='line-clamp-3 text-center text-sm'>
           {item.desc}
         </Typography.Text>
       </Flex>
-    </Flex>
+    </Col>
   )
 }
 
-const Specification: React.FC = () => {
+interface SpecificationProps extends HTMLAttributes<HTMLDivElement> {}
+
+const Specification: React.FC<SpecificationProps> = ({ ...props }) => {
   return (
-    <Flex className='w-full' align='center' justify='center'>
-      <Flex
-        className='w-[95%] flex-row items-center justify-center rounded-sm bg-white shadow-sm sm:w-[90%] md:w-[85%] lg:w-[80%]'
-        // split={<Divider className='h-[100px]' type='vertical' />}
-      >
+    <Flex className={cn('bg-white shadow-sm', props.className)}>
+      <Row gutter={[24, 24]}>
         <SpecificationItem
           item={{
             icon: MemberIcon,
@@ -64,7 +54,6 @@ const Specification: React.FC = () => {
             desc: 'Đáp ứng nhanh các đơn hàng lớn và hàng xuất nhập khẩu'
           }}
         />
-        <Divider className='h-[100px]' type='vertical' />
         <SpecificationItem
           item={{
             icon: ExperienceIcon,
@@ -73,7 +62,6 @@ const Specification: React.FC = () => {
             desc: '8 năm kinh nghiệm trong ngành may mặc và xuất khẩu'
           }}
         />
-        <Divider className='h-[100px]' type='vertical' />
         <SpecificationItem
           item={{
             icon: StaffIcon,
@@ -82,7 +70,6 @@ const Specification: React.FC = () => {
             desc: 'Lực lượng chủ chốt, chịu trách nhiệm kiểm soát sản xuất và chất lượng sản phẩm'
           }}
         />
-        <Divider className='h-[100px]' type='vertical' />
         <SpecificationItem
           item={{
             icon: LocationIcon,
@@ -91,7 +78,7 @@ const Specification: React.FC = () => {
             desc: 'Phụng Nguyên (Thanh Bình)'
           }}
         />
-      </Flex>
+      </Row>
     </Flex>
   )
 }

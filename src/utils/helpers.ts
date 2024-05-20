@@ -2,6 +2,7 @@ import type { GetProp, UploadProps } from 'antd'
 import { clsx, type ClassValue } from 'clsx'
 import dayjs from 'dayjs'
 import { twMerge } from 'tailwind-merge'
+import { NoImage } from '~/assets'
 import { dateFormatter } from './date-formatter'
 
 export function cn(...inputs: ClassValue[]) {
@@ -45,6 +46,10 @@ export const numberValidatorCalc = (number?: number | null): number => {
 
 export const textValidatorDisplay = (text?: string | null): string => {
   return text ? text : '-'
+}
+
+export const imageValidatorDisplay = (src?: string | null): string => {
+  return src ? src : NoImage
 }
 
 export const dateValidatorDisplay = (date?: string | number | Date | dayjs.Dayjs | null | undefined): string => {
