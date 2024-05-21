@@ -123,11 +123,6 @@ const HomePage: React.FC = () => {
             position: 'center',
             size: 'large'
           }}
-          descriptionProps={{
-            title: 'Một vài sản phẩm tiêu biểu của chúng tôi.',
-            position: 'center',
-            size: 'middle'
-          }}
         >
           <ProductHomeSlider items={homeProducts} loading={productLoading} />
         </Section>
