@@ -1,4 +1,4 @@
-import { Card, Image, Skeleton, Typography } from 'antd'
+import { Card, Typography } from 'antd'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Post } from '~/typing'
@@ -8,30 +8,28 @@ const { Text } = Typography
 const { Meta } = Card
 
 interface PostItemProps {
-  item?: Post
+  item: Post
 }
 
 const PostItem: React.FC<PostItemProps> = ({ item, ...props }) => {
   return (
     <>
-      <Skeleton active loading={!item} avatar>
-        <Link to={`${item?.id}`}>
-          <Card
-            {...props}
-            className='w-full transition-transform duration-300 sm:w-[95%]'
-            cover={<Image preview={false} src={imageValidatorDisplay(item?.imageUrl)} className='h-full w-full' />}
-          >
-            <Meta
-              title={
-                <Text type='secondary' className='font-normal italic'>
-                  {dateTimeValidatorDisplay(item?.publishedAt)}
-                </Text>
-              }
-              description={<Text className='line-clamp-2 text-base'>{textValidatorDisplay(item?.title)}</Text>}
-            />
-          </Card>
-        </Link>
-      </Skeleton>
+      <Link to={`${item.id}`}>
+        <Card
+          {...props}
+          className='w-full sm:w-[95%]'
+          cover={<img src={imageValidatorDisplay(item.imageUrl)} className='h-full w-full' />}
+        >
+          <Meta
+            title={
+              <Text type='secondary' className='font-normal italic'>
+                {dateTimeValidatorDisplay(item.publishedAt)}
+              </Text>
+            }
+            description={<Text className='line-clamp-2 text-base'>{textValidatorDisplay(item.title)}</Text>}
+          />
+        </Card>
+      </Link>
     </>
   )
 }

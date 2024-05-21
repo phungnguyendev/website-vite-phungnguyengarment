@@ -14,6 +14,7 @@ module.exports = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         grey: 'var(--grey)',
+        blackFriday: 'var(--black-friday)',
         border: 'var(--border)',
         input: 'var(--input)',
         ring: 'var(--ring)',

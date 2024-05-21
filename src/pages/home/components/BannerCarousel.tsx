@@ -14,9 +14,10 @@ import { imageValidatorDisplay } from '~/utils/helpers'
 
 interface Props extends SwiperOptions {
   items: HeroBanner[]
+  loading?: boolean
 }
 
-const BannerCarousel: React.FC<Props> = ({ items, ...props }) => {
+const BannerCarousel: React.FC<Props> = ({ loading = false, items, ...props }) => {
   return (
     <>
       <Swiper
@@ -30,11 +31,14 @@ const BannerCarousel: React.FC<Props> = ({ items, ...props }) => {
         modules={[Autoplay, Pagination, Navigation]}
         className='h-full w-full'
       >
-        {items.length > 0 ? (
+        {!loading ? (
           items.map((item, index) => {
             return (
               <SwiperSlide draggable={false} key={index} className='items-center justify-center'>
-                <Flex className='relative' key={index}>
+                <Flex
+                  className='before:to-bg-opacity-[10%] before:from-blackFriday before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-gradient-to-t before:content-[""]'
+                  key={index}
+                >
                   <img
                     src={imageValidatorDisplay(item.imageUrl)}
                     className='h-[380px] w-full object-cover sm:h-[480px] md:h-[580px] lg:h-[680px]'
@@ -46,7 +50,10 @@ const BannerCarousel: React.FC<Props> = ({ items, ...props }) => {
                     className='absolute bottom-5 left-5 z-10 w-2/3 md:bottom-10 md:left-10'
                     vertical
                   >
-                    <Typography.Text className='to-bg-opacity-[10%] w-fit rounded-sm bg-gradient-to-r from-black px-5 py-2 font-roboto-condensed text-xl font-semibold uppercase leading-10 text-white sm:text-3xl md:text-5xl lg:text-7xl'>
+                    <Typography.Text
+                      className='w-fit rounded-sm
+                     font-roboto-condensed text-3xl font-semibold uppercase leading-10 text-white sm:text-3xl md:text-5xl lg:text-7xl'
+                    >
                       {item.title}
                     </Typography.Text>
                     <Button className='w-fit rounded-sm' type='primary' size='large'>
