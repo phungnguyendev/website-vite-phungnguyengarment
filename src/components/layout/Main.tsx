@@ -33,11 +33,11 @@ const Main: React.FC = () => {
   return (
     <Layout className='w-full bg-background'>
       <Header
-        className={cn('sticky left-0 right-0 top-0 z-10 transition-transform duration-200', {
+        className={cn('sticky left-0 right-0 top-0 z-[999] transition-transform duration-200', {
           '-translate-y-full': isHidden && offsetY > 70
         })}
       />
-      <Content className={'m-0 min-h-[1200px] p-0 transition-all duration-200'}>
+      <Content className={'m-0 min-h-[900px] p-0 transition-all duration-200'}>
         <Outlet />
       </Content>
       <Footer />

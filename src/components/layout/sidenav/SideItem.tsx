@@ -19,7 +19,7 @@ const SideItem: React.FC<Props> = ({ item, collapsed }) => {
         <>
           {collapsed && (
             <Link to={item.path} className='mx-2 transition-none'>
-              <span>{item.name}</span>
+              {item.name}
             </Link>
           )}
         </>

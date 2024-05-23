@@ -22,10 +22,7 @@ import ProductHomeSlider from './components/HomeProductSlider'
 
 const HomePage: React.FC = () => {
   useTitle('Phung Nguyen - Home')
-  const [bannerLoading, setBannerLoading] = useState<boolean>(false)
-  const [productLoading, setProductLoading] = useState<boolean>(false)
-  const [partnerLoading, setPartnerLoading] = useState<boolean>(false)
-  const [postLoading, setPostLoading] = useState<boolean>(false)
+  const [, setLoading] = useState<boolean>(false)
   const heroBannerService = useAPIService<HeroBanner>(HeroBannerAPI)
   const homeProductService = useAPIService<Product>(HomeProductAPI)
   const partnerService = useAPIService<Partner>(PartnerAPI)
@@ -40,13 +37,13 @@ const HomePage: React.FC = () => {
   }, [])
 
   const loadData = async () => {
-    await heroBannerService.getListItems(defaultRequestBody, setBannerLoading, (meta) => {
+    await heroBannerService.getListItems(defaultRequestBody, setLoading, (meta) => {
       if (!meta?.success) throw new Error(`${meta?.message}`)
       setHeroBanners(meta.data as HeroBanner[])
     })
     await homeProductService.getListItems(
       { ...defaultRequestBody, paginator: { page: 1, pageSize: 10 } },
-      setProductLoading,
+      setLoading,
       (meta) => {
         if (!meta?.success) throw new Error(`${meta?.message}`)
         setHomeProducts(meta.data as Product[])
@@ -54,7 +51,7 @@ const HomePage: React.FC = () => {
     )
     await partnerService.getListItems(
       { ...defaultRequestBody, paginator: { page: 1, pageSize: -1 } },
-      setPartnerLoading,
+      setLoading,
       (meta) => {
         if (!meta?.success) throw new Error(`${meta?.message}`)
         setPartners(meta.data as Partner[])
@@ -62,7 +59,7 @@ const HomePage: React.FC = () => {
     )
     await postService.getListItems(
       { ...defaultRequestBody, paginator: { page: 1, pageSize: 10 } },
-      setPostLoading,
+      setLoading,
       (meta) => {
         if (!meta?.success) throw new Error(`${meta?.message}`)
         setPosts(meta.data as Post[])
@@ -75,7 +72,7 @@ const HomePage: React.FC = () => {
       <BaseLayout
         header={
           <>
-            <BannerCarousel items={heroBanners} loading={bannerLoading} />
+            <BannerCarousel items={heroBanners} loading={heroBanners.length <= 0} />
             <Specification className='mx-5 sm:mx-10 lg:mx-20' />
           </>
         }
@@ -124,7 +121,7 @@ const HomePage: React.FC = () => {
             size: 'large'
           }}
         >
-          <ProductHomeSlider items={homeProducts} loading={productLoading} />
+          <ProductHomeSlider items={homeProducts} loading={homeProducts.length <= 0} />
         </Section>
         <Section className='relative' gap={80}>
           <Flex className='relative h-full w-full' vertical justify='center' align='center'>
@@ -144,14 +141,14 @@ const HomePage: React.FC = () => {
               type='secondary'
             />
           </Flex>
-          <HomePartnerSlider items={partners} loading={partnerLoading} />
+          <HomePartnerSlider items={partners} loading={partners.length <= 0} />
         </Section>
         <Section
           titleProps={{
             title: 'Tin tức & Sự kiện'
           }}
         >
-          <HomePostSlider items={posts} loading={postLoading} />
+          <HomePostSlider items={posts} loading={posts.length <= 0} />
         </Section>
       </BaseLayout>
     </>
