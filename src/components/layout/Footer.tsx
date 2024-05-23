@@ -64,7 +64,12 @@ function Footer({ ...props }: FooterProps) {
           vertical
         >
           <Flex justify='space-between' align='center' className='z-10 h-full w-full'>
-            <Flex className='h-full w-full flex-col p-10 lg:flex-row' gap={40} justify='space-between' align='center'>
+            <Flex
+              className='h-full w-full flex-col p-5 sm:p-10 lg:flex-row'
+              gap={40}
+              justify='space-between'
+              align='center'
+            >
               <Flex vertical gap={10} justify='end' className='h-fit w-full lg:w-1/2'>
                 <Text className='font-roboto-flex text-2xl font-bold text-white'>
                   Đừng ngần ngại liên hệ với chúng tôi nếu bạn có bất kì câu hỏi nào
@@ -191,9 +196,7 @@ function Footer({ ...props }: FooterProps) {
                     {routes.map((item, index) => {
                       return (
                         <Link key={index} to={item.path}>
-                          <Typography.Text className='text-white opacity-75 transition-colors duration-300 hover:opacity-100'>
-                            {item.name}
-                          </Typography.Text>
+                          <Typography.Text className='text-white'>{item.name}</Typography.Text>
                         </Link>
                       )
                     })}
