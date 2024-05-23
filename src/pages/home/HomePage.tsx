@@ -123,7 +123,7 @@ const HomePage: React.FC = () => {
         >
           <ProductHomeSlider items={homeProducts} loading={homeProducts.length <= 0} />
         </Section>
-        <Section className='relative' gap={80}>
+        <Section className='relative gap-[40px] md:gap-[80px]'>
           <Flex className='relative h-full w-full' vertical justify='center' align='center'>
             <SectionTitle
               className='absolute top-0 z-10 w-fit -translate-y-1/2'

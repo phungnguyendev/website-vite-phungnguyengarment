@@ -14,7 +14,7 @@ const theme: ThemeConfig = {
       textHoverBg: '#ffffff'
     },
     Menu: {
-      itemActiveBg: '#ff6b00',
+      itemActiveBg: '#fff',
       itemSelectedBg: '#ff6b00',
       itemSelectedColor: '#fff',
       itemBorderRadius: 6

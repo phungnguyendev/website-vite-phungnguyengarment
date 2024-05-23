@@ -2,7 +2,7 @@ import { Flex, Menu, MenuProps } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import logo from '~/assets/logo.svg'
-import { routeSide } from '~/types/routes'
+import { routes } from '~/types/routes'
 import SideIcon from './SideIcon'
 import SideItem from './SideItem'
 
@@ -24,16 +24,16 @@ function getItem(label: React.ReactNode, key: React.Key, icon?: React.ReactNode,
 
 const SideNav: React.FC<Props> = ({ openDrawer, setOpenDrawer }) => {
   const { pathname } = useLocation()
-  const [selectedKey, setSelectedKey] = useState<string>(routeSide[0].path)
+  const [selectedKey, setSelectedKey] = useState<string>(routes[0].path)
 
   useEffect(() => {
-    const keyFound = routeSide.find((route) => route.path === pathname)
+    const keyFound = routes.find((route) => route.path === pathname)
     if (keyFound) {
       setSelectedKey(keyFound.path)
     }
   }, [pathname])
 
-  const items: MenuProps['items'] = routeSide.map((route) => {
+  const items: MenuProps['items'] = routes.map((route) => {
     return getItem(
       SideItem({ item: route, collapsed: openDrawer }),
       route.path,
