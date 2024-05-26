@@ -93,7 +93,7 @@ const HomePage: React.FC = () => {
                   <Typography.Text className='text-2xl font-semibold text-secondPrimary'>
                     Công ty TNHH MTV May Mặc Phụng Nguyên
                   </Typography.Text>
-                  <Typography.Paragraph>
+                  <Typography.Paragraph className='text-base'>
                     <strong>Công ty TNHH MTV May Mặc Phụng Nguyên</strong> được thành lập vào tháng 4 năm 2016, với
                     ngành nghề kinh doanh chuyên gia công hàng may mặc xuất khẩu, thị trường chính là Mỹ và Nga. Hiện
                     nay, số lượng cán bộ, công nhân viên tại Công ty là 700 người. Trong số đó có 3 đảng viên. Trong

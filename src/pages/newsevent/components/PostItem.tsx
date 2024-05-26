@@ -26,7 +26,7 @@ const PostItem: React.FC<PostItemProps> = ({ item, ...props }) => {
                 {dateTimeValidatorDisplay(item.publishedAt)}
               </Text>
             }
-            description={<Text className='line-clamp-2 text-base'>{textValidatorDisplay(item.title)}</Text>}
+            description={<Text className='line-clamp-2'>{textValidatorDisplay(item.title)}</Text>}
           />
         </Card>
       </Link>

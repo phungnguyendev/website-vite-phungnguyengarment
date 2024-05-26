@@ -36,7 +36,7 @@ const BannerCarousel: React.FC<Props> = ({ loading = false, items, ...props }) =
             return (
               <SwiperSlide draggable={false} key={index} className='items-center justify-center'>
                 <Flex
-                  className='before:to-bg-opacity-[10%] before:from-blackFriday before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-gradient-to-t before:content-[""]'
+                  className='before:to-bg-opacity-[10%] before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-gradient-to-t before:from-blackFriday before:content-[""]'
                   key={index}
                 >
                   <img

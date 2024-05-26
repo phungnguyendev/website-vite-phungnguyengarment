@@ -34,7 +34,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
               'text-lg': size === 'small'
             },
             {
-              'text-2xl': size === 'middle'
+              'text-xl': size === 'middle'
             },
             {
               'text-4xl': size === 'large'
