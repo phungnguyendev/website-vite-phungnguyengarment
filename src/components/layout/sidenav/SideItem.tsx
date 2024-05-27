@@ -1,6 +1,11 @@
 import { Divider, Flex, Typography } from 'antd'
 import { Link } from 'react-router-dom'
-import { SideType } from '~/utils/route'
+
+type SideType = {
+  isGroup?: boolean
+  name: string
+  path: string
+}
 
 interface Props {
   item: SideType

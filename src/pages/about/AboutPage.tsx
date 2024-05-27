@@ -1,17 +1,17 @@
 import { Col, Flex, Row, Typography } from 'antd'
 import { useEffect, useState } from 'react'
+// import Skeleton from 'react-loading-skeleton'
 import { defaultRequestBody } from '~/api/client'
 import PrizeAPI from '~/api/services/PrizeAPI'
-import { About2, NoImage, PhungNguyenCertification, a1, a10, a11, a12, a13, a14, a2, a3, a8, a9 } from '~/assets'
-import { ArcheryIcon, MissionIcon, VisionIcon } from '~/assets/icons'
+import { NoImage, PhungNguyenCertification, a1, a10, a11, a2, a3, a8, a9 } from '~/assets'
 import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
 import Head from '~/components/sky-ui/Head'
 import Section from '~/components/sky-ui/Section/Section'
 import useAPIService from '~/hooks/useAPIService'
 import { Prize } from '~/typing'
-import { imageValidatorDisplay } from '~/utils/helpers'
-import AboutCard from './components/AboutCard'
+import AboutInfo from './components/AboutInfo'
+import AboutPrizeSlider from './components/AboutPrizeSlider'
 import AboutProcedure from './components/AboutProcedure'
 import AboutQuantity from './components/AboutQuantity'
 
@@ -49,56 +49,7 @@ const AboutPage = () => {
             title: 'Về Phụng Nguyên'
           }}
         >
-          <Flex vertical gap={40}>
-            <Flex className='flex-col items-start justify-center md:flex-row' gap={40}>
-              <Flex justify='center' align='center' className='w-full'>
-                <img src={About2} alt='about-image' className='w-[272px] md:w-[272px] lg:w-[272px] xl:w-[372px]' />
-              </Flex>
-              <Flex vertical>
-                <Typography.Paragraph className='text-base leading-10'>
-                  <strong>Công ty TNHH MTV May Mặc Phụng Nguyên</strong> được thành lập vào tháng 4 năm 2016, với ngành
-                  nghề kinh doanh chuyên gia công hàng may mặc xuất khẩu, thị trường chính là Mỹ và Nga. Hiện nay, số
-                  lượng cán bộ, công nhân viên tại Công ty là 700 người. Trong số đó có 3 đảng viên. Trong những năm
-                  qua, Công ty luôn đoàn kết, nỗ lực phát triển sản xuất, tạo nhiều việc làm cho người lao động, đóng
-                  góp tích cực vào công tác an sinh xã hội tại địa phương.
-                </Typography.Paragraph>
-                <Row gutter={[20, 20]} className='hidden xl:flex'>
-                  <AboutCard
-                    icon={ArcheryIcon}
-                    title='Mục tiêu'
-                    desc='Tạo ra một môi trường làm việc an toàn về mọi mặt và mang lại hiệu quả cao.Đáp ứng mọi nhu cầu của khách hàng bằng tất cả các giải pháp.'
-                  />
-                  <AboutCard
-                    icon={VisionIcon}
-                    title='Tầm nhìn'
-                    desc='Bằng khát khao và làm việc sáng tạo từng ngày, chúng tôi tạo ra những sản phẩm có giá trị vượt trội gắn liền với chiến lược phát triển bền vững.'
-                  />
-                  <AboutCard
-                    icon={MissionIcon}
-                    title='Mục tiêu'
-                    desc='Nâng cao tiềm lực kinh tế và chất lượng cuộc sống cộng đồng thông qua việc cung ứng các sản phẩm dịch vụ có chất lượng vượt trội.'
-                  />
-                </Row>
-              </Flex>
-            </Flex>
-            <Row gutter={[20, 20]} className='flex xl:hidden'>
-              <AboutCard
-                icon={ArcheryIcon}
-                title='Mục tiêu'
-                desc='Tạo ra một môi trường làm việc an toàn về mọi mặt và mang lại hiệu quả cao.Đáp ứng mọi nhu cầu của khách hàng bằng tất cả các giải pháp.'
-              />
-              <AboutCard
-                icon={VisionIcon}
-                title='Tầm nhìn'
-                desc='Bằng khát khao và làm việc sáng tạo từng ngày, chúng tôi tạo ra những sản phẩm có giá trị vượt trội gắn liền với chiến lược phát triển bền vững.'
-              />
-              <AboutCard
-                icon={MissionIcon}
-                title='Mục tiêu'
-                desc='Nâng cao tiềm lực kinh tế và chất lượng cuộc sống cộng đồng thông qua việc cung ứng các sản phẩm dịch vụ có chất lượng vượt trội.'
-              />
-            </Row>
-          </Flex>
+          <AboutInfo />
         </Section>
         <Section spacing={false}>
           <Flex className='relative h-fit w-full bg-[url("~/assets/images/a5.jpg")] bg-cover bg-center before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-black before:bg-opacity-[50%] before:content-[""]'>
@@ -126,7 +77,8 @@ const AboutPage = () => {
           }}
           descriptionProps={{
             title:
-              'Quy trình sản xuất ngành may mặc bài bản là điều kiện cần thiết để doanh nghiệp có thể mang lại những sản phẩm chất lượng, đúng yêu cầu và tiêu chuẩn đã đề ra trong hợp đồng.'
+              'Quy trình sản xuất ngành may mặc bài bản là điều kiện cần thiết để doanh nghiệp có thể mang lại những sản phẩm chất lượng, đúng yêu cầu và tiêu chuẩn đã đề ra trong hợp đồng.',
+            position: 'center'
           }}
         >
           <AboutProcedure
@@ -185,39 +137,23 @@ const AboutPage = () => {
         </Section>
         <Section
           titleProps={{
-            title: 'Chứng nhận',
+            title: 'Chứng nhận & Thành tích',
             position: 'center'
           }}
         >
-          <Row gutter={[20, 20]}>
-            {[a12, a13, a14, PhungNguyenCertification].map((item, index) => {
-              return (
-                <Col xs={24} sm={12} md={8} xl={6} key={index} className='h-full w-full'>
-                  <img src={item} className='h-full w-full object-cover' />
-                </Col>
-              )
-            })}
-          </Row>
+          <Flex justify='center'>
+            <img
+              src={PhungNguyenCertification}
+              className='h-full w-full object-cover md:h-2/3 md:w-2/3 lg:h-1/2 lg:w-1/2'
+            />
+          </Flex>
         </Section>
         <Section
           titleProps={{
             title: 'Những Giải Thưởng Đạt Được'
           }}
         >
-          <Flex className='flex-col md:flex-row' gap={20}>
-            {prizes.length > 0 &&
-              prizes.map((item, index) => {
-                return (
-                  <Flex key={index} className='relative w-full md:w-1/2'>
-                    <img src={imageValidatorDisplay(item.imageUrl)} className='z-10 h-full w-full object-cover' />
-                    <Flex className='absolute bottom-5 left-5 right-5 z-20'>
-                      <Typography.Text className='text-xs italic text-white'>{item.title}</Typography.Text>
-                    </Flex>
-                    <div className='to-bg-opacity-[10%] absolute bottom-0 left-0 right-0 top-0 z-10 bg-gradient-to-t from-blackFriday' />
-                  </Flex>
-                )
-              })}
-          </Flex>
+          <AboutPrizeSlider items={prizes} />
         </Section>
       </BaseLayout>
     </>
