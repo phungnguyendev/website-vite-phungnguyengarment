@@ -18,28 +18,36 @@ import AboutQuantity from './components/AboutQuantity'
 const AboutPage = () => {
   useTitle('Phung Nguyen - About')
 
-  const [loading, setLoading] = useState<boolean>(false)
+  const [, setLoading] = useState<boolean>(false)
   const [prizes, setPrizes] = useState<Prize[]>([])
 
   const prizeService = useAPIService<Prize>(PrizeAPI)
 
   useEffect(() => {
-    prizeService.getListItems(
-      {
-        ...defaultRequestBody,
-        paginator: {
-          page: 1,
-          pageSize: -1
-        }
-      },
-      setLoading,
-      (meta) => {
-        if (meta?.success) {
-          setPrizes(meta.data as Prize[])
-        }
-      }
-    )
+    loadData()
   }, [])
+
+  const loadData = async () => {
+    try {
+      await prizeService.getListItems(
+        {
+          ...defaultRequestBody,
+          paginator: {
+            page: 1,
+            pageSize: -1
+          }
+        },
+        setLoading,
+        (meta) => {
+          if (meta?.success) {
+            setPrizes(meta.data as Prize[])
+          }
+        }
+      )
+    } catch (error) {
+      console.log(`${error}`)
+    }
+  }
 
   return (
     <>
@@ -53,11 +61,13 @@ const AboutPage = () => {
         </Section>
         <Section spacing={false}>
           <Flex className='relative h-fit w-full bg-[url("~/assets/images/a5.jpg")] bg-cover bg-center before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-black before:bg-opacity-[50%] before:content-[""]'>
-            <Row className='z-10 h-fit w-full p-10'>
+            <Row className='z-10 h-full w-full p-10' gutter={[40, 40]}>
               <Col xs={24} xl={6}>
-                <Typography.Text className='text-center text-3xl font-bold text-white'>
-                  Ngành công nghiệp của chúng tôi về số lượng
-                </Typography.Text>
+                <Flex justify='center' align='center' className='h-full'>
+                  <Typography.Text className='h-fit text-center text-5xl font-bold text-white lg:text-start'>
+                    Ngành công nghiệp của chúng tôi về số lượng
+                  </Typography.Text>
+                </Flex>
               </Col>
               <AboutQuantity title='2000' subTitle='Thiết bị máy móc' />
               <AboutQuantity title='25' subTitle='25 chuyền may / 1.200 công nhân toàn bộ' />

@@ -9,16 +9,12 @@ interface AboutQuantityProps extends ColProps {
 
 const AboutQuantity: React.FC<AboutQuantityProps> = ({ title, subTitle, ...props }) => {
   return (
-    <Col {...props} xs={24} lg={8} xl={6} className='h-fit w-fit'>
-      <Flex vertical justify='center' align='center' className='h-full w-full p-10'>
-        <Flex className='h-1/2 w-full'>
-          <Flex vertical gap={10} justify='start' align='center' className='h-full w-full'>
-            <Text className='flex-shrink-0 text-center text-3xl font-bold text-white after:absolute after:text-2xl after:font-bold after:text-primary after:content-["+"]'>
-              {title}
-            </Text>
-            <Text className='text-center text-xl font-semibold text-white'>{subTitle}</Text>
-          </Flex>
-        </Flex>
+    <Col {...props} xs={24} lg={8} xl={6} className='relative'>
+      <Flex vertical gap={10} align='center' justify='center' className='relative h-full'>
+        <Text className='flex-shrink-0 text-center text-5xl font-bold text-white after:absolute after:text-2xl after:font-bold after:text-primary after:content-["+"]'>
+          {title}
+        </Text>
+        <Text className='h-16 text-center text-2xl font-semibold text-white'>{subTitle}</Text>
       </Flex>
     </Col>
   )
