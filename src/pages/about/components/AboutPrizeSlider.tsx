@@ -1,18 +1,17 @@
-import { Flex, Skeleton } from 'antd'
+import { Flex, Skeleton, Typography } from 'antd'
 import React from 'react'
-// import Skeleton from 'react-loading-skeleton'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SwiperOptions } from 'swiper/types'
-import PostItem from '~/pages/newsevent/components/PostItem'
-import { Post } from '~/typing'
+import { Prize } from '~/typing'
+import { imageValidatorDisplay } from '~/utils/helpers'
 
-interface HomePostSliderProps extends SwiperOptions {
-  items: Post[]
+interface Props extends SwiperOptions {
+  items: Prize[]
   loading?: boolean
 }
 
-const HomePostSlider: React.FC<HomePostSliderProps> = ({ loading = false, items, ...props }) => {
+const AboutPrizeSlider: React.FC<Props> = ({ loading = false, items, ...props }) => {
   return (
     <>
       <Swiper
@@ -56,16 +55,20 @@ const HomePostSlider: React.FC<HomePostSliderProps> = ({ loading = false, items,
           ? items.map((item, index) => {
               return (
                 <SwiperSlide key={index}>
-                  <PostItem item={item} />
+                  <Flex key={index} className='relative w-full md:w-1/2'>
+                    <img src={imageValidatorDisplay(item.imageUrl)} className='z-10 h-full w-full object-cover' />
+                    <Flex className='absolute bottom-5 left-5 right-5 z-20'>
+                      <Typography.Text className='text-xs italic text-white'>{item.title}</Typography.Text>
+                    </Flex>
+                    <div className='to-bg-opacity-[10%] absolute bottom-0 left-0 right-0 top-0 z-10 bg-gradient-to-t from-blackFriday' />
+                  </Flex>
                 </SwiperSlide>
               )
             })
           : Array.from({ length: 10 }, (_, index) => {
               return (
-                <SwiperSlide key={index}>
-                  <Flex vertical gap={8} className='items-center justify-center md:items-start'>
-                    <Skeleton className='w-full sm:w-[95%]' active avatar title />
-                  </Flex>
+                <SwiperSlide key={index} className='h-fit w-full'>
+                  <Skeleton active avatar />
                 </SwiperSlide>
               )
             })}
@@ -74,4 +77,4 @@ const HomePostSlider: React.FC<HomePostSliderProps> = ({ loading = false, items,
   )
 }
 
-export default HomePostSlider
+export default AboutPrizeSlider

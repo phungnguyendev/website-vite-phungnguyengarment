@@ -21,6 +21,7 @@ module.exports = {
         input: 'var(--input)',
         ring: 'var(--ring)',
         normal: 'var(--normal)',
+        blueDark: 'var(--blue-dark)',
         warn: 'var(--warn)',
         lightGrey: 'var(--light-grey)',
         error: 'var(--error)',

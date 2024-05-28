@@ -10,8 +10,8 @@ import Head from '~/components/sky-ui/Head'
 import Section from '~/components/sky-ui/Section/Section'
 import useAPIService from '~/hooks/useAPIService'
 import { Prize } from '~/typing'
-import { imageValidatorDisplay } from '~/utils/helpers'
 import AboutCard from './components/AboutCard'
+import AboutPrizeSlider from './components/AboutPrizeSlider'
 import AboutProcedure from './components/AboutProcedure'
 import AboutQuantity from './components/AboutQuantity'
 
@@ -204,20 +204,7 @@ const AboutPage = () => {
             title: 'Những Giải Thưởng Đạt Được'
           }}
         >
-          <Flex className='flex-col md:flex-row' gap={20}>
-            {prizes.length > 0 &&
-              prizes.map((item, index) => {
-                return (
-                  <Flex key={index} className='relative w-full md:w-1/2'>
-                    <img src={imageValidatorDisplay(item.imageUrl)} className='z-10 h-full w-full object-cover' />
-                    <Flex className='absolute bottom-5 left-5 right-5 z-20'>
-                      <Typography.Text className='text-xs italic text-white'>{item.title}</Typography.Text>
-                    </Flex>
-                    <div className='to-bg-opacity-[10%] absolute bottom-0 left-0 right-0 top-0 z-10 bg-gradient-to-t from-blackFriday' />
-                  </Flex>
-                )
-              })}
-          </Flex>
+          <AboutPrizeSlider items={prizes} loading={loading} />
         </Section>
       </BaseLayout>
     </>
