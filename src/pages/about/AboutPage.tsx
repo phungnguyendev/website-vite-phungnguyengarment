@@ -61,7 +61,7 @@ const AboutPage = () => {
         </Section>
         <Section spacing={false}>
           <Flex className='relative h-fit w-full bg-[url("~/assets/images/a5.jpg")] bg-cover bg-center before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-black before:bg-opacity-[50%] before:content-[""]'>
-            <Row className='z-10 h-full w-full p-10' gutter={[40, 40]}>
+            <Row className='z-10 h-full w-full px-10 py-20' gutter={[40, 40]}>
               <Col xs={24} xl={6}>
                 <Flex justify='center' align='center' className='h-full'>
                   <Typography.Text className='h-fit text-center text-5xl font-bold text-white lg:text-start'>
@@ -90,6 +90,7 @@ const AboutPage = () => {
               'Quy trình sản xuất ngành may mặc bài bản là điều kiện cần thiết để doanh nghiệp có thể mang lại những sản phẩm chất lượng, đúng yêu cầu và tiêu chuẩn đã đề ra trong hợp đồng.',
             position: 'center'
           }}
+          className='relative before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:z-0 before:bg-[url("~/assets/images/bg-2.png")] before:opacity-[15%] before:content-[""]'
         >
           <AboutProcedure
             noNumber='1'
