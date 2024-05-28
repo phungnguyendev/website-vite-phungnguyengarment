@@ -37,34 +37,38 @@ const HomePage: React.FC = () => {
   }, [])
 
   const loadData = async () => {
-    await heroBannerService.getListItems(defaultRequestBody, setLoading, (meta) => {
-      if (!meta?.success) throw new Error(`${meta?.message}`)
-      setHeroBanners(meta.data as HeroBanner[])
-    })
-    await homeProductService.getListItems(
-      { ...defaultRequestBody, paginator: { page: 1, pageSize: 10 } },
-      setLoading,
-      (meta) => {
+    try {
+      await heroBannerService.getListItems(defaultRequestBody, setLoading, (meta) => {
         if (!meta?.success) throw new Error(`${meta?.message}`)
-        setHomeProducts(meta.data as Product[])
-      }
-    )
-    await partnerService.getListItems(
-      { ...defaultRequestBody, paginator: { page: 1, pageSize: -1 } },
-      setLoading,
-      (meta) => {
-        if (!meta?.success) throw new Error(`${meta?.message}`)
-        setPartners(meta.data as Partner[])
-      }
-    )
-    await postService.getListItems(
-      { ...defaultRequestBody, paginator: { page: 1, pageSize: 10 } },
-      setLoading,
-      (meta) => {
-        if (!meta?.success) throw new Error(`${meta?.message}`)
-        setPosts(meta.data as Post[])
-      }
-    )
+        setHeroBanners(meta.data as HeroBanner[])
+      })
+      await homeProductService.getListItems(
+        { ...defaultRequestBody, paginator: { page: 1, pageSize: 10 } },
+        setLoading,
+        (meta) => {
+          if (!meta?.success) throw new Error(`${meta?.message}`)
+          setHomeProducts(meta.data as Product[])
+        }
+      )
+      await partnerService.getListItems(
+        { ...defaultRequestBody, paginator: { page: 1, pageSize: -1 } },
+        setLoading,
+        (meta) => {
+          if (!meta?.success) throw new Error(`${meta?.message}`)
+          setPartners(meta.data as Partner[])
+        }
+      )
+      await postService.getListItems(
+        { ...defaultRequestBody, paginator: { page: 1, pageSize: 10 } },
+        setLoading,
+        (meta) => {
+          if (!meta?.success) throw new Error(`${meta?.message}`)
+          setPosts(meta.data as Post[])
+        }
+      )
+    } catch (error) {
+      console.log(`${error}`)
+    }
   }
 
   return (

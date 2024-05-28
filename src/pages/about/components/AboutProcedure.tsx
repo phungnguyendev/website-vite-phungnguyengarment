@@ -26,23 +26,26 @@ const AboutProcedure: React.FC<AboutProcedureProps> = ({
     <>
       <Flex {...props} vertical justify='center' align='center' className='relative h-fit w-full'>
         <Flex
-          className={cn('h-full w-full', {
+          className={cn('h-full w-full gap-5 lg:gap-10', {
             'flex-col md:flex-row': direction === 'left',
             'flex-col md:flex-row-reverse': direction === 'right'
           })}
           justify='center'
-          align='center'
-          gap={20}
+          align='start'
         >
           <Flex vertical className='h-fit w-full md:w-1/2'>
-            <Flex vertical gap={10}>
+            <Flex vertical gap={10} justify='start' align='start'>
               <Flex align='center' gap={10}>
-                <Flex className='h-[64px] w-[64px] rounded-full bg-secondPrimary' justify='center' align='center'>
+                <Flex
+                  className='h-[54px] min-h-[54px] w-[54px] min-w-[54px] rounded-full bg-secondPrimary md:h-[64px] md:min-h-[64px] md:w-[64px] md:min-w-[64px]'
+                  justify='center'
+                  align='center'
+                >
                   <Text className='font-roboto-condensed text-[32px] font-bold text-white'>{noNumber}</Text>
                 </Flex>
                 <Text className='font-roboto-condensed text-2xl font-bold text-secondPrimary'>{title}</Text>
               </Flex>
-              <Paragraph type='secondary'>{desc}</Paragraph>
+              <Paragraph className='text-base'>{desc}</Paragraph>
             </Flex>
           </Flex>
           <Flex vertical gap={20} justify='start' align='center' className='h-[320px] w-full md:w-1/2'>
