@@ -15,19 +15,34 @@ import ServiceProjectList from './components/projects/ServiceProjectList'
 
 const ServicePage = () => {
   useTitle('Phung Nguyen - Services')
-
+  const [, setLoading] = useState<boolean>(false)
   const projectService = useAPIService<Project>(ProjectAPI)
   const [projects, setProjects] = useState<Project[]>([])
 
   useEffect(() => {
-    projectService.getListItems({
-      ...defaultRequestBody,
-      paginator: {
-        page: 1,
-        pageSize: -1
-      }
-    })
+    loadData()
   }, [])
+
+  const loadData = async () => {
+    try {
+      await projectService.getListItems(
+        {
+          ...defaultRequestBody,
+          paginator: {
+            page: 1,
+            pageSize: -1
+          }
+        },
+        setLoading,
+        (meta) => {
+          if (!meta?.success) throw new Error(`${meta?.message}`)
+          setProjects(meta.data as Project[])
+        }
+      )
+    } catch (error) {
+      console.log(`${error}`)
+    }
+  }
 
   return (
     <>
