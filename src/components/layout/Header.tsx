@@ -17,13 +17,17 @@ const Header: React.FC<Props> = ({ ...props }) => {
   const navItems: MenuProps['items'] = routes.map((route, index) => {
     return {
       key: index,
-      label: <Link to={route.path}>{route.name}</Link>
+      label: (
+        <Link to={route.path} className='text-base font-semibold'>
+          {route.name}
+        </Link>
+      )
     }
   })
 
   return (
     <>
-      <AntHeader className={cn('h-[70px] bg-white', props.className)}>
+      <AntHeader className={cn('h-[66px] bg-white', props.className)}>
         <Flex {...props} className='h-full justify-center' align='center'>
           <Button className='absolute left-10 w-fit p-1 md:hidden' onClick={() => setOpenDrawer((prev) => !prev)}>
             <AlignJustify />

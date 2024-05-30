@@ -49,12 +49,13 @@ const ServicePage = () => {
       <BaseLayout title='Service page' header={<Head imageURL={a4} title='About PHUNG NGUYEN SERVICE' />}>
         <Section
           titleProps={{
-            title: 'Dịch Vụ',
+            title: 'Dịch vụ',
             position: 'center'
           }}
           subTitleProps={{
             title: 'Dịch Vụ Của Chúng Tôi',
-            position: 'center'
+            position: 'center',
+            size: 'large'
           }}
           descriptionProps={{
             title: 'Cùng chúng tôi, thực hiện nên những cơ hội đổi mới, hợp tác, phát triển và cùng mang lại giá trị',
@@ -81,12 +82,13 @@ const ServicePage = () => {
         </Section>
         <Section
           titleProps={{
-            title: 'Dự Án',
+            title: 'Dự án',
             position: 'center'
           }}
           subTitleProps={{
             title: 'Dự Án Mới Nhất Của Chúng Tôi',
-            position: 'center'
+            position: 'center',
+            size: 'large'
           }}
           descriptionProps={{
             title: 'Những khách hàng đến từ các nước trên thế giới, đến gặp gỡ và hợp tác với doanh nghiệp chúng tôi',

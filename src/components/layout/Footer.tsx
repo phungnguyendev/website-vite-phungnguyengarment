@@ -1,16 +1,5 @@
 import { Button, Flex, Form, Input, Typography } from 'antd'
-import {
-  Dribbble,
-  Facebook,
-  Instagram,
-  Mail,
-  MapPin,
-  Phone,
-  PhoneCall,
-  Send,
-  SendHorizontal,
-  Youtube
-} from 'lucide-react'
+import { Dribbble, Facebook, Instagram, Mail, MapPin, Phone, PhoneCall, SendHorizontal, Youtube } from 'lucide-react'
 import React, { HTMLAttributes } from 'react'
 import { Link, LinkProps } from 'react-router-dom'
 import { Logo } from '~/assets'
@@ -58,28 +47,28 @@ function Footer({ ...props }: FooterProps) {
         <Flex
           className={cn(
             'relative top-10 z-10 h-fit w-auto',
-            'bg-[url("~/assets/images/a2.png")] bg-cover bg-center',
+            'bg-[url("~/assets/images/a21.jpg")] bg-cover bg-center',
             'before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:z-0 before:bg-black before:opacity-[50%] before:content-[""]'
           )}
           vertical
         >
           <Flex justify='space-between' align='center' className='z-10 h-full w-full'>
             <Flex
-              className='h-full w-full flex-col p-5 sm:p-10 lg:flex-row'
+              className='h-full w-full flex-col px-5 py-10 sm:px-10 sm:py-20'
               gap={40}
-              justify='space-between'
-              align='center'
+              justify='start'
+              align='start'
             >
-              <Flex vertical gap={10} justify='end' className='h-fit w-full lg:w-1/2'>
-                <Text className='font-roboto-flex text-2xl font-bold text-white'>
-                  Đừng ngần ngại liên hệ với chúng tôi nếu bạn có bất kì câu hỏi nào
+              <Flex vertical gap={10} justify='start' className='h-fit w-full'>
+                <Text className='font-roboto-flex text-3xl font-bold text-white'>
+                  Bạn có nhu cầu về sản phẩm may mặc? <br /> Liên hệ chúng tôi ngay!
                 </Text>
                 <Paragraph className='text-sm text-white'>
-                  Đừng ngần ngại liên hệ với chúng tôi nếu bạn có bất kỳ câu hỏi kỳ lạ nào, chúng tôi sẽ trả lời trong
-                  thời gian sớm nhất!
+                  Chúng tôi luôn đặt tiêu chí về chất lượng sản phẩm lên hàng đầu, <br /> Phụng Nguyên hy vọng sẽ làm
+                  bạn hài lòng về chất lượng sản phẩm mà chúng tôi mang lại.
                 </Paragraph>
               </Flex>
-              <Flex className='h-fit w-full lg:w-1/2' justify='center' align='end'>
+              <Flex className='h-fit w-full' justify='center' align='start'>
                 <Flex vertical className='w-full text-white'>
                   <Flex className='w-full flex-col sm:flex-row' gap={20} align='start' justify='center'>
                     <Flex gap={10}>
@@ -102,7 +91,12 @@ function Footer({ ...props }: FooterProps) {
                     </Flex>
                   </Flex>
                   <Flex justify='center'>
-                    <Button type='primary' icon={<Send />} iconPosition='end' className='flex items-center'>
+                    <Button
+                      type='primary'
+                      size='large'
+                      iconPosition='end'
+                      className='flex items-center rounded-sm px-7 py-5'
+                    >
                       Liên hệ
                     </Button>
                   </Flex>

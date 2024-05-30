@@ -25,7 +25,7 @@ const SectionDescription: React.FC<SectionDescriptionProps> = ({
           {...props}
           type='secondary'
           className={cn(
-            'relative w-[550px] text-center',
+            'relative w-[550px] text-center font-semibold',
             {
               'text-sm': size === 'small'
             },

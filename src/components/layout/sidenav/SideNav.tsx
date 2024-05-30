@@ -50,11 +50,6 @@ const SideNav: React.FC<Props> = ({ openDrawer, setOpenDrawer }) => {
     <Flex vertical gap={20} className='my-5 bg-white'>
       <Flex align='center' justify='center' gap={8}>
         <img src={logo} alt='logo' className='h-16 w-16 object-contain lg:h-10 lg:w-10' />
-        {/* {openDrawer && (
-          <Typography.Text className='font-roboto-condensed font-bold uppercase text-primary'>
-            PHUNG NGUYEN GARMENT
-          </Typography.Text>
-        )} */}
       </Flex>
       <Menu
         onClick={onClick}

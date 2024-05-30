@@ -54,7 +54,7 @@ const AboutPage = () => {
       <BaseLayout header={<Head imageURL={a1} title='About PHUNG NGUYEN GARMENT' />}>
         <Section
           titleProps={{
-            title: 'Về Phụng Nguyên'
+            title: 'Về chúng tôi'
           }}
         >
           <AboutInfo />
@@ -161,7 +161,7 @@ const AboutPage = () => {
         </Section>
         <Section
           titleProps={{
-            title: 'Những Giải Thưởng Đạt Được'
+            title: 'Những giải thưởng đạt được'
           }}
         >
           <AboutPrizeSlider items={prizes} />
