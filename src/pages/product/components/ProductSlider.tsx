@@ -27,10 +27,14 @@ const ProductSlider: React.FC<Props> = ({ productCategories, categories, product
           return (
             <Section
               key={index}
-              titleProps={{
-                title: textValidatorDisplay(category?.title),
-                underline: false
-              }}
+              titleProps={
+                matchCategory(category.id).length > 0
+                  ? {
+                      title: textValidatorDisplay(category?.title),
+                      underline: false
+                    }
+                  : undefined
+              }
               id={`anchor-${category.id}`}
             >
               <Swiper
@@ -69,17 +73,14 @@ const ProductSlider: React.FC<Props> = ({ productCategories, categories, product
                 modules={[Pagination, Autoplay, Navigation]}
                 className='h-full w-full'
               >
-                {matchCategory(category.id).length > 0 ? (
+                {matchCategory(category.id).length > 0 &&
                   matchCategory(category.id).map((item, index) => {
                     return (
                       <SwiperSlide key={index}>
                         <ProductItem item={item} />
                       </SwiperSlide>
                     )
-                  })
-                ) : (
-                  <>Empty data</>
-                )}
+                  })}
               </Swiper>
             </Section>
           )

@@ -1,19 +1,32 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const useDevice = () => {
-  const [width, setWidth] = useState<number>(window.innerWidth)
+  const [isHidden, setIsHidden] = useState(false)
+  const [offsetY, setOffsetY] = useState<number>(0)
+
+  // Saving last scroll position
+  const lastScrollTop = useRef(0)
+
+  const handleScroll = () => {
+    const scrollYOffset = window.scrollY
+    setOffsetY(scrollYOffset)
+    // Visible/Unvisitable state navbar
+    setIsHidden(scrollYOffset > lastScrollTop.current)
+    lastScrollTop.current = scrollYOffset
+  }
 
   useEffect(() => {
-    const handleResizeWindow = () => setWidth(window.innerWidth)
-    // subscribe to window resize event "onComponentDidMount"
-    window.addEventListener('resize', handleResizeWindow)
+    window.addEventListener('scroll', handleScroll)
+
     return () => {
-      // unsubscribe "onComponentDestroy"
-      window.removeEventListener('resize', handleResizeWindow)
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
-  return { width }
+  return {
+    hidden: isHidden,
+    offsetY
+  }
 }
 
 export default useDevice

@@ -64,7 +64,7 @@ const HomePostSlider: React.FC<HomePostSliderProps> = ({ loading = false, items,
               return (
                 <SwiperSlide key={index}>
                   <Flex vertical gap={8} className='items-center justify-center md:items-start'>
-                    <Skeleton className='w-full sm:w-[95%]' active avatar title />
+                    <Skeleton className='w-full sm:w-[95%]' active avatar title paragraph={false} />
                   </Flex>
                 </SwiperSlide>
               )

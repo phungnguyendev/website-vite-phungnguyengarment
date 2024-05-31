@@ -4,6 +4,7 @@ import CategoryAPI from '~/api/services/CategoryAPI'
 import ProductAPI from '~/api/services/ProductAPI'
 import ProductCategoryAPI from '~/api/services/ProductCategoryAPI'
 import { a4 } from '~/assets'
+import useDevice from '~/components/hooks/useDevice'
 import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
 import Head from '~/components/sky-ui/Head'
@@ -14,7 +15,7 @@ import ProductSlider from './components/ProductSlider'
 
 const ProductPage = () => {
   useTitle('Phung Nguyen - Products')
-
+  const { hidden, offsetY } = useDevice()
   const [, setLoading] = useState<boolean>(false)
   const categoryService = useAPIService<Category>(CategoryAPI)
   const productService = useAPIService<Product>(ProductAPI)
@@ -85,7 +86,24 @@ const ProductPage = () => {
             position: 'center'
           }}
         >
-          <ProductCategorySlider items={categories} />
+          <Anchor
+            className='w-full bg-white transition-all duration-300'
+            direction='horizontal'
+            offsetTop={hidden ? 0 : 70}
+            targetOffset={500}
+            affix={false}
+            items={categories.map((item, index) => {
+              return {
+                key: `${index}`,
+                title: (
+                  <Typography.Text code className='text-center font-roboto-condensed text-base font-bold'>
+                    {textValidatorDisplay(item.title)}
+                  </Typography.Text>
+                ),
+                href: `#anchor-${item.id}`
+              } as AnchorLinkItemProps
+            })}
+          />
         </Section> */}
         <Section
           titleProps={{

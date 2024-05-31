@@ -21,7 +21,7 @@ const Head: React.FC<HeadProps> = ({ imageURL, title, ...props }) => {
           <img src={imageURL} className='h-full w-full object-cover ' />
         </Flex>
         <Flex gap={20} vertical className='absolute z-10 h-full p-5 md:p-10' justify='center' align='center'>
-          <Typography.Text className='font-roboto-condensed text-xl font-semibold text-white'>{title}</Typography.Text>
+          <Typography.Text className='font-roboto-condensed text-3xl font-semibold text-white'>{title}</Typography.Text>
           <Breadcrumb
             className='flex w-full justify-start'
             separator={<Typography.Text className='text-white'>/</Typography.Text>}
