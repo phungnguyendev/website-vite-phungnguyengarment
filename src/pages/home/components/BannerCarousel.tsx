@@ -39,10 +39,14 @@ const BannerCarousel: React.FC<Props> = ({ loading = false, items, ...props }) =
                   className='before:to-bg-opacity-[10%] before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-gradient-to-t before:from-blackFriday before:content-[""]'
                   key={index}
                 >
-                  <img
-                    src={imageValidatorDisplay(item.imageUrl)}
-                    className='h-[380px] w-full object-cover sm:h-[480px] md:h-[580px] lg:h-[680px]'
-                  />
+                  <Flex className='h-[380px] w-full object-cover sm:h-[480px] md:h-[580px] lg:h-[680px]'>
+                    <img
+                      src={imageValidatorDisplay(item.imageUrl)}
+                      width='100%'
+                      height='100%'
+                      className='object-cover'
+                    />
+                  </Flex>
                   <Flex
                     gap={20}
                     align='start'

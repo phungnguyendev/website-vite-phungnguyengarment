@@ -1,4 +1,4 @@
-import { Flex, Skeleton } from 'antd'
+import { Skeleton as AntSkeleton, Flex } from 'antd'
 import React from 'react'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -54,7 +54,9 @@ const AboutPrizeSlider: React.FC<AboutPrizeSliderProps> = ({ items, ...props }) 
           ? items.map((item, index) => {
               return (
                 <SwiperSlide key={index}>
-                  <AboutPrizeSliderCard item={item} />
+                  {/* <AntSkeleton active> */}
+                    <AboutPrizeSliderCard item={item} />
+                  {/* </AntSkeleton> */}
                 </SwiperSlide>
               )
             })
@@ -62,7 +64,7 @@ const AboutPrizeSlider: React.FC<AboutPrizeSliderProps> = ({ items, ...props }) 
               return (
                 <SwiperSlide key={index}>
                   <Flex className='h-[230px] w-full'>
-                    <Skeleton.Image
+                    <AntSkeleton.Image
                       style={{
                         width: '100%',
                         height: '100%',

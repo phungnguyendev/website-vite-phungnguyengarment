@@ -4,7 +4,6 @@ import CategoryAPI from '~/api/services/CategoryAPI'
 import ProductAPI from '~/api/services/ProductAPI'
 import ProductCategoryAPI from '~/api/services/ProductCategoryAPI'
 import { a4 } from '~/assets'
-import useDevice from '~/components/hooks/useDevice'
 import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
 import Head from '~/components/sky-ui/Head'
@@ -15,7 +14,6 @@ import ProductSlider from './components/ProductSlider'
 
 const ProductPage = () => {
   useTitle('Phung Nguyen - Products')
-  const { hidden, offsetY } = useDevice()
   const [, setLoading] = useState<boolean>(false)
   const categoryService = useAPIService<Category>(CategoryAPI)
   const productService = useAPIService<Product>(ProductAPI)
