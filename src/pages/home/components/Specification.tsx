@@ -32,7 +32,7 @@ const SpecificationItem: React.FC<SpecificationItemProps> = ({ item, ...props })
           {item.title}
         </Typography.Text>
         <Typography.Text className='line-clamp-1 text-4xl font-bold'>{item.parameter}</Typography.Text>
-        <Typography.Text type='secondary' className='line-clamp-3 text-center text-sm'>
+        <Typography.Text type='secondary' className='line-clamp-3 text-center text-sm font-medium'>
           {item.desc}
         </Typography.Text>
       </Flex>
@@ -67,7 +67,7 @@ const Specification: React.FC<SpecificationProps> = ({ ...props }) => {
             icon: StaffIcon,
             title: 'Nhân viên',
             parameter: '20',
-            desc: 'Lực lượng chủ chốt, chịu trách nhiệm kiểm soát sản xuất và chất lượng sản phẩm'
+            desc: 'Chịu trách nhiệm quản lý, kiểm soát sản xuất và chất lượng sản phẩm'
           }}
         />
         <SpecificationItem

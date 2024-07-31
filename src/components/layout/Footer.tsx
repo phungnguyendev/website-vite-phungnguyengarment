@@ -3,7 +3,7 @@ import { Dribbble, Facebook, Instagram, Mail, MapPin, Phone, PhoneCall, SendHori
 import React, { HTMLAttributes } from 'react'
 import { Link, LinkProps } from 'react-router-dom'
 import { Logo } from '~/assets'
-import { routes } from '~/types/routes'
+import routes from '~/config/route.config'
 import { cn } from '~/utils/helpers'
 
 interface FooterProps extends React.HTMLAttributes<HTMLElement> {}
@@ -140,7 +140,7 @@ function Footer({ ...props }: FooterProps) {
                     <Form.Item className='m-0 w-full p-0'>
                       <Input
                         variant='borderless'
-                        className='h-10 w-full bg-white bg-opacity-[35%] text-white backdrop-blur-sm placeholder:text-grey'
+                        className='placeholder:text-grey h-10 w-full bg-white bg-opacity-[35%] text-white backdrop-blur-sm'
                         placeholder='Enter your mail..'
                       />
                     </Form.Item>
@@ -163,7 +163,7 @@ function Footer({ ...props }: FooterProps) {
           </Flex>
         </Flex>
 
-        <Flex className='relative z-0 bg-dark p-10'>
+        <Flex className='bg-dark relative z-0 p-10'>
           <Flex className='mt-10 w-full flex-col-reverse lg:flex-row' gap={40}>
             <Flex className='relative lg:w-1/2' vertical>
               <Flex vertical gap={10} justify='space-between' align='start' className='w-full lg:w-1/2'>

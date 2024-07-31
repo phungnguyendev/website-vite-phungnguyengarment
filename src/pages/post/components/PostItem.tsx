@@ -14,11 +14,13 @@ interface PostItemProps {
 const PostItem: React.FC<PostItemProps> = ({ item, ...props }) => {
   return (
     <>
-      <Link to={`${item.id}`}>
+      <Link to={`/post/${item.id}`}>
         <Card
           {...props}
-          className='w-full sm:w-[95%]'
-          cover={<img src={imageValidatorDisplay(item.imageUrl)} className='h-full w-full' />}
+          className='h-[350px] w-full'
+          cover={
+            <img src={imageValidatorDisplay(item.imageUrl)} alt='img-post' className='h-[220px] w-full object-cover' />
+          }
         >
           <Meta
             title={
@@ -26,7 +28,9 @@ const PostItem: React.FC<PostItemProps> = ({ item, ...props }) => {
                 {dateTimeValidatorDisplay(item.publishedAt)}
               </Text>
             }
-            description={<Text className='line-clamp-2'>{textValidatorDisplay(item.title)}</Text>}
+            description={
+              <Text className='line-clamp-2 text-base font-semibold'>{textValidatorDisplay(item.title)}</Text>
+            }
           />
         </Card>
       </Link>

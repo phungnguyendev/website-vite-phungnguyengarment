@@ -4,7 +4,7 @@ import { AlignJustify } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Logo } from '~/assets'
-import { routes } from '~/types/routes'
+import routes from '~/config/route.config'
 import { cn } from '~/utils/helpers'
 
 const { Header: AntHeader } = Layout

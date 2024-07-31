@@ -4,25 +4,21 @@ import React from 'react'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SwiperOptions } from 'swiper/types'
-import PostItem from '~/pages/newsevent/components/PostItem'
+import PostItem from '~/pages/post/components/PostItem'
 import { Post } from '~/typing'
 
-interface HomePostSliderProps extends SwiperOptions {
+interface PostSliderProps extends SwiperOptions {
   items: Post[]
   loading?: boolean
 }
 
-const HomePostSlider: React.FC<HomePostSliderProps> = ({ loading = false, items, ...props }) => {
+const PostSlider: React.FC<PostSliderProps> = ({ loading = false, items, ...props }) => {
   return (
     <>
       <Swiper
         {...props}
         slidesPerView={1}
         spaceBetween={10}
-        pagination={{
-          clickable: false,
-          enabled: false
-        }}
         breakpoints={{
           640: {
             slidesPerView: 2,
@@ -45,9 +41,9 @@ const HomePostSlider: React.FC<HomePostSliderProps> = ({ loading = false, items,
             spaceBetween: 20
           }
         }}
-        loop={true}
+        loop
         autoplay={{
-          delay: 2500
+          delay: 3000
         }}
         modules={[Pagination, Autoplay, Navigation]}
         className='h-full w-full'
@@ -74,4 +70,4 @@ const HomePostSlider: React.FC<HomePostSliderProps> = ({ loading = false, items,
   )
 }
 
-export default HomePostSlider
+export default PostSlider

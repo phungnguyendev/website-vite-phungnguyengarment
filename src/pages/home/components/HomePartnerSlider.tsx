@@ -1,6 +1,10 @@
 import { Image } from 'antd'
 import React, { HTMLAttributes } from 'react'
 import Skeleton from 'react-loading-skeleton'
+import 'swiper/css'
+import 'swiper/css/effect-fade'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 import { Partner } from '~/typing'
 import { imageValidatorDisplay } from '~/utils/helpers'
 import InfiniteScroll from './InfiniteScroll'
@@ -10,10 +14,10 @@ interface HomePartnerSliderProps extends HTMLAttributes<HTMLDivElement> {
   loading?: boolean
 }
 
-const HomePartnerSlider: React.FC<HomePartnerSliderProps> = ({ loading = false, items, ...props }) => {
+const HomePartnerSlider: React.FC<HomePartnerSliderProps> = ({ items, ...props }) => {
   return (
     <>
-      {!loading ? (
+      {!props.loading ? (
         <InfiniteScroll
           {...props}
           className={props.className}
@@ -25,7 +29,7 @@ const HomePartnerSlider: React.FC<HomePartnerSliderProps> = ({ loading = false, 
                 preview={false}
                 width='120px'
                 height='35px'
-                className='max-w-none object-contain grayscale transition-all duration-300 hover:grayscale-0'
+                className='object-contain grayscale transition-all duration-300 hover:grayscale-0'
               />
             )
           }}

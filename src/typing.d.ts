@@ -1,180 +1,145 @@
-export type StatusType = 'normal' | 'warn' | 'error' | 'success'
-
-export type SortDirection = 'asc' | 'desc'
-
-export type ItemStatusType = 'draft' | 'active' | 'closed' | 'archived' | 'deleted'
-
-export type NoteItemStatusType = 'lake' | 'enough' | 'arrived' | 'not_arrived'
-
-export type InputType =
-  | 'number'
-  | 'text'
-  | 'colorpicker'
-  | 'select'
-  | 'datepicker'
-  | 'dateTimePicker'
-  | 'colorselector'
-  | 'textarea'
-  | 'checkbox'
-  | 'multipleselect'
-  | 'password'
-  | 'email'
-  | 'uploadFile'
-  | 'htmlEditor'
-
-export type ItemWithKeyAndTitleType = {
-  key?: React.Key
-  title?: string | null | React.ReactNode
-  desc?: string | null | React.ReactNode
-  editable?: boolean
-  dataIndex: string
-  initialField?: {
-    value: any
-    data?: any[]
-  }
-  inputType?: InputType
-  responsive?: Breakpoint[]
-}
-
-export type StepRound = {
-  name: string
-  type: StatusType
-}
-
-export type StepRound = {
-  name: string
-  type: StatusType
-}
-
-export type TableListDataType<T> = {
-  key: React.Key
-  data: T
-}
-
 export interface User {
   id?: number
-  email?: string | null
-  password?: string | null
-  avatar?: string | null
-  accessToken?: string | null
+  email?: string
+  password?: string
+  avatar?: string
+  accessToken?: string
   createdAt?: string
   updatedAt?: string
 }
 
 export interface Attachment {
   id?: number
-  url?: string | null
-  type?: string | null
-  caption?: string | null
+  url?: string
+  type?: string
+  caption?: string
   createdAt?: string
   updatedAt?: string
-  orderNumber?: number | null
+  orderNumber?: number
 }
 
 export interface Category {
   id?: number
-  imageUrl?: string | null
-  title?: string | null
-  desc?: string | null
+  imageUrl?: string
+  title?: string
+  desc?: string
   createdAt?: string
   updatedAt?: string
 }
 
 export interface HeroBanner {
   id?: number
-  title?: string | null
-  imageUrl?: string | null
-  orderNumber?: number | null
+  title?: string
+  imageUrl?: string
+  orderNumber?: number
   createdAt?: string
   updatedAt?: string
 }
 
-export interface IndustrySector {
+export interface HomeProduct {
   id?: number
-  title?: string | null
-  orderNumber?: number | null
+  title?: string
+  imageUrl?: string
+  orderNumber?: number
+  createdAt?: string
+  updatedAt?: string
+}
+
+export interface JobSector {
+  id?: number
+  title?: string
+  orderNumber?: number
+  createdAt?: string
+  updatedAt?: string
+}
+
+export interface Branch {
+  id?: number
+  title?: string
+  orderNumber?: number
   createdAt?: string
   updatedAt?: string
 }
 
 export interface Partner {
   id?: number
-  title?: string | null
-  imageUrl?: string | null
-  orderNumber?: number | null
+  title?: string
+  imageUrl?: string
+  orderNumber?: number
   createdAt?: string
   updatedAt?: string
 }
 
 export interface PostAttachment {
   id?: number
-  postID?: number | null
-  attachmentID?: number | null
-  url?: string | null
-  type?: string | null
-  orderNumber?: number | null
+  postID?: number
+  attachmentID?: number
+  url?: string
+  type?: string
+  orderNumber?: number
   createdAt?: string
   updatedAt?: string
 }
 
 export interface Post {
   id?: number
-  title?: string | null
-  content?: string | null
-  imageUrl?: string | null
-  publishedAt?: string | null
-  orderNumber?: number | null
+  title?: string
+  content?: string
+  imageUrl?: string
+  publishedAt?: string
+  orderNumber?: number
   createdAt?: string
   updatedAt?: string
 }
 
 export interface Prize {
   id?: number
-  title?: string | null
-  imageUrl?: string | null
-  orderNumber?: number | null
+  title?: string
+  imageUrl?: string
+  orderNumber?: number
   createdAt?: string
   updatedAt?: string
 }
 
 export interface Product {
   id?: number
-  title?: string | null
-  desc?: string | null
-  imageUrl?: string | null
-  orderNumber?: number | null
+  categoryID?: number
+  title?: string
+  desc?: string
+  imageUrl?: string
+  orderNumber?: number
   createdAt?: string
   updatedAt?: string
 }
 
 export interface ProductCategory {
   id?: number
-  categoryID?: number | null
-  productID?: number | null
+  categoryID?: number
+  productID?: number
   createdAt?: string
   updatedAt?: string
 }
 
 export interface Project {
   id?: number
-  title?: string | null
-  desc?: string | null
-  imageUrl?: string | null
-  orderNumber?: number | null
+  title?: string
+  desc?: string
+  imageUrl?: string
+  orderNumber?: number
   createdAt?: string
   updatedAt?: string
 }
 
 export interface RecruitmentPost {
   id?: number
-  industrySectorID?: number | null
-  vacancies?: string | null
-  quantity?: string | null
-  wage?: string | null
-  workingTime?: string | null
-  workPlace?: string | null
-  expirationDate?: string | null
-  orderNumber?: number | null
+  jobSectorID?: number
+  quantity?: number
+  wage?: string
+  workingTime?: string
+  workingPlace?: string
+  expirationDate?: string
+  orderNumber?: number
   createdAt?: string
   updatedAt?: string
+  jobSector?: JobSector
 }

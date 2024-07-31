@@ -17,7 +17,7 @@ const InfiniteScroll = <T extends any>({ items, renderItem, ...props }: Infinite
           })"
       className='inline-flex w-full flex-nowrap overflow-hidden'
     >
-      <ul x-ref='logos' className='flex animate-infinite-scroll list-none items-center justify-around'>
+      <ul x-ref='logos' className='animate-infinite-scroll flex list-none items-center justify-around'>
         {items.map((item, index) => {
           return (
             <li key={index} className='mx-10'>
@@ -26,7 +26,7 @@ const InfiniteScroll = <T extends any>({ items, renderItem, ...props }: Infinite
           )
         })}
       </ul>
-      <ul x-ref='logos' className='flex animate-infinite-scroll list-none items-center justify-around'>
+      <ul x-ref='logos' className='animate-infinite-scroll flex list-none items-center justify-around'>
         {items.map((item, index) => {
           return (
             <li key={index} className='mx-10'>
@@ -35,7 +35,7 @@ const InfiniteScroll = <T extends any>({ items, renderItem, ...props }: Infinite
           )
         })}
       </ul>
-      <ul x-ref='logos' className='flex animate-infinite-scroll list-none items-center justify-around'>
+      <ul x-ref='logos' className='animate-infinite-scroll flex list-none items-center justify-around'>
         {items.map((item, index) => {
           return (
             <li key={index} className='mx-10'>

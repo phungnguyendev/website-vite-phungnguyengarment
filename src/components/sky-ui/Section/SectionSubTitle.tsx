@@ -4,7 +4,7 @@ import React from 'react'
 import { cn } from '~/utils/helpers'
 
 type Position = 'start' | 'center' | 'end'
-type SizeType = 'small' | 'middle' | 'large' | 'superLarge'
+type SizeType = 'small' | 'base' | 'middle' | 'large' | 'superLarge'
 
 export interface SectionSubTitleProps extends BlockProps {
   title: string
@@ -24,7 +24,10 @@ const SectionSubTitle: React.FC<SectionSubTitleProps> = ({ title, position = 'st
               'text-lg': size === 'small'
             },
             {
-              'text-xl': size === 'middle'
+              'text-xl': size === 'base'
+            },
+            {
+              'text-3xl': size === 'middle'
             },
             {
               'text-4xl': size === 'large'
