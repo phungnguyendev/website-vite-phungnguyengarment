@@ -1,18 +1,20 @@
-import { Flex, FlexProps } from 'antd'
+import { Flex } from 'antd'
 import React from 'react'
 import { cn } from '~/utils/helpers'
 
-interface Props extends FlexProps {
+interface Props {
   onLoading?: (enable: boolean) => void
   header?: React.ReactNode
+  children?: React.ReactNode
+  className?: string
 }
 
-const BaseLayout: React.FC<Props> = ({ header, children, ...props }) => {
+const BaseLayout: React.FC<Props> = ({ header, ...props }) => {
   return (
-    <Flex {...props} vertical className={cn('w-full gap-[20px] sm:gap-[40px]', props.className)}>
+    <Flex vertical className={cn('w-full gap-[20px] sm:gap-[40px]', props.className)}>
       {header}
       <Flex vertical className='w-full gap-[160px]'>
-        {children}
+        {props.children}
       </Flex>
     </Flex>
   )

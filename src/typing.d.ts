@@ -25,6 +25,7 @@ export interface Category {
   desc?: string
   createdAt?: string
   updatedAt?: string
+  orderNumber?: number
 }
 
 export interface HeroBanner {
@@ -110,14 +111,7 @@ export interface Product {
   orderNumber?: number
   createdAt?: string
   updatedAt?: string
-}
-
-export interface ProductCategory {
-  id?: number
-  categoryID?: number
-  productID?: number
-  createdAt?: string
-  updatedAt?: string
+  category?: Category
 }
 
 export interface Project {

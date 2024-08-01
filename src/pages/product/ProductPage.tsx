@@ -1,83 +1,20 @@
-import { useEffect, useState } from 'react'
-import { defaultRequestBody } from '~/api/client'
-import CategoryAPI from '~/api/services/CategoryAPI'
-import ProductAPI from '~/api/services/ProductAPI'
-import ProductCategoryAPI from '~/api/services/ProductCategoryAPI'
 import { a4 } from '~/assets'
 import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
 import Head from '~/components/sky-ui/Head'
 import Section from '~/components/sky-ui/Section/Section'
-import useAPIService from '~/hooks/useAPIService'
-import { Category, Product, ProductCategory } from '~/typing'
-import ProductSlider from './components/ProductSlider'
+import SkyList from '~/components/sky-ui/SkyList/SkyList'
+import { textValidatorDisplay } from '~/utils/helpers'
+import ProductItem from './components/ProductItem'
+import useProductViewModel from './hooks/useProductViewModel'
 
 const ProductPage = () => {
-  useTitle('Phung Nguyen - Products')
-  const [, setLoading] = useState<boolean>(false)
-  const categoryService = useAPIService<Category>(CategoryAPI)
-  const productService = useAPIService<Product>(ProductAPI)
-  const productCategoryService = useAPIService<ProductCategory>(ProductCategoryAPI)
-  const [categories, setCategories] = useState<Category[]>([])
-  const [products, setProducts] = useState<Product[]>([])
-  const [productCategories, setProductCategories] = useState<ProductCategory[]>([])
-
-  useEffect(() => {
-    loadData()
-  }, [])
-
-  const loadData = async () => {
-    try {
-      await categoryService.getListItems(
-        {
-          ...defaultRequestBody,
-          paginator: {
-            page: 1,
-            pageSize: -1
-          }
-        },
-        setLoading,
-        (meta) => {
-          if (!meta?.success) throw new Error(`${meta?.message}`)
-          setCategories(meta.data as Category[])
-        }
-      )
-      await productService.getListItems(
-        {
-          ...defaultRequestBody,
-          paginator: {
-            page: 1,
-            pageSize: -1
-          }
-        },
-        setLoading,
-        (meta) => {
-          if (!meta?.success) throw new Error(`${meta?.message}`)
-          setProducts(meta.data as Product[])
-        }
-      )
-      await productCategoryService.getListItems(
-        {
-          ...defaultRequestBody,
-          paginator: {
-            page: 1,
-            pageSize: -1
-          }
-        },
-        setLoading,
-        (meta) => {
-          if (!meta?.success) throw new Error(`${meta?.message}`)
-          setProductCategories(meta.data as ProductCategory[])
-        }
-      )
-    } catch (error) {
-      console.log(`${error}`)
-    }
-  }
+  useTitle('Sản phẩm')
+  const viewModel = useProductViewModel()
 
   return (
     <>
-      <BaseLayout title='Service page' header={<Head imageURL={a4} title='About PHUNG NGUYEN PROJECT' />}>
+      <BaseLayout header={<Head imageURL={a4} title='About PHUNG NGUYEN PROJECT' />}>
         {/* <Section
           titleProps={{
             title: 'Loại sản phẩm',
@@ -110,8 +47,7 @@ const ProductPage = () => {
           }}
           subTitleProps={{
             title: 'Cung Cấp Sản Phẩm May Mặc Chất Lượng Cao',
-            position: 'center',
-            size: 'large'
+            position: 'center'
           }}
           descriptionProps={{
             title:
@@ -119,7 +55,28 @@ const ProductPage = () => {
             position: 'center'
           }}
         >
-          <ProductSlider productCategories={productCategories} categories={categories} products={products} />
+          {viewModel.categories.length > 0 ? (
+            viewModel.categories.map((item, index) => {
+              return (
+                <Section
+                  key={index}
+                  titleProps={{
+                    title: textValidatorDisplay(item.title)
+                  }}
+                >
+                  <SkyList
+                    grid={{ gutter: [20, 20], xs: 2, md: 3, lg: 4, xl: 4, xxl: 5 }}
+                    dataSource={viewModel.matchCategory(viewModel.products, item.id)}
+                    renderItem={(product, index) => {
+                      return <ProductItem key={index} item={product} />
+                    }}
+                  />
+                </Section>
+              )
+            })
+          ) : (
+            <>Loading...</>
+          )}
         </Section>
       </BaseLayout>
     </>
