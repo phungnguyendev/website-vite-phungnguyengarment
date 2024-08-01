@@ -1,48 +1,17 @@
 import { Row } from 'antd'
-import { useEffect, useState } from 'react'
-import { defaultRequestBody } from '~/api/client'
-import ProjectAPI from '~/api/services/ProjectAPI'
 import { a4 } from '~/assets'
 import { InternalExporterIcon, ProgressIcon, ShakeHandIcon } from '~/assets/icons'
 import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
 import Head from '~/components/sky-ui/Head'
 import Section from '~/components/sky-ui/Section/Section'
-import useAPIService from '~/hooks/useAPIService'
-import { Project } from '~/typing'
 import ServiceCard from './components/ServiceCard'
 import ServiceProjectList from './components/projects/ServiceProjectList'
+import useServiceViewModel from './hooks/useServiceViewModel'
 
 const ServicePage = () => {
-  useTitle('Phung Nguyen - Services')
-  const [, setLoading] = useState<boolean>(false)
-  const projectService = useAPIService<Project>(ProjectAPI)
-  const [projects, setProjects] = useState<Project[]>([])
-
-  useEffect(() => {
-    loadData()
-  }, [])
-
-  const loadData = async () => {
-    try {
-      await projectService.getListItems(
-        {
-          ...defaultRequestBody,
-          paginator: {
-            page: 1,
-            pageSize: -1
-          }
-        },
-        setLoading,
-        (meta) => {
-          if (!meta?.success) throw new Error(`${meta?.message}`)
-          setProjects(meta.data as Project[])
-        }
-      )
-    } catch (error) {
-      console.log(`${error}`)
-    }
-  }
+  useTitle('Dịch vụ')
+  const viewModel = useServiceViewModel()
 
   return (
     <>
@@ -54,8 +23,7 @@ const ServicePage = () => {
           }}
           subTitleProps={{
             title: 'Dịch Vụ Của Chúng Tôi',
-            position: 'center',
-            size: 'large'
+            position: 'center'
           }}
           descriptionProps={{
             title: 'Cùng chúng tôi, thực hiện nên những cơ hội đổi mới, hợp tác, phát triển và cùng mang lại giá trị',
@@ -88,14 +56,14 @@ const ServicePage = () => {
           subTitleProps={{
             title: 'Dự Án Mới Nhất Của Chúng Tôi',
             position: 'center',
-            size: 'large'
+            size: 'middle'
           }}
           descriptionProps={{
             title: 'Những khách hàng đến từ các nước trên thế giới, đến gặp gỡ và hợp tác với doanh nghiệp chúng tôi',
             position: 'center'
           }}
         >
-          <ServiceProjectList items={projects} />
+          <ServiceProjectList items={viewModel.projects} />
         </Section>
       </BaseLayout>
     </>

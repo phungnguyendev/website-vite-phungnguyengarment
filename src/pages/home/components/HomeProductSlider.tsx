@@ -12,7 +12,7 @@ interface HomeProductSliderProps extends SwiperOptions {
   loading?: boolean
 }
 
-const HomeProductSlider: React.FC<HomeProductSliderProps> = ({ loading = false, items, ...props }) => {
+const HomeProductSlider: React.FC<HomeProductSliderProps> = ({ loading, items, ...props }) => {
   return (
     <>
       <Swiper
@@ -45,7 +45,7 @@ const HomeProductSlider: React.FC<HomeProductSliderProps> = ({ loading = false, 
             spaceBetween: 20
           }
         }}
-        loop={true}
+        loop
         autoplay={{
           delay: 2500
         }}

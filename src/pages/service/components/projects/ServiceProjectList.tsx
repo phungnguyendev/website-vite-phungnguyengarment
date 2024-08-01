@@ -5,13 +5,14 @@ import ServiceProjectCard from '../ServiceProjectCard'
 
 interface Props extends RowProps {
   items: Project[]
+  loading?: boolean
 }
 
 const ServiceProjectList: React.FC<Props> = ({ items, ...props }) => {
   return (
     <>
       <Row {...props} gutter={[20, 20]}>
-        {items.length > 0
+        {!props.loading
           ? items.map((item, index) => {
               return <ServiceProjectCard key={index} item={item} />
             })

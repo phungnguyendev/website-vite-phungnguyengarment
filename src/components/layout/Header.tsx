@@ -27,7 +27,7 @@ const Header: React.FC<Props> = ({ ...props }) => {
 
   return (
     <>
-      <AntHeader className={cn('h-[66px] bg-white', props.className)}>
+      <AntHeader className={cn('h-[65px] bg-white', props.className)}>
         <Flex {...props} className='h-full justify-center' align='center'>
           <Button className='absolute left-10 w-fit p-1 md:hidden' onClick={() => setOpenDrawer((prev) => !prev)}>
             <AlignJustify />

@@ -45,7 +45,7 @@ export const numberValidatorCalc = (number?: number | null): number => {
 }
 
 export const textValidatorDisplay = (text?: string | null): string => {
-  return text ? text : '-'
+  return text ?? '-'
 }
 
 export const imageValidatorDisplay = (src?: string | null): string => {

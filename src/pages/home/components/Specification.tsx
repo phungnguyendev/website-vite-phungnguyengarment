@@ -1,8 +1,7 @@
 import { Col, ColProps, Flex, Row, Typography } from 'antd'
 import React, { HTMLAttributes } from 'react'
-import { NoImage } from '~/assets'
 import { ExperienceIcon, LocationIcon, MemberIcon, StaffIcon } from '~/assets/icons'
-import { cn } from '~/utils/helpers'
+import { cn, imageValidatorDisplay } from '~/utils/helpers'
 
 type SpecificationItemType = {
   icon?: string
@@ -27,7 +26,7 @@ const SpecificationItem: React.FC<SpecificationItemProps> = ({ item, ...props })
       xl={6}
     >
       <Flex vertical align='center' justify='center' gap={8} className='h-72 w-72 p-5'>
-        <img className='h-[72px] w-[72px]' draggable={false} src={item.icon ?? NoImage} />
+        <img className='h-[72px] w-[72px]' draggable={false} src={imageValidatorDisplay(item.icon)} />
         <Typography.Text className='line-clamp-1 text-center font-roboto-condensed text-2xl font-bold' type='secondary'>
           {item.title}
         </Typography.Text>

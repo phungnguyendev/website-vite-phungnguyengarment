@@ -2,7 +2,7 @@ import { Breadcrumb, Flex, Typography } from 'antd'
 import React, { HTMLAttributes } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import useBreadcrumbs from 'use-react-router-breadcrumbs'
-import { routes } from '~/types/routes'
+import routes from '~/config/route.config'
 import { cn } from '~/utils/helpers'
 
 interface HeadProps extends HTMLAttributes<HTMLDivElement> {
@@ -24,7 +24,7 @@ const Head: React.FC<HeadProps> = ({ imageURL, title, ...props }) => {
           <Typography.Text className='font-roboto-condensed text-3xl font-semibold text-white'>{title}</Typography.Text>
           <Breadcrumb
             className='flex w-full justify-start'
-            separator={<Typography.Text className='text-white'>/</Typography.Text>}
+            separator={<span className='text-white'>/</span>}
             items={breadcrumbs.map((breadcrumb) => {
               return {
                 title:

@@ -1,6 +1,5 @@
 import { Flex, Skeleton } from 'antd'
 import React from 'react'
-// import Skeleton from 'react-loading-skeleton'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SwiperOptions } from 'swiper/types'

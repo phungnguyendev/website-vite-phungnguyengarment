@@ -8,14 +8,14 @@ type Direction = 'left' | 'right'
 
 interface AboutProcedureProps extends ColProps {
   imageURL: string
-  noNumber?: string
+  index?: string
   title?: string
   desc?: string
   direction?: Direction
 }
 
 const AboutProcedure: React.FC<AboutProcedureProps> = ({
-  noNumber,
+  index,
   title,
   desc,
   imageURL,
@@ -37,13 +37,13 @@ const AboutProcedure: React.FC<AboutProcedureProps> = ({
             <Flex vertical gap={10} justify='start' align='start'>
               <Flex align='center' gap={10}>
                 <Flex
-                  className='h-[54px] min-h-[54px] w-[54px] min-w-[54px] rounded-full bg-secondPrimary md:h-[64px] md:min-h-[64px] md:w-[64px] md:min-w-[64px]'
+                  className='bg-secondPrimary h-[54px] min-h-[54px] w-[54px] min-w-[54px] rounded-full md:h-[64px] md:min-h-[64px] md:w-[64px] md:min-w-[64px]'
                   justify='center'
                   align='center'
                 >
-                  <Text className='font-roboto-condensed text-[32px] font-bold text-white'>{noNumber}</Text>
+                  <Text className='font-roboto-condensed text-[32px] font-bold text-white'>{index}</Text>
                 </Flex>
-                <Text className='font-roboto-condensed text-2xl font-bold text-secondPrimary'>{title}</Text>
+                <Text className='text-secondPrimary font-roboto-condensed text-2xl font-bold'>{title}</Text>
               </Flex>
               <Paragraph className='text-base'>{desc}</Paragraph>
             </Flex>
