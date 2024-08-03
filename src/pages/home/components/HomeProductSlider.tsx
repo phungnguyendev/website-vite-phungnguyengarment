@@ -3,20 +3,18 @@ import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { SwiperOptions } from 'swiper/types'
 import ProductItem from '~/pages/product/components/ProductItem'
 import { Product } from '~/typing'
 
-interface HomeProductSliderProps extends SwiperOptions {
+interface HomeProductSliderProps {
   items: Product[]
   loading?: boolean
 }
 
-const HomeProductSlider: React.FC<HomeProductSliderProps> = ({ loading, items, ...props }) => {
+const HomeProductSlider: React.FC<HomeProductSliderProps> = ({ items, ...props }) => {
   return (
     <>
       <Swiper
-        {...props}
         slidesPerView={1}
         spaceBetween={10}
         pagination={{
@@ -52,7 +50,7 @@ const HomeProductSlider: React.FC<HomeProductSliderProps> = ({ loading, items, .
         modules={[Pagination, Autoplay, Navigation]}
         className='h-full w-full'
       >
-        {!loading
+        {!props.loading
           ? items.map((item, index) => {
               return (
                 <SwiperSlide key={index}>

@@ -26,7 +26,7 @@ export const routes: RouteType[] = [
   { name: 'Sản phẩm', path: 'products', breadcrumb: 'Products', component: ProductPage },
   {
     name: 'Tin tức & Sự kiện',
-    path: 'news',
+    path: 'posts',
     breadcrumb: 'News',
     component: PostPage
   },

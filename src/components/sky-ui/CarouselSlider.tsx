@@ -1,26 +1,24 @@
+import { Flex, Skeleton } from 'antd'
 import React from 'react'
-import { HeroBanner } from '~/typing'
-// Import Swiper React components
-
+import { SkeletonTheme } from 'react-loading-skeleton'
+import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-// import required modules
-import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules'
-import BannerCarouselItem from './BannerCarouselItem'
-
-import { Flex, Skeleton } from 'antd'
-import { SkeletonTheme } from 'react-loading-skeleton'
-import 'swiper/css'
-import 'swiper/css/effect-fade'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-
-interface Props {
-  items: HeroBanner[]
-  loading?: boolean
+interface CarouselRequiredDataType {
+  id?: number
 }
 
-const BannerCarousel: React.FC<Props> = ({ items, ...props }) => {
+export interface CarouselSliderProps<T extends CarouselRequiredDataType> {
+  dataSource: T[]
+  loading?: boolean
+  render: (record: T) => React.ReactNode
+}
+
+const CarouselSlider = <T extends CarouselRequiredDataType>({
+  loading,
+  dataSource,
+  render
+}: CarouselSliderProps<T>) => {
   return (
     <>
       <Swiper
@@ -36,11 +34,11 @@ const BannerCarousel: React.FC<Props> = ({ items, ...props }) => {
         modules={[EffectFade, Navigation, Pagination, Autoplay]}
         className='mySwiper h-full w-full'
       >
-        {!props.loading ? (
-          items.map((item, index) => {
+        {!loading ? (
+          dataSource.map((item, index) => {
             return (
               <SwiperSlide draggable={false} key={index}>
-                <BannerCarouselItem data={item} />
+                {render(item)}
               </SwiperSlide>
             )
           })
@@ -67,4 +65,4 @@ const BannerCarousel: React.FC<Props> = ({ items, ...props }) => {
   )
 }
 
-export default BannerCarousel
+export default CarouselSlider

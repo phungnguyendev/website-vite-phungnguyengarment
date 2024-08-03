@@ -1,13 +1,14 @@
 import { Image } from 'antd'
-import React, { HTMLAttributes } from 'react'
+import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { Partner } from '~/typing'
 import { imageValidatorDisplay } from '~/utils/helpers'
 import InfiniteScroll from './InfiniteScroll'
 
-interface HomePartnerSliderProps extends HTMLAttributes<HTMLDivElement> {
+interface HomePartnerSliderProps {
   items: Partner[]
   loading?: boolean
+  className?: string
 }
 
 const HomePartnerSlider: React.FC<HomePartnerSliderProps> = ({ items, ...props }) => {
@@ -15,7 +16,6 @@ const HomePartnerSlider: React.FC<HomePartnerSliderProps> = ({ items, ...props }
     <>
       {!props.loading ? (
         <InfiniteScroll
-          {...props}
           className={props.className}
           items={items}
           renderItem={(item) => {
@@ -32,7 +32,6 @@ const HomePartnerSlider: React.FC<HomePartnerSliderProps> = ({ items, ...props }
         />
       ) : (
         <InfiniteScroll
-          {...props}
           className={props.className}
           items={Array.from({ length: 5 })}
           renderItem={() => {

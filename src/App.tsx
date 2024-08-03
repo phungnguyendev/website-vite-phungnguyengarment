@@ -25,7 +25,7 @@ function App() {
             />
           )
         })}
-        <Route path='post/:postID' element={<PostDetail />} />
+        <Route path='posts/:postID' element={<PostDetail />} />
       </Route>
     </Routes>
   )

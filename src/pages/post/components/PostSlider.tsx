@@ -2,20 +2,18 @@ import { Flex, Skeleton } from 'antd'
 import React from 'react'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { SwiperOptions } from 'swiper/types'
 import PostItem from '~/pages/post/components/PostItem'
 import { Post } from '~/typing'
 
-interface PostSliderProps extends SwiperOptions {
+interface PostSliderProps {
   items: Post[]
   loading?: boolean
 }
 
-const PostSlider: React.FC<PostSliderProps> = ({ loading = false, items, ...props }) => {
+const PostSlider: React.FC<PostSliderProps> = ({ items, ...props }) => {
   return (
     <>
       <Swiper
-        {...props}
         slidesPerView={1}
         spaceBetween={10}
         breakpoints={{
@@ -47,7 +45,7 @@ const PostSlider: React.FC<PostSliderProps> = ({ loading = false, items, ...prop
         modules={[Pagination, Autoplay, Navigation]}
         className='h-full w-full'
       >
-        {!loading && items.length > 0
+        {!props.loading && items.length > 0
           ? items.map((item, index) => {
               return (
                 <SwiperSlide key={index}>

@@ -41,7 +41,7 @@ export const numberValidatorDisplay = (number?: number | null): string => {
 }
 
 export const numberValidatorCalc = (number?: number | null): number => {
-  return number ? number : 0
+  return number ?? 0
 }
 
 export const textValidatorDisplay = (text?: string | null): string => {
@@ -49,7 +49,7 @@ export const textValidatorDisplay = (text?: string | null): string => {
 }
 
 export const imageValidatorDisplay = (src?: string | null): string => {
-  return src ? src : NoImage
+  return src ?? NoImage
 }
 
 export const dateValidatorDisplay = (date?: string | number | Date | dayjs.Dayjs | null | undefined): string => {
@@ -165,4 +165,36 @@ export const checkFieldToUpdate = (oldField: any | null | undefined, newField?: 
 
 export const htmlValidatorDisplay = (text?: string): string => {
   return text ? text : '<p>No content</p>'
+}
+
+export const maxNumberInArray = (array: number[]) => {
+  return Math.max(...array)
+}
+
+export const isValidArray = <T>(arr?: T[] | null | undefined): arr is T[] => {
+  return arr ? Array.isArray(arr) && arr.length > 0 : false
+}
+
+export function isValidString(value?: string | null | undefined): value is string {
+  return value ? typeof value === 'string' && value.length > 0 : false
+}
+
+// Hàm kiểm tra số hợp lệ
+export function isValidNumber(value?: number | null | undefined): value is number {
+  return value ? typeof value === 'number' && !isNaN(value) : false
+}
+
+// Hàm kiểm tra boolean hợp lệ
+export function isValidBoolean(value?: boolean | null | undefined): value is boolean {
+  return typeof value === 'boolean'
+}
+
+export function isValidDate(value?: string | number | Date | dayjs.Dayjs | null | undefined): boolean {
+  return value ? dayjs(value).isValid() : false
+}
+
+// Hàm kiểm tra object hợp lệ
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function isValidObject<T extends { id?: number }>(value?: T | null | undefined): value is T {
+  return value ? typeof value === 'object' && isValidNumber(value.id) : false
 }

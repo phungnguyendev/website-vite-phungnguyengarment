@@ -11,7 +11,7 @@ const ProductItem: React.FC<Props> = ({ item, ...props }) => {
   return (
     <>
       <Flex {...props} vertical justify='center' align='center' gap={20}>
-        <Flex className='h-full w-full'>
+        <Flex className='h-[216px] w-full'>
           <img src={imageValidatorDisplay(item.imageUrl)} className='h-[216px] w-full object-contain' />
         </Flex>
         <Typography.Text className='font-semibold'>{textValidatorDisplay(item.title)}</Typography.Text>

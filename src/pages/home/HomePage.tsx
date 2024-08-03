@@ -5,16 +5,17 @@ import BaseLayout from '~/components/layout/BaseLayout'
 import Section from '~/components/sky-ui/Section/Section'
 import SectionTitle from '~/components/sky-ui/Section/SectionTitle'
 import BannerCarousel from './components/banner/BannerCarousel'
-import Specification from './components/Specification'
+import Specification from './components/specification/Specification'
 // import required modules
 import { a0 } from '~/assets'
+import SwiperSlider from '~/components/sky-ui/SwiperSlider'
 import PostSlider from '../post/components/PostSlider'
+import ProductItem from '../product/components/ProductItem'
 import HomePartnerSlider from './components/HomePartnerSlider'
-import ProductHomeSlider from './components/HomeProductSlider'
 import useHomeViewModel from './hooks/useHomeViewModel'
 
 const HomePage: React.FC = () => {
-  useTitle('Trang chủ | Phung Nguyen')
+  useTitle('Trang chủ')
   const viewModel = useHomeViewModel()
 
   return (
@@ -40,7 +41,7 @@ const HomePage: React.FC = () => {
             <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12}>
               <Flex vertical className='h-full' justify='space-between'>
                 <Flex vertical gap={20}>
-                  <Typography.Text className='text-secondPrimary text-2xl font-semibold'>
+                  <Typography.Text className='text-2xl font-semibold text-secondPrimary'>
                     Công ty TNHH MTV May Mặc Phụng Nguyên
                   </Typography.Text>
                   <Typography.Paragraph className='text-base'>
@@ -71,7 +72,13 @@ const HomePage: React.FC = () => {
             size: 'middle'
           }}
         >
-          <ProductHomeSlider items={viewModel.homeProducts} loading={viewModel.homeProducts.length <= 0} />
+          {/* <ProductHomeSlider items={viewModel.homeProducts} loading={viewModel.homeProducts.length <= 0} /> */}
+          <SwiperSlider
+            dataSource={viewModel.homeProducts}
+            render={(record) => {
+              return <ProductItem item={record} />
+            }}
+          />
         </Section>
         <Section className='relative gap-[40px] md:gap-[80px]'>
           <Flex className='relative h-full w-full' vertical justify='center' align='center'>

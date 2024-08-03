@@ -4,10 +4,12 @@ import { ArcheryIcon, MissionIcon, VisionIcon } from '~/assets/icons'
 import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
 import Head from '~/components/sky-ui/Head'
+import ImageView from '~/components/sky-ui/ImageView'
 import Section from '~/components/sky-ui/Section/Section'
+import SwiperSlider from '~/components/sky-ui/SwiperSlider'
 import { imageValidatorDisplay } from '~/utils/helpers'
 import AboutCard from './components/AboutCard'
-import AboutPrizeSlider from './components/AboutPrizeSlider'
+import AboutPrizeSliderCard from './components/AboutPrizeSliderCard'
 import AboutProcedure from './components/AboutProcedure'
 import AboutQuantity from './components/AboutQuantity'
 import useAboutViewModel from './hooks/useAboutViewModel'
@@ -172,7 +174,7 @@ const AboutPage = () => {
           }}
         >
           <Flex justify='center'>
-            <img
+            <ImageView
               src={PhungNguyenCertification}
               className='h-full w-full object-cover md:h-2/3 md:w-2/3 lg:h-1/2 lg:w-1/2'
             />
@@ -186,7 +188,27 @@ const AboutPage = () => {
           }}
           className='h-full w-full'
         >
-          <AboutPrizeSlider items={viewModel.prizes} />
+          <SwiperSlider
+            slidesPerView={2}
+            breakpoints={{
+              '@0.5': {
+                slidesPerView: 1,
+                spaceBetween: 20
+              },
+              '@1.00': {
+                slidesPerView: 2,
+                spaceBetween: 40
+              },
+              '@1.50': {
+                slidesPerView: 2,
+                spaceBetween: 50
+              }
+            }}
+            dataSource={viewModel.prizes}
+            render={(record) => {
+              return <AboutPrizeSliderCard item={record} />
+            }}
+          />
         </Section>
       </BaseLayout>
     </>
