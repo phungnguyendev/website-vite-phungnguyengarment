@@ -9,7 +9,7 @@ import Specification from './components/specification/Specification'
 // import required modules
 import { a0 } from '~/assets'
 import SwiperSlider from '~/components/sky-ui/SwiperSlider'
-import PostSlider from '../post/components/PostSlider'
+import PostItem from '../post/components/PostItem'
 import ProductItem from '../product/components/ProductItem'
 import HomePartnerSlider from './components/HomePartnerSlider'
 import useHomeViewModel from './hooks/useHomeViewModel'
@@ -72,7 +72,6 @@ const HomePage: React.FC = () => {
             size: 'middle'
           }}
         >
-          {/* <ProductHomeSlider items={viewModel.homeProducts} loading={viewModel.homeProducts.length <= 0} /> */}
           <SwiperSlider
             dataSource={viewModel.homeProducts}
             render={(record) => {
@@ -105,7 +104,12 @@ const HomePage: React.FC = () => {
             title: 'Tin tức & Sự kiện'
           }}
         >
-          <PostSlider items={viewModel.posts} loading={viewModel.posts.length <= 0} />
+          <SwiperSlider
+            dataSource={viewModel.posts}
+            render={(record) => {
+              return <PostItem item={record} />
+            }}
+          />
         </Section>
       </BaseLayout>
     </>

@@ -15,31 +15,6 @@ const ProductPage = () => {
   return (
     <>
       <BaseLayout header={<Head imageURL={a4} title='About PHUNG NGUYEN PROJECT' />}>
-        {/* <Section
-          titleProps={{
-            title: 'Loại sản phẩm',
-            position: 'center'
-          }}
-        >
-          <Anchor
-            className='w-full bg-white transition-all duration-300'
-            direction='horizontal'
-            offsetTop={hidden ? 0 : 70}
-            targetOffset={500}
-            affix={false}
-            items={categories.map((item, index) => {
-              return {
-                key: `${index}`,
-                title: (
-                  <Typography.Text code className='text-center font-roboto-condensed text-base font-bold'>
-                    {textValidatorDisplay(item.title)}
-                  </Typography.Text>
-                ),
-                href: `#anchor-${item.id}`
-              } as AnchorLinkItemProps
-            })}
-          />
-        </Section> */}
         <Section
           titleProps={{
             title: 'Sản phẩm',

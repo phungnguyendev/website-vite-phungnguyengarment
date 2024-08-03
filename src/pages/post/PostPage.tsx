@@ -60,7 +60,6 @@ const PostPage = () => {
             }}
           >
             {isValidArray(recentPosts) ? (
-              // <PostSlider items={recentPosts.filter((item) => item.id !== latestPost.id)} />
               <SwiperSlider
                 dataSource={recentPosts}
                 render={(record) => {
@@ -77,7 +76,6 @@ const PostPage = () => {
             }}
           >
             {isValidArray(olderPosts) ? (
-              // <PostSlider items={olderPosts.filter((item) => item.id !== latestPost.id)} />
               <SwiperSlider
                 dataSource={olderPosts}
                 render={(record) => {

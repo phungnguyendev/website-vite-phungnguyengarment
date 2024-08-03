@@ -15,7 +15,7 @@ const ServicePage = () => {
 
   return (
     <>
-      <BaseLayout title='Service page' header={<Head imageURL={a4} title='About PHUNG NGUYEN SERVICE' />}>
+      <BaseLayout header={<Head imageURL={a4} title='About PHUNG NGUYEN SERVICE' />}>
         <Section
           titleProps={{
             title: 'Dịch vụ',
