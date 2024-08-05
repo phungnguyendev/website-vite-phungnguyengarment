@@ -1,5 +1,5 @@
 import { Row } from 'antd'
-import { a4 } from '~/assets'
+import { a20 } from '~/assets'
 import { InternalExporterIcon, ProgressIcon, ShakeHandIcon } from '~/assets/icons'
 import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
@@ -15,7 +15,7 @@ const ServicePage = () => {
 
   return (
     <>
-      <BaseLayout header={<Head imageURL={a4} title='About PHUNG NGUYEN SERVICE' />}>
+      <BaseLayout header={<Head imageURL={a20} title='About PHUNG NGUYEN SERVICE' />}>
         <Section
           titleProps={{
             title: 'Dịch vụ',
