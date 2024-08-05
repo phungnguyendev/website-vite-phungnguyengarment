@@ -1,7 +1,7 @@
 import { Breadcrumb, Flex, Typography } from 'antd'
 import React, { HTMLAttributes } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import useBreadcrumbs from 'use-react-router-breadcrumbs'
+import useReactRouterBreadcrumbs from 'use-react-router-breadcrumbs'
 import routes from '~/config/route.config'
 import { cn } from '~/utils/helpers'
 
@@ -12,7 +12,7 @@ interface HeadProps extends HTMLAttributes<HTMLDivElement> {
 
 const Head: React.FC<HeadProps> = ({ imageURL, title, ...props }) => {
   const { pathname } = useLocation()
-  const breadcrumbs = useBreadcrumbs(routes)
+  const breadcrumbs = useReactRouterBreadcrumbs(routes)
 
   return (
     <>

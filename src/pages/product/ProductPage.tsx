@@ -1,3 +1,4 @@
+import { Flex } from 'antd'
 import { a4 } from '~/assets'
 import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
@@ -15,21 +16,22 @@ const ProductPage = () => {
   return (
     <>
       <BaseLayout header={<Head imageURL={a4} title='About PHUNG NGUYEN PROJECT' />}>
-        <Section
-          titleProps={{
-            title: 'Sản phẩm',
-            position: 'center'
-          }}
-          subTitleProps={{
-            title: 'Cung Cấp Sản Phẩm May Mặc Chất Lượng Cao',
-            position: 'center'
-          }}
-          descriptionProps={{
-            title:
-              'Chúng tôi luôn tự hào là một trong những nhàn cung cấp các sản phẩm may mặc chất lượng cao, cung cấp các sản phẩm may mặc ra thị trường trong và ngoài nước.',
-            position: 'center'
-          }}
-        >
+        <Flex vertical gap={40}>
+          <Section
+            titleProps={{
+              title: 'Sản phẩm',
+              position: 'center'
+            }}
+            subTitleProps={{
+              title: 'Cung Cấp Sản Phẩm May Mặc Chất Lượng Cao',
+              position: 'center'
+            }}
+            descriptionProps={{
+              title:
+                'Chúng tôi luôn tự hào là một trong những nhàn cung cấp các sản phẩm may mặc chất lượng cao, cung cấp các sản phẩm may mặc ra thị trường trong và ngoài nước.',
+              position: 'center'
+            }}
+          />
           {viewModel.categories.length > 0 ? (
             viewModel.categories.map((item, index) => {
               return (
@@ -52,7 +54,7 @@ const ProductPage = () => {
           ) : (
             <>Loading...</>
           )}
-        </Section>
+        </Flex>
       </BaseLayout>
     </>
   )

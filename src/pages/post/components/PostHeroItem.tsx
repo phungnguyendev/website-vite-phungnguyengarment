@@ -15,7 +15,12 @@ const PostHeroItem: React.FC<Props> = ({ item, ...props }) => {
     <>
       {numberValidator(item.id) ? (
         <Link to={`${item.id}`}>
-          <Flex className={cn('relative h-[572px] w-full bg-black', props.className)}>
+          <Flex
+            className={cn(
+              'relative h-[372px] w-full overflow-hidden rounded-lg bg-black md:h-[572px]',
+              props.className
+            )}
+          >
             <img src={imageValidatorDisplay(item.imageUrl)} className='h-full w-full object-cover' />
             <Flex
               align='start'

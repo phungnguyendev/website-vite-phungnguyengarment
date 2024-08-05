@@ -1,3 +1,4 @@
+import { Flex } from 'antd'
 import { newsBg } from '~/assets'
 import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
@@ -22,27 +23,27 @@ const PostPage = () => {
   return (
     <>
       <BaseLayout header={<Head imageURL={newsBg} title='About PHUNG NGUYEN PROJECT' />}>
-        <Section
-          titleProps={{
-            title: 'Tin tức và Sự kiện',
-            position: 'center'
-          }}
-          subTitleProps={{
-            title: 'Sản Phẩm Của Chúng Tôi',
-            position: 'center',
-            size: 'middle'
-          }}
-          descriptionProps={{
-            title: 'Các tin tức và sự kiện mới nhất của Phụng Nguyên trong thời gian vừa qua',
-            position: 'center'
-          }}
-        >
+        <Flex vertical gap={40}>
+          <Section
+            titleProps={{
+              title: 'Tin tức và Sự kiện',
+              position: 'center'
+            }}
+            subTitleProps={{
+              title: 'Sản Phẩm Của Chúng Tôi',
+              position: 'center',
+              size: 'middle'
+            }}
+            descriptionProps={{
+              title: 'Các tin tức và sự kiện mới nhất của Phụng Nguyên trong thời gian vừa qua',
+              position: 'center'
+            }}
+          />
           <Section
             titleProps={{
               title: 'Tin nổi bậc'
             }}
           >
-            {/* {isValidArray(viewModel.posts) ? <PostHeroItem item={latestPost} /> : <NoPostContentFound />} */}
             {isValidArray(latestPosts) ? (
               <CarouselSlider
                 dataSource={latestPosts}
@@ -86,7 +87,7 @@ const PostPage = () => {
               <NoPostContentFound />
             )}
           </Section>
-        </Section>
+        </Flex>
       </BaseLayout>
     </>
   )
