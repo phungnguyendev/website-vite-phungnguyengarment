@@ -1,5 +1,5 @@
-import { Prize } from '~/typing'
+import { RecruitmentPost } from '~/typing'
 
-export interface PrizeTableDataType extends Prize {
+export interface RecruitmentPostTableDataType extends RecruitmentPost {
   key: string
 }

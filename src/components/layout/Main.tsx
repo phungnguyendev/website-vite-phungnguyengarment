@@ -2,14 +2,14 @@ import { Layout } from 'antd'
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { cn } from '~/utils/helpers'
-import useDevice from '../hooks/useDevice'
-import Footer from './Footer'
-import Header from './Header'
+import useWindow from '../hooks/useWindow'
+import Footer from './footer/Footer'
+import Header from './header/Header'
 
 const { Content } = Layout
 
 const Main: React.FC = () => {
-  const { hidden, offsetY } = useDevice()
+  const { hidden, offsetY } = useWindow()
 
   return (
     <Layout className='w-full bg-background'>

@@ -20,24 +20,24 @@ export const routes: RouteType[] = [
     key: '0',
     name: 'Trang chủ',
     path: '/',
-    breadcrumb: 'Home',
+    breadcrumb: 'Trang chủ',
     component: HomePage
   },
-  { key: '1', name: 'Giới thiệu', path: '/about', breadcrumb: 'About', component: AboutPage },
-  { key: '2', name: 'Dịch vụ', path: '/services', breadcrumb: 'Service', component: ServicePage },
-  { key: '3', name: 'Sản phẩm', path: '/products', breadcrumb: 'Products', component: ProductPage },
+  { key: '1', name: 'Giới thiệu', path: '/gioi-thieu', breadcrumb: 'Giới thiệu', component: AboutPage },
+  { key: '2', name: 'Dịch vụ', path: '/dich-vu', breadcrumb: 'Dịch vụ', component: ServicePage },
+  { key: '3', name: 'Sản phẩm', path: '/san-pham', breadcrumb: 'Sản phẩm', component: ProductPage },
   {
     key: '4',
     name: 'Tin tức & Sự kiện',
-    path: '/posts',
-    breadcrumb: 'News',
+    path: '/tin-tuc-va-su-kien',
+    breadcrumb: 'Tin tức & Sự kiện',
     component: PostPage
   },
   {
     key: '5',
     name: 'Tuyển dụng',
-    path: '/career',
-    breadcrumb: 'Career',
+    path: '/tuyen-dung',
+    breadcrumb: 'Tuyển dụng',
     component: CareerPage
   }
 ]

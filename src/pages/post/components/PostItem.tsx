@@ -15,7 +15,7 @@ interface PostItemProps {
 const PostItem: React.FC<PostItemProps> = ({ item, ...props }) => {
   return (
     <>
-      <Link to={`/posts/${item.id}`}>
+      <Link to={`/tin-tuc-va-su-kien/${item.id}`}>
         <Card
           {...props}
           className='h-[350px] w-full'

@@ -2,7 +2,7 @@ import { Breadcrumb, Flex, Typography } from 'antd'
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import useReactRouterBreadcrumbs from 'use-react-router-breadcrumbs'
-import useDevice from '~/components/hooks/useDevice'
+import useWindow from '~/components/hooks/useWindow'
 import BaseLayout from '~/components/layout/BaseLayout'
 import HTMLReader from '~/components/sky-ui/htmlreader/HTMLReader'
 import NoPostContentFound from '~/components/sky-ui/NoPostContentFound'
@@ -16,7 +16,7 @@ import usePostDetailViewModel from '../hooks/usePostDetailViewModel'
 import PostItem from './PostItem'
 
 const PostDetail: React.FC = () => {
-  const device = useDevice()
+  const window = useWindow()
   const { pathname } = useLocation()
   const breadcrumbs = useReactRouterBreadcrumbs(routes)
   const viewModel = usePostDetailViewModel()
@@ -50,7 +50,7 @@ const PostDetail: React.FC = () => {
               width: '100%'
             }}
           >
-            <Typography.Title level={device.width >= breakpoint.lg ? 2 : 3} className='font-bold'>
+            <Typography.Title level={window.width >= breakpoint.lg ? 2 : 3} className='font-bold'>
               {viewModel.post?.title}
             </Typography.Title>
           </SkySkeleton>

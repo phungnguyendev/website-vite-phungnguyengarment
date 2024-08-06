@@ -20,7 +20,7 @@ const Header: React.FC<Props> = ({ ...props }) => {
 
   return (
     <>
-      <AntHeader className={cn('h-[65px] w-full bg-white', props.className)}>
+      <AntHeader className={cn('h-[65px] w-full bg-white shadow-sm', props.className)}>
         <Flex {...props} className='h-full w-full justify-center' align='center' gap={20}>
           <Button className='absolute left-5 w-fit p-1 md:hidden' onClick={() => setOpenDrawer((prev) => !prev)}>
             <AlignJustify />

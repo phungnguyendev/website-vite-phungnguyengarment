@@ -25,7 +25,7 @@ function App() {
             />
           )
         })}
-        <Route path='posts/:postID' element={<PostDetail />} />
+        <Route path='tin-tuc-va-su-kien/:postID' element={<PostDetail />} />
       </Route>
     </Routes>
   )

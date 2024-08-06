@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {}
 const Specification: React.FC<Props> = ({ ...props }) => {
   return (
     <Flex className={cn('bg-white shadow-sm', props.className)}>
-      <Row gutter={[24, 24]}>
+      <Row gutter={[24, 24]} className='w-full'>
         <SpecificationItem
           item={{
             icon: MemberIcon,
@@ -39,7 +39,7 @@ const Specification: React.FC<Props> = ({ ...props }) => {
             icon: LocationIcon,
             title: 'Chi nhánh',
             parameter: '1',
-            desc: 'Phụng Nguyên (Thanh Bình)'
+            desc: 'Phụng Nguyên (Thanh Bình, Đồng Tháp)'
           }}
         />
       </Row>

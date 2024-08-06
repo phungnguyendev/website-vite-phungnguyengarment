@@ -1,13 +1,81 @@
-import { Col, Input, Row, Select } from 'antd'
-import { Search } from 'lucide-react'
+import { CaretDownOutlined } from '@ant-design/icons'
+import { Flex, Select } from 'antd'
+import { ColumnsType } from 'antd/es/table'
 import { a22 } from '~/assets'
 import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
 import Head from '~/components/sky-ui/Head'
 import Section from '~/components/sky-ui/Section/Section'
+import SkyTable from '~/components/sky-ui/SkyTable/SkyTable'
+import SkyTableTypography from '~/components/sky-ui/SkyTable/SkyTableTypography'
+import { dateFormatter } from '~/utils/date-formatter'
+import { numberValidatorDisplay, textValidatorDisplay } from '~/utils/helpers'
+import { useCareerViewModel } from './hooks/useCareerViewModel'
+import { RecruitmentPostTableDataType } from './type'
 
 const CareerPage = () => {
-  useTitle('Phung Nguyen - Careers')
+  useTitle('Tuyển dụng')
+  const viewModel = useCareerViewModel()
+
+  const columns: ColumnsType<RecruitmentPostTableDataType> = [
+    {
+      title: 'Vị trí tuyển dụng',
+      dataIndex: 'title',
+      width: '20%',
+      render: (_value: any, record: RecruitmentPostTableDataType) => {
+        return <SkyTableTypography>{textValidatorDisplay(record.jobSector?.title)}</SkyTableTypography>
+      }
+    },
+    {
+      title: 'Số lượng',
+      dataIndex: 'imageUrl',
+      width: '10%',
+      responsive: ['sm'],
+      render: (_value: any, record: RecruitmentPostTableDataType) => {
+        return <SkyTableTypography>{numberValidatorDisplay(record.quantity)}</SkyTableTypography>
+      }
+    },
+    {
+      title: 'Mức lương',
+      dataIndex: 'title',
+      width: '15%',
+      responsive: ['sm'],
+      render: (_value: any, record: RecruitmentPostTableDataType) => {
+        return <SkyTableTypography>{textValidatorDisplay(record.wage)}</SkyTableTypography>
+      }
+    },
+    {
+      title: 'Thời gian làm việc',
+      dataIndex: 'workingTime',
+      width: '20%',
+      responsive: ['sm'],
+      render: (_value: any, record: RecruitmentPostTableDataType) => {
+        return <SkyTableTypography>{textValidatorDisplay(record.workingTime)}</SkyTableTypography>
+      }
+    },
+    {
+      title: 'Nơi làm việc',
+      dataIndex: 'workingPlace',
+      width: '20%',
+      responsive: ['sm'],
+      render: (_value: any, record: RecruitmentPostTableDataType) => {
+        return <SkyTableTypography>{textValidatorDisplay(record.workingPlace)}</SkyTableTypography>
+      }
+    },
+    {
+      title: 'Ngày hết hạn',
+      dataIndex: 'expirationDate',
+      width: '20%',
+      responsive: ['sm'],
+      render: (_value: any, record: RecruitmentPostTableDataType) => {
+        return (
+          <SkyTableTypography>
+            {textValidatorDisplay(dateFormatter(record.expirationDate, 'dateOnly'))}
+          </SkyTableTypography>
+        )
+      }
+    }
+  ]
 
   return (
     <>
@@ -22,30 +90,31 @@ const CareerPage = () => {
             position: 'center'
           }}
         >
-          <Row gutter={[20, 20]}>
-            <Col xs={24} xl={6}>
-              <Input
-                className='placeholder:text-muted'
-                prefix={<Search className='text-muted' />}
-                placeholder='Vị trí công việc'
-              />
-            </Col>
-            <Col xs={24} xl={6}>
+          <Flex vertical gap={20} className='bg-white p-5'>
+            <Flex gap={20}>
               <Select
-                defaultValue='lucy'
-                style={{ width: 120 }}
-                onChange={(value) => {
-                  console.log(`selected ${value}`)
-                }}
-                options={[
-                  { value: 'jack', label: 'Jack' },
-                  { value: 'lucy', label: 'Lucy' },
-                  { value: 'Yiminghe', label: 'yiminghe' },
-                  { value: 'disabled', label: 'Disabled', disabled: true }
-                ]}
+                defaultValue={-1}
+                style={{ width: 200 }}
+                onChange={viewModel.handleJobSectorChange}
+                suffixIcon={<CaretDownOutlined />}
+                options={viewModel.jobSectors.map((item) => {
+                  return {
+                    value: item.id,
+                    label: textValidatorDisplay(item.title)
+                  }
+                })}
               />
-            </Col>
-          </Row>
+            </Flex>
+            <SkyTable
+              dataSource={viewModel.table.dataSource}
+              setDataSource={viewModel.table.setDataSource}
+              tableColumns={{
+                columns: columns,
+                actionColumn: undefined,
+                showAction: undefined
+              }}
+            />
+          </Flex>
         </Section>
       </BaseLayout>
     </>

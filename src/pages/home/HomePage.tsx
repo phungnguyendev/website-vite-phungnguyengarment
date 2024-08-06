@@ -53,9 +53,11 @@ const HomePage: React.FC = () => {
                   </Typography.Paragraph>
                 </Flex>
                 <Flex justify='center' className='mb-10'>
-                  <Button type='primary' className='w-fit'>
-                    <Link to='\about'>Xem thêm</Link>
-                  </Button>
+                  <Link to='/gioi-thieu'>
+                    <Button type='primary' className='w-fit'>
+                      Xem thêm
+                    </Button>
+                  </Link>
                 </Flex>
               </Flex>
             </Col>
