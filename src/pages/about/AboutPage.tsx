@@ -32,7 +32,7 @@ const AboutPage = () => {
                 <img
                   src={imageValidatorDisplay(About)}
                   alt='about-image'
-                  className='h-[350px] w-full object-contain md:h-[350px] md:w-[350px] xl:h-[372px] xl:w-[372px]'
+                  className='pointer-events-none h-[350px]  w-full object-contain md:h-[350px] md:w-[350px] xl:h-[372px] xl:w-[372px]'
                 />
               </Flex>
               <Flex vertical className='w-full'>
@@ -176,7 +176,7 @@ const AboutPage = () => {
           <Flex justify='center'>
             <ImageView
               src={PhungNguyenCertification}
-              className='h-full w-full object-cover md:h-2/3 md:w-2/3 lg:h-1/2 lg:w-1/2'
+              className='pointer-events-none h-full w-full object-cover  md:h-2/3 md:w-2/3 lg:h-1/2 lg:w-1/2'
             />
           </Flex>
         </Section>

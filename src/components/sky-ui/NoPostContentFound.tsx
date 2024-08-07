@@ -8,7 +8,7 @@ const NoPostContentFound: React.FC<NoPostContentFoundProps> = ({ ...props }) => 
   return (
     <>
       <Flex align='center' justify='center' className='w-full'>
-        <Typography.Text {...props} type='secondary'>
+        <Typography.Text {...props} type='secondary' className='select-none'>
           {props.children ?? 'Không có bài viết nào được hiển thị'}
         </Typography.Text>
       </Flex>

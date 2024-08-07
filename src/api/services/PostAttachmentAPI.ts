@@ -25,9 +25,9 @@ export default {
         throwErrorFormatter(error)
       })
   },
-  getItem: async (id: number, accessToken: string): Promise<ResponseDataType | undefined> => {
+  getItem: async (key: string | number, accessToken: string): Promise<ResponseDataType | undefined> => {
     return client
-      .get(`${NAMESPACE}/${id}`, {
+      .get(`${NAMESPACE}/${key}`, {
         headers: {
           authorization: accessToken
         }
@@ -40,7 +40,7 @@ export default {
       })
   },
   getItemBy: async (
-    query: { field: string; key: React.Key },
+    query: { field: string; key: string | number },
     accessToken: string
   ): Promise<ResponseDataType | undefined> => {
     return client
@@ -76,9 +76,13 @@ export default {
         throwErrorFormatter(error)
       })
   },
-  updateItem: async (id: number, item: PostAttachment, accessToken: string): Promise<ResponseDataType | undefined> => {
+  updateItem: async (
+    key: string | number,
+    item: PostAttachment,
+    accessToken: string
+  ): Promise<ResponseDataType | undefined> => {
     return client
-      .put(`${NAMESPACE}/${id}`, item, {
+      .put(`${NAMESPACE}/${key}`, item, {
         headers: {
           authorization: accessToken
         }
@@ -117,9 +121,9 @@ export default {
         throwErrorFormatter(error)
       })
   },
-  deleteItemByPk: async (id: number, accessToken: string): Promise<ResponseDataType | undefined> => {
+  deleteItemByPk: async (key: string | number, accessToken: string): Promise<ResponseDataType | undefined> => {
     return client
-      .delete(`${NAMESPACE}/${id}`, {
+      .delete(`${NAMESPACE}/${key}`, {
         headers: {
           authorization: accessToken
         }

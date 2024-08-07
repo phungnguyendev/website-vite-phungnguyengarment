@@ -37,19 +37,19 @@ const AboutProcedure: React.FC<AboutProcedureProps> = ({
             <Flex vertical gap={10} justify='start' align='start'>
               <Flex align='center' gap={10}>
                 <Flex
-                  className='bg-secondPrimary h-[54px] min-h-[54px] w-[54px] min-w-[54px] rounded-full md:h-[64px] md:min-h-[64px] md:w-[64px] md:min-w-[64px]'
+                  className='h-[54px] min-h-[54px] w-[54px] min-w-[54px] rounded-full bg-secondPrimary md:h-[64px] md:min-h-[64px] md:w-[64px] md:min-w-[64px]'
                   justify='center'
                   align='center'
                 >
                   <Text className='font-roboto-condensed text-[32px] font-bold text-white'>{index}</Text>
                 </Flex>
-                <Text className='text-secondPrimary font-roboto-condensed text-2xl font-bold'>{title}</Text>
+                <Text className='font-roboto-condensed text-2xl font-bold text-secondPrimary'>{title}</Text>
               </Flex>
               <Paragraph className='text-base'>{desc}</Paragraph>
             </Flex>
           </Flex>
-          <Flex vertical gap={20} justify='start' align='center' className='h-[320px] w-full md:w-1/2'>
-            <img src={imageURL} className='h-full w-full object-cover' />
+          <Flex vertical gap={20} justify='start' align='center' className='h-[320px] w-full md:w-1/2 lg:h-[420px]'>
+            <img src={imageURL} className='pointer-events-none h-full w-full object-cover' />
           </Flex>
         </Flex>
       </Flex>

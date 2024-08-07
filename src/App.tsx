@@ -6,6 +6,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import Main from './components/layout/Main'
 import routes from './config/route.config'
+import CareerPostDetail from './pages/career/components/CareerPostDetail'
 import PostDetail from './pages/post/components/PostDetail'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           )
         })}
         <Route path='tin-tuc-va-su-kien/:postID' element={<PostDetail />} />
+        <Route path='tuyen-dung/:routeTitle' element={<CareerPostDetail />} />
       </Route>
     </Routes>
   )

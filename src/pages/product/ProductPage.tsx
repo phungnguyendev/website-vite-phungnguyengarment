@@ -15,7 +15,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <BaseLayout header={<Head imageURL={a4} title='About PHUNG NGUYEN PROJECT' />}>
+      <BaseLayout header={<Head imageURL={a4} title='About PHUNG NGUYEN PRODUCT' />}>
         <Flex vertical gap={40}>
           <Section
             titleProps={{

@@ -1,23 +1,23 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { User } from '~/typing'
-import { setUserAction, setUserResetPasswordAction } from '../actions-creator'
+import { User, UserRoleType } from '~/typing'
+import { setUser, setUserRole } from '../actions-creator'
 
-interface AppUser {
+interface UserState {
   user: User
-  userTemp: { user: User; isResetPassword: boolean }
+  roles: UserRoleType[]
 }
 
-const initialState: AppUser = {
+const initialState: UserState = {
   user: {},
-  userTemp: { user: {}, isResetPassword: false }
+  roles: []
 }
 
 const userReducer = createReducer(initialState, (builder) => {
-  builder.addCase(setUserAction, (state, action) => {
+  builder.addCase(setUser, (state, action) => {
     state.user = action.payload
   })
-  builder.addCase(setUserResetPasswordAction, (state, action) => {
-    state.userTemp = action.payload
+  builder.addCase(setUserRole, (state, action) => {
+    state.roles = action.payload
   })
 })
 

@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {}
 const Specification: React.FC<Props> = ({ ...props }) => {
   return (
     <Flex className={cn('bg-white shadow-sm', props.className)}>
-      <Row gutter={[24, 24]} className='w-full'>
+      <Row gutter={[20, 20]} className='w-full'>
         <SpecificationItem
           item={{
             icon: MemberIcon,

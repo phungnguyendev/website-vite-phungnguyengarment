@@ -10,7 +10,11 @@ export interface NavItemProps extends React.HTMLAttributes<HTMLElement> {
 const NavItem: React.FC<NavItemProps> = ({ route, ...props }) => {
   return (
     <>
-      <Link {...props} to={route.path} className={cn('text-base text-foreground hover:text-primary', props.className)}>
+      <Link
+        {...props}
+        to={route.path}
+        className={cn('font-medium text-foreground hover:text-primary', props.className)}
+      >
         {route.name}
       </Link>
     </>

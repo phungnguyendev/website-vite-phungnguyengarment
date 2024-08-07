@@ -31,7 +31,7 @@ const PostHeroItem: React.FC<Props> = ({ item, ...props }) => {
               <Typography.Paragraph className='italic text-white'>
                 {textValidatorDisplay(dateFormatter(item.publishedAt, 'dateTime'))}
               </Typography.Paragraph>
-              <Typography.Text className='text-3xl font-medium text-white'>
+              <Typography.Text className='line-clamp-3 text-xl font-medium text-white md:line-clamp-none md:text-3xl'>
                 {textValidatorDisplay(item.title)}
               </Typography.Text>
             </Flex>

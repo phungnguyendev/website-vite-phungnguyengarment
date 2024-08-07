@@ -19,9 +19,9 @@ export default {
         throwErrorFormatter(error)
       })
   },
-  getItemByPk: async (id: number, accessToken: string): Promise<ResponseDataType> => {
+  getItemByPk: async (key: string | number, accessToken: string): Promise<ResponseDataType> => {
     return client
-      .get(`${NAMESPACE}/${id}`, {
+      .get(`${NAMESPACE}/${key}`, {
         headers: {
           authorization: accessToken
         }
@@ -47,9 +47,13 @@ export default {
         throwErrorFormatter(error)
       })
   },
-  updateItemByPk: async (id: number, itemToUpdate: Category, accessToken: string): Promise<ResponseDataType> => {
+  updateItemByPk: async (
+    key: string | number,
+    itemToUpdate: Category,
+    accessToken: string
+  ): Promise<ResponseDataType> => {
     return client
-      .patch(`${NAMESPACE}/${id}`, itemToUpdate, {
+      .patch(`${NAMESPACE}/${key}`, itemToUpdate, {
         headers: {
           authorization: accessToken
         }
@@ -75,9 +79,9 @@ export default {
         throwErrorFormatter(error)
       })
   },
-  deleteItemByPk: async (id: number, accessToken: string): Promise<ResponseDataType> => {
+  deleteItemByPk: async (key: string | number, accessToken: string): Promise<ResponseDataType> => {
     return client
-      .delete(`${NAMESPACE}/${id}`, {
+      .delete(`${NAMESPACE}/${key}`, {
         headers: {
           authorization: accessToken
         }

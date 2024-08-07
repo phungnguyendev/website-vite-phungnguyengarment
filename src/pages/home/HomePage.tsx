@@ -1,4 +1,4 @@
-import { Button, Col, Flex, Image, Row, Typography } from 'antd'
+import { Button, Col, Flex, Row, Typography } from 'antd'
 import { Link } from 'react-router-dom'
 import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
@@ -8,6 +8,7 @@ import BannerCarousel from './components/banner/BannerCarousel'
 import Specification from './components/specification/Specification'
 // import required modules
 import { a0 } from '~/assets'
+import ImageView from '~/components/sky-ui/ImageView'
 import SwiperSlider from '~/components/sky-ui/SwiperSlider'
 import PostItem from '../post/components/PostItem'
 import ProductItem from '../product/components/ProductItem'
@@ -36,7 +37,7 @@ const HomePage: React.FC = () => {
         >
           <Row gutter={[20, 20]}>
             <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12}>
-              <Image src={a0} width='100%' height='368px' className='object-cover' preview={false} />
+              <ImageView src={a0} width='100%' height='368px' className='pointer-events-none object-cover ' />
             </Col>
             <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12}>
               <Flex vertical className='h-full' justify='space-between'>

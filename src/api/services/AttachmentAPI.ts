@@ -19,9 +19,9 @@ export default {
         throwErrorFormatter(error)
       })
   },
-  getItem: async (id: number, accessToken: string): Promise<ResponseDataType | undefined> => {
+  getItem: async (key: string | number, accessToken: string): Promise<ResponseDataType | undefined> => {
     return client
-      .get(`${NAMESPACE}/${id}`, {
+      .get(`${NAMESPACE}/${key}`, {
         headers: {
           authorization: accessToken
         }
@@ -34,11 +34,11 @@ export default {
       })
   },
   getItemBy: async (
-    query: { field: string; id: number },
+    query: { field: string; key: string | number },
     accessToken: string
   ): Promise<ResponseDataType | undefined> => {
     return client
-      .get(`${NAMESPACE}/${query.field}/${query.id}`, {
+      .get(`${NAMESPACE}/${query.field}/${query.key}`, {
         headers: {
           authorization: accessToken
         }
@@ -70,9 +70,13 @@ export default {
         throwErrorFormatter(error)
       })
   },
-  updateItem: async (id: number, itemToUpdate: Prize, accessToken: string): Promise<ResponseDataType | undefined> => {
+  updateItem: async (
+    key: string | number,
+    itemToUpdate: Prize,
+    accessToken: string
+  ): Promise<ResponseDataType | undefined> => {
     return client
-      .put(`${NAMESPACE}/${id}`, itemToUpdate, {
+      .put(`${NAMESPACE}/${key}`, itemToUpdate, {
         headers: {
           authorization: accessToken
         }
@@ -98,9 +102,9 @@ export default {
         throwErrorFormatter(error)
       })
   },
-  deleteItemByPk: async (id: number, accessToken: string): Promise<ResponseDataType | undefined> => {
+  deleteItemByPk: async (key: string | number, accessToken: string): Promise<ResponseDataType | undefined> => {
     return client
-      .delete(`${NAMESPACE}/${id}`, {
+      .delete(`${NAMESPACE}/${key}`, {
         headers: {
           authorization: accessToken
         }

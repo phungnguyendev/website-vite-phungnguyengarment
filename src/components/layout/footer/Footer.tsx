@@ -1,8 +1,9 @@
-import { App, Button, Flex, Form, Input, Typography } from 'antd'
-import { Dribbble, Facebook, Instagram, Mail, MapPin, Phone, PhoneCall, SendHorizontal, Youtube } from 'lucide-react'
+import { Flex, Typography } from 'antd'
+import { Dribbble, Facebook, Instagram, Mail, MapPin, Phone, PhoneCall, Youtube } from 'lucide-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Logo } from '~/assets'
+import appConfig from '~/config/app.config'
 import routes from '~/config/route.config'
 import { cn } from '~/utils/helpers'
 import ContactItem from './ContactItem'
@@ -13,26 +14,14 @@ interface FooterProps extends React.HTMLAttributes<HTMLElement> {}
 const { Text, Paragraph } = Typography
 
 function Footer({ ...props }: FooterProps) {
-  const { message } = App.useApp()
-  const [form] = Form.useForm()
-
-  const handleSendMailClicked = async () => {
-    try {
-      await form
-        .validateFields()
-        .then((values) => {
-          console.log(values)
-        })
-        .catch((reason) => {
-          throw new Error(reason)
-        })
-    } catch (error: any) {
-      message.error(error.message)
-    }
+  const contact = {
+    email: appConfig.contact.work.email,
+    phone: appConfig.contact.work.phone,
+    address: 'QL 30, Ấp Trung, Xã Tân Thạnh, Huyện Thanh Bình, Tỉnh Đồng Tháp, Việt Nam (Chi Nhánh Phụng Nguyên)'
   }
 
   return (
-    <footer {...props} className='relative pt-10'>
+    <footer {...props} className='relative pt-5'>
       <Flex vertical gap={40}>
         {/* Top layout */}
         <Flex vertical className='relative h-fit w-full'>
@@ -67,22 +56,20 @@ function Footer({ ...props }: FooterProps) {
                         <PhoneCall size={24} className='text-secondPrimary' />
                         <Flex vertical>
                           <Typography.Text className='font-bold text-white'>Phone</Typography.Text>
-                          <Typography.Paragraph copyable className='text-white'>
-                            (+84) 949 071 286
-                          </Typography.Paragraph>
+                          <Typography.Paragraph className='text-base text-white'>{contact.phone}</Typography.Paragraph>
                         </Flex>
                       </Flex>
                       <Flex gap={10}>
                         <Mail size={24} className='text-secondPrimary' />
                         <Flex vertical>
                           <Typography.Text className='font-bold text-white'>Email</Typography.Text>
-                          <Typography.Paragraph copyable className='text-white'>
-                            info@phungnguyengarment.vn
+                          <Typography.Paragraph copyable className='text-base text-white'>
+                            {contact.email}
                           </Typography.Paragraph>
                         </Flex>
                       </Flex>
                     </Flex>
-                    <Flex justify='center'>
+                    {/* <Flex justify='center'>
                       <Button
                         type='primary'
                         size='large'
@@ -91,7 +78,7 @@ function Footer({ ...props }: FooterProps) {
                       >
                         Liên hệ
                       </Button>
-                    </Flex>
+                    </Flex> */}
                   </Flex>
                 </Flex>
               </Flex>
@@ -123,7 +110,7 @@ function Footer({ ...props }: FooterProps) {
                     email, chúng tôi sẽ cung cấp thông tin vào hộp thư cho bạn!
                   </Paragraph>
                 </Flex>
-                <Flex className='h-fit w-full lg:w-1/2' justify='center' align='end'>
+                {/* <Flex className='h-fit w-full lg:w-1/2' justify='center' align='end'>
                   <Form form={form} className='m-0 h-fit w-full p-0'>
                     <Flex gap={20} className='w-full flex-col items-center sm:flex-row'>
                       <Form.Item name='email' className='m-0 w-full p-0'>
@@ -149,7 +136,7 @@ function Footer({ ...props }: FooterProps) {
                       </Form.Item>
                     </Flex>
                   </Form>
-                </Flex>
+                </Flex> */}
               </Flex>
             </Flex>
           </Flex>
@@ -190,16 +177,13 @@ function Footer({ ...props }: FooterProps) {
                   <Flex vertical gap={20} className='w-full md:w-1/2'>
                     <Typography.Text className='text-2xl font-bold text-white'>Liên hệ</Typography.Text>
                     <Flex vertical gap={10} className='text-white'>
-                      <ContactItem
-                        icon={<MapPin className='flex flex-shrink-0' size={24} />}
-                        text='QL 30, Ấp Trung, Xã Tân Thạnh, Huyện Thanh Bình, Tỉnh Đồng Tháp, Việt Nam (Chi Nhánh Phụng Nguyên)'
-                      />
+                      <ContactItem icon={<MapPin className='flex flex-shrink-0' size={24} />} text={contact.address} />
                       {/* <ContactItem
                       icon={<MapPin className='flex flex-shrink-0' size={24} />}
                       text='Số 90, Lộ Hoà Tây, Xã Hoà An, TP. Cao Lãnh, Tỉnh Đồng Tháp, Việt Nam (Chi nhánh Phụng Tình)'
                     /> */}
-                      <ContactItem icon={<Phone size={24} />} text='(+84) 949 071 286' />
-                      <ContactItem icon={<Mail size={24} />} text='info@phungnguyengarment.vn' />
+                      <ContactItem icon={<Phone size={24} />} text={contact.phone} />
+                      <ContactItem icon={<Mail size={24} />} text={contact.email} />
                     </Flex>
                   </Flex>
                 </Flex>

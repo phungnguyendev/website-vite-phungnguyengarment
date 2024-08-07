@@ -1,6 +1,7 @@
 import { CaretDownOutlined } from '@ant-design/icons'
 import { Flex, Select } from 'antd'
 import { ColumnsType } from 'antd/es/table'
+import { Link } from 'react-router-dom'
 import { a22 } from '~/assets'
 import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
@@ -8,7 +9,6 @@ import Head from '~/components/sky-ui/Head'
 import Section from '~/components/sky-ui/Section/Section'
 import SkyTable from '~/components/sky-ui/SkyTable/SkyTable'
 import SkyTableTypography from '~/components/sky-ui/SkyTable/SkyTableTypography'
-import { dateFormatter } from '~/utils/date-formatter'
 import { numberValidatorDisplay, textValidatorDisplay } from '~/utils/helpers'
 import { useCareerViewModel } from './hooks/useCareerViewModel'
 import { RecruitmentPostTableDataType } from './type'
@@ -36,24 +36,6 @@ const CareerPage = () => {
       }
     },
     {
-      title: 'Mức lương',
-      dataIndex: 'title',
-      width: '15%',
-      responsive: ['sm'],
-      render: (_value: any, record: RecruitmentPostTableDataType) => {
-        return <SkyTableTypography>{textValidatorDisplay(record.wage)}</SkyTableTypography>
-      }
-    },
-    {
-      title: 'Thời gian làm việc',
-      dataIndex: 'workingTime',
-      width: '20%',
-      responsive: ['sm'],
-      render: (_value: any, record: RecruitmentPostTableDataType) => {
-        return <SkyTableTypography>{textValidatorDisplay(record.workingTime)}</SkyTableTypography>
-      }
-    },
-    {
       title: 'Nơi làm việc',
       dataIndex: 'workingPlace',
       width: '20%',
@@ -63,16 +45,13 @@ const CareerPage = () => {
       }
     },
     {
-      title: 'Ngày hết hạn',
-      dataIndex: 'expirationDate',
-      width: '20%',
+      title: '',
+      dataIndex: '',
+      width: '10%',
+      align: 'center',
       responsive: ['sm'],
       render: (_value: any, record: RecruitmentPostTableDataType) => {
-        return (
-          <SkyTableTypography>
-            {textValidatorDisplay(dateFormatter(record.expirationDate, 'dateOnly'))}
-          </SkyTableTypography>
-        )
+        return <Link to={`${record.routeTitle}`}>Xem chi tiết</Link>
       }
     }
   ]

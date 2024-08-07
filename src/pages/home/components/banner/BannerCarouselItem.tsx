@@ -1,7 +1,7 @@
 import { Flex, Typography } from 'antd'
 import React, { HTMLAttributes } from 'react'
 import { HeroBanner } from '~/typing'
-import { cn, imageValidatorDisplay } from '~/utils/helpers'
+import { cn, imageValidatorDisplay, textValidatorDisplay } from '~/utils/helpers'
 
 export interface BannerCarouselItemProps extends HTMLAttributes<HTMLDivElement> {
   data: HeroBanner
@@ -23,25 +23,15 @@ const BannerCarouselItem: React.FC<BannerCarouselItemProps> = ({ data, ...props 
           gap={20}
           align='start'
           justify='center'
-          className='absolute bottom-5 left-5 z-10 w-2/3 md:bottom-10 md:left-10'
+          className='absolute bottom-0 left-0 right-0 z-10 m-5 md:m-10 md:w-2/3'
           vertical
         >
           <Typography.Text
-            className='w-fit rounded-sm
-                     font-roboto-condensed text-3xl font-semibold uppercase leading-10 text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl'
+            className='w-full rounded-sm
+                     font-roboto-condensed text-3xl font-semibold uppercase text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl'
           >
-            {data.title}
+            {textValidatorDisplay(data.title)}
           </Typography.Text>
-          {/* <Button className='w-fit rounded-sm' type='primary' size='large'>
-            <Link to={`/banner/${data.id}`}>
-              <Flex gap={10} align='center' justify='center'>
-                <span>Xem chi tiết</span>
-                <span>
-                  <MoveRight size={14} />
-                </span>
-              </Flex>
-            </Link>
-          </Button> */}
         </Flex>
       </Flex>
     </>

@@ -22,7 +22,7 @@ const PostPage = () => {
 
   return (
     <>
-      <BaseLayout header={<Head imageURL={newsBg} title='About PHUNG NGUYEN PROJECT' />}>
+      <BaseLayout header={<Head imageURL={newsBg} title='About PHUNG NGUYEN NEWS & EVENT' />}>
         <Flex vertical gap={40}>
           <Section
             titleProps={{
@@ -30,7 +30,7 @@ const PostPage = () => {
               position: 'center'
             }}
             subTitleProps={{
-              title: 'Sản Phẩm Của Chúng Tôi',
+              title: 'Tin tức & Sự kiện về Phụng Nguyên',
               position: 'center',
               size: 'middle'
             }}

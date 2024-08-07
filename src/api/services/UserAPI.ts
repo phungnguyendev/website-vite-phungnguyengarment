@@ -17,9 +17,9 @@ export default {
         throwErrorFormatter(error)
       })
   },
-  getItem: async (id: number): Promise<ResponseDataType | undefined> => {
+  getItem: async (key: string | number): Promise<ResponseDataType | undefined> => {
     return client
-      .get(`${NAMESPACE}/${id}`)
+      .get(`${NAMESPACE}/${key}`)
       .then((res) => {
         return responseFormatter(res)
       })
@@ -27,7 +27,7 @@ export default {
         throwErrorFormatter(error)
       })
   },
-  getItemBy: async (query: { field: string; key: React.Key }): Promise<ResponseDataType | undefined> => {
+  getItemBy: async (query: { field: string; key: string | number }): Promise<ResponseDataType | undefined> => {
     return client
       .get(`${NAMESPACE}/${query.field}/${query.key}`)
       .then((res) => {
@@ -49,9 +49,9 @@ export default {
         throwErrorFormatter(error)
       })
   },
-  updateItem: async (id: number, item: User): Promise<ResponseDataType | undefined> => {
+  updateItem: async (key: string | number, item: User): Promise<ResponseDataType | undefined> => {
     return await client
-      .put(`${NAMESPACE}/${id}`, item)
+      .put(`${NAMESPACE}/${key}`, item)
       .then((res) => {
         return responseFormatter(res)
       })
@@ -75,9 +75,9 @@ export default {
         throwErrorFormatter(error)
       })
   },
-  deleteItemByPk: async (id: number): Promise<ResponseDataType | undefined> => {
+  deleteItemByPk: async (key: string | number): Promise<ResponseDataType | undefined> => {
     return client
-      .delete(`${NAMESPACE}/${id}`)
+      .delete(`${NAMESPACE}/${key}`)
       .then((res) => {
         return responseFormatter(res)
       })

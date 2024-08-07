@@ -129,9 +129,16 @@ export interface RecruitmentPost {
   jobSectorID?: number
   quantity?: number
   wage?: string
+  age?: string
+  sex?: string
+  academicLevel?: string
+  routeTitle?: string
   workingTime?: string
   workingPlace?: string
   expirationDate?: string
+  jobDescription?: string
+  required?: string
+  benefits?: string
   orderNumber?: number
   createdAt?: string
   updatedAt?: string
