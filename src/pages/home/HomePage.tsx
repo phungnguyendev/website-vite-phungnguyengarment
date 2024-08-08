@@ -1,4 +1,4 @@
-import { Button, Col, Flex, Row, Typography } from 'antd'
+import { Skeleton as AntSkeleton, Button, Col, Flex, Row, Typography } from 'antd'
 import { Link } from 'react-router-dom'
 import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
@@ -7,6 +7,7 @@ import SectionTitle from '~/components/sky-ui/Section/SectionTitle'
 import BannerCarousel from './components/banner/BannerCarousel'
 import Specification from './components/specification/Specification'
 // import required modules
+import Skeleton from 'react-loading-skeleton'
 import { a0 } from '~/assets'
 import ImageView from '~/components/sky-ui/ImageView'
 import SwiperSlider from '~/components/sky-ui/SwiperSlider'
@@ -77,6 +78,12 @@ const HomePage: React.FC = () => {
         >
           <SwiperSlider
             dataSource={viewModel.homeProducts}
+            placeholder={
+              <>
+                <Skeleton height={216} />
+                <Skeleton className='mt-5' height={24} />
+              </>
+            }
             render={(record) => {
               return <ProductItem item={record} />
             }}
@@ -109,6 +116,12 @@ const HomePage: React.FC = () => {
         >
           <SwiperSlider
             dataSource={viewModel.posts}
+            placeholder={
+              <>
+                <Skeleton height={350} />
+                <AntSkeleton active className='absolute bottom-0 left-0 right-0 z-10 p-5' />
+              </>
+            }
             render={(record) => {
               return <PostItem item={record} />
             }}

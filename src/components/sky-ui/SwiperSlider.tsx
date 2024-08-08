@@ -11,6 +11,7 @@ interface SwiperSliderRequiredDataType {
 export interface SwiperSliderProps<T extends SwiperSliderRequiredDataType> extends SwiperProps {
   dataSource: T[]
   loading?: boolean
+  placeholder?: React.ReactNode
   render: (record: T) => React.ReactNode
 }
 
@@ -18,6 +19,7 @@ const SwiperSlider = <T extends SwiperSliderRequiredDataType>({
   loading,
   dataSource,
   render,
+  placeholder,
   ...props
 }: SwiperSliderProps<T>) => {
   return (
@@ -66,9 +68,11 @@ const SwiperSlider = <T extends SwiperSliderRequiredDataType>({
           : Array.from({ length: 10 }, (_, index) => {
               return (
                 <SwiperSlide key={index}>
-                  <Flex vertical gap={8} className='items-center justify-center md:items-start'>
-                    <Skeleton className='w-full sm:w-[95%]' active avatar title paragraph={false} />
-                  </Flex>
+                  {placeholder ?? (
+                    <Flex vertical gap={8} className='items-center justify-center md:items-start'>
+                      <Skeleton className='w-full sm:w-[95%]' active avatar title paragraph={false} />
+                    </Flex>
+                  )}
                 </SwiperSlide>
               )
             })}

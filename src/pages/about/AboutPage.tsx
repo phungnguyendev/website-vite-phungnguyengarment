@@ -1,4 +1,5 @@
-import { Col, Flex, Row, Typography } from 'antd'
+import { Skeleton as AntSkeleton, Col, Flex, Row, Typography } from 'antd'
+import Skeleton from 'react-loading-skeleton'
 import { About, NoImage, PhungNguyenCertification, a1, a10, a11, a2, a3, a8, a9 } from '~/assets'
 import { ArcheryIcon, MissionIcon, VisionIcon } from '~/assets/icons'
 import useTitle from '~/components/hooks/useTitle'
@@ -205,6 +206,12 @@ const AboutPage = () => {
               }
             }}
             dataSource={viewModel.prizes}
+            placeholder={
+              <>
+                <Skeleton height={450} />
+                <AntSkeleton className='absolute bottom-0 left-0 right-0 z-10 p-5' active />
+              </>
+            }
             render={(record) => {
               return <AboutPrizeSliderCard item={record} />
             }}

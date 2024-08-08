@@ -149,10 +149,6 @@ export const getBase64 = (file: FileType): Promise<string> =>
     reader.onerror = (error) => reject(error)
   })
 
-export const getPublicUrlGoogleDrive = (fileId: string): string => {
-  return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`
-}
-
 export const lastPath = (pathname: string): string => {
   const arrPath = pathname.split('/')
   const path = arrPath[arrPath.length - 1]
@@ -194,7 +190,6 @@ export function isValidDate(value?: string | number | Date | dayjs.Dayjs | null 
 }
 
 // Hàm kiểm tra object hợp lệ
-// eslint-disable-next-line @typescript-eslint/ban-types
 export function isValidObject<T extends { id?: number }>(value?: T | null | undefined): value is T {
   return value ? typeof value === 'object' && isValidNumber(value.id) : false
 }

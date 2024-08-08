@@ -1,5 +1,6 @@
-import { Col, Row, RowProps, Skeleton } from 'antd'
+import { Col, Row, RowProps } from 'antd'
 import React from 'react'
+import Skeleton from 'react-loading-skeleton'
 import { Project } from '~/typing'
 import ServiceProjectCard from '../ServiceProjectCard'
 
@@ -19,7 +20,7 @@ const ServiceProjectList: React.FC<Props> = ({ items, ...props }) => {
           : Array.from({ length: 8 }, (_, index) => {
               return (
                 <Col key={index} xs={24} md={8} lg={6}>
-                  <Skeleton.Image active />
+                  <Skeleton width='100%' height={420} />
                 </Col>
               )
             })}

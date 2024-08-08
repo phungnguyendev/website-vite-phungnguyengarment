@@ -1,9 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
 import userReducer from '~/store/reducer/userReducer'
-import appReducer from './reducer/app.reducer'
 
 export const store = configureStore({
-  reducer: { user: userReducer, app: appReducer }
+  reducer: { user: userReducer }
 })
 
 // Lấy RootState và AppDispatch từ store chung
