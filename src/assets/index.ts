@@ -1,4 +1,3 @@
-import BG2 from './images/BG-2.png'
 import a0 from './images/a0.jpg'
 import a1 from './images/a1.jpg'
 import a10 from './images/a10.png'
@@ -28,7 +27,6 @@ import NoImage from './no-image.jpg'
 export {
   About,
   About2,
-  BG2,
   Logo,
   NoImage,
   PhungNguyenCertification,
