@@ -49,7 +49,6 @@ const CareerPage = () => {
       dataIndex: '',
       width: '10%',
       align: 'center',
-      responsive: ['sm'],
       render: (_value: any, record: RecruitmentPostTableDataType) => {
         return <Link to={`${record.routeTitle}`}>Xem chi tiết</Link>
       }
