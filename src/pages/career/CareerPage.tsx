@@ -72,7 +72,7 @@ const CareerPage = () => {
             <Flex gap={20}>
               <Select
                 defaultValue={-1}
-                style={{ width: 200 }}
+                className='w-full sm:w-[350px]'
                 onChange={viewModel.handleJobSectorChange}
                 suffixIcon={<CaretDownOutlined />}
                 options={viewModel.jobSectors.map((item) => {
