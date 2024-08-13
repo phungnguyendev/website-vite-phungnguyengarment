@@ -16,9 +16,9 @@ const ServiceProjectCard: React.FC<Props> = ({ item, ...props }) => {
           <Flex
             justify='center'
             align='center'
-            className='absolute bottom-0 left-0 right-0 top-0 z-10 bg-black bg-opacity-50 opacity-0 transition-opacity duration-500 content-[""] group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-500'
+            className='absolute bottom-0 left-0 right-0 top-0 z-10 bg-black bg-opacity-50 p-10 opacity-0 transition-opacity duration-500 content-[""] group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-500'
           >
-            <Typography.Text className='text-xl font-semibold text-white'>
+            <Typography.Text className='text-center text-xl font-semibold text-white'>
               {textValidatorDisplay(item.title)}
             </Typography.Text>
           </Flex>

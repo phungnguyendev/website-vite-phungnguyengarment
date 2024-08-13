@@ -150,7 +150,7 @@ function Footer({ ...props }: FooterProps) {
                     <Text className='text-2xl font-black uppercase text-white'>PHUNG NGUYEN GARMENT</Text>
                   </Flex>
                   <Paragraph className='text-white'>
-                    Copyright © 2020 PHUNG NGUYEN GAR CO.,LTD. <br /> All rights reserved
+                    Copyright © 2024 PHUNG NGUYEN GAR CO.,LTD. <br /> All rights reserved
                   </Paragraph>
                   <Flex gap={10}>
                     <SocialItem to='#' icon={<Facebook size={24} />} />
