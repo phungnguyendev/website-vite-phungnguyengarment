@@ -2,7 +2,7 @@
   "name": "vite-phungnguyen-management-webapp",
   "private": true,
   "version": "0.0.0",
-  "homepage": "http://phungnguyen.management.app/",
+  "homepage": "https://phungnguyengarment.vn/",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -1,7 +1,6 @@
 import { Flex, Typography } from 'antd'
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
-import ImageView from '~/components/sky-ui/ImageView'
 import { Prize } from '~/typing'
 import { imageValidatorDisplay, numberValidator, textValidatorDisplay } from '~/utils/helpers'
 
@@ -14,8 +13,9 @@ const AboutPrizeSliderCard: React.FC<AboutPrizeSliderCardProps> = ({ item }) => 
     <>
       {numberValidator(item.id) ? (
         <Flex className='relative h-[450px] w-full lg:h-[550px]'>
-          <ImageView
+          <img
             src={imageValidatorDisplay(item.imageUrl)}
+            alt='image-prize'
             className='pointer-events-none z-0 h-full w-full object-cover'
           />
           <Flex className='before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:z-10 before:bg-gradient-to-t before:from-blackFriday before:content-[""]'>

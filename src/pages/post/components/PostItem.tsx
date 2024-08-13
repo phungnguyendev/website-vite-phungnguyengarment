@@ -1,7 +1,6 @@
 import { Card, Typography } from 'antd'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ImageView from '~/components/sky-ui/ImageView'
 import { Post } from '~/typing'
 import { dateTimeValidatorDisplay, imageValidatorDisplay, textValidatorDisplay } from '~/utils/helpers'
 
@@ -20,10 +19,12 @@ const PostItem: React.FC<PostItemProps> = ({ item, ...props }) => {
           {...props}
           className='h-[350px] w-full'
           cover={
-            <ImageView
+            <img
               src={imageValidatorDisplay(item.imageUrl)}
               alt='img-post'
-              className='h-[220px] w-full object-cover'
+              width={220}
+              height={220}
+              className='w-full min-w-[220px] object-cover'
             />
           }
         >

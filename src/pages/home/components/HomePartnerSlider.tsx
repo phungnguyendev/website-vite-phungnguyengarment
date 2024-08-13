@@ -22,6 +22,7 @@ const HomePartnerSlider: React.FC<HomePartnerSliderProps> = ({ items, ...props }
             return (
               <Image
                 src={imageValidatorDisplay(item.imageUrl)}
+                alt='image-partner'
                 preview={false}
                 width='120px'
                 height='35px'

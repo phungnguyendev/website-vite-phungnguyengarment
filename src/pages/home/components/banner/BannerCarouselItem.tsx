@@ -17,7 +17,13 @@ const BannerCarouselItem: React.FC<BannerCarouselItemProps> = ({ data, ...props 
         )}
       >
         <Flex className='h-[380px] w-full object-cover sm:h-[480px] md:h-[580px] lg:h-[680px]'>
-          <img src={imageValidatorDisplay(data.imageUrl)} width='100%' height='100%' className='object-cover' />
+          <img
+            src={imageValidatorDisplay(data.imageUrl)}
+            alt='image-banner'
+            width='100%'
+            height='100%'
+            className='object-cover'
+          />
         </Flex>
         <Flex
           gap={20}

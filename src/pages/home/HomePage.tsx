@@ -38,7 +38,13 @@ const HomePage: React.FC = () => {
         >
           <Row gutter={[20, 20]}>
             <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12}>
-              <ImageView src={a0} width='100%' height='368px' className='pointer-events-none object-cover ' />
+              <ImageView
+                src={a0}
+                width='100%'
+                height='368px'
+                alt='img-about'
+                className='pointer-events-none object-cover '
+              />
             </Col>
             <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12}>
               <Flex vertical className='h-full' justify='space-between'>

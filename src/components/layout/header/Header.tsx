@@ -26,7 +26,7 @@ const Header: React.FC<Props> = ({ ...props }) => {
             <AlignJustify />
           </Button>
           <Link to='/' className='absolute z-10 h-[46px] w-[46px] md:relative'>
-            <img src={Logo} className=' h-full w-full object-contain' />
+            <img src={Logo} alt='logo' width={46} height={46} className='object-contain' />
           </Link>
           <Flex gap={20} justify='center' align='center' className='mr-[46px] hidden w-full md:flex'>
             {routes.map((route, index) => {

@@ -13,7 +13,11 @@ const ProductCategoryCard: React.FC<Props> = ({ icon, title, ...props }) => {
       <Col {...props} xs={12} md={8} lg={6} xl={4}>
         <Card hoverable>
           <Flex vertical gap={20} justify='center' align='center'>
-            <img src={imageValidatorDisplay(icon)} className='h-[64px] w-[64px] object-contain' />
+            <img
+              src={imageValidatorDisplay(icon)}
+              alt='image-product-category'
+              className='h-[64px] w-[64px] object-contain'
+            />
             <Flex className='h-[32px]'>
               <Typography.Text className='text-center font-roboto-condensed text-base font-bold'>
                 {textValidatorDisplay(title)}

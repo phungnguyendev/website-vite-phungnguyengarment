@@ -17,11 +17,17 @@ const PostHeroItem: React.FC<Props> = ({ item, ...props }) => {
         <Link to={`${item.id}`}>
           <Flex
             className={cn(
-              'relative h-[372px] w-full overflow-hidden rounded-lg bg-black md:h-[572px]',
+              'relative h-[372px] w-screen overflow-hidden rounded-lg bg-black md:h-[572px]',
               props.className
             )}
           >
-            <img src={imageValidatorDisplay(item.imageUrl)} className='h-full w-full object-cover' />
+            <img
+              src={imageValidatorDisplay(item.imageUrl)}
+              alt='image-post-hero'
+              width='100vw'
+              height={572}
+              className='h-[372px] w-screen object-cover md:h-[572px]'
+            />
             <Flex
               align='start'
               justify='end'

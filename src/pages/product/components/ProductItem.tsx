@@ -14,6 +14,7 @@ const ProductItem: React.FC<Props> = ({ item, ...props }) => {
         <Flex className='h-[216px] w-full duration-300 group-hover:scale-110 group-hover:transition-all'>
           <img
             src={imageValidatorDisplay(item.imageUrl)}
+            alt='image-product'
             className='pointer-events-none h-[216px] w-full object-contain '
           />
         </Flex>
