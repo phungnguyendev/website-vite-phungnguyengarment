@@ -1,6 +1,6 @@
 import { Skeleton as AntSkeleton, Col, Flex, Row, Typography } from 'antd'
 import Skeleton from 'react-loading-skeleton'
-import { About, NoImage, PhungNguyenCertification, a1, a10, a11, a2, a3, a8, a9 } from '~/assets'
+import { About, PhungNguyenCertification, a1, a10, a11, a15, a2, a3, a8, a9 } from '~/assets'
 import { ArcheryIcon, MissionIcon, VisionIcon } from '~/assets/icons'
 import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
@@ -130,7 +130,7 @@ const AboutPage = () => {
           />
           <AboutProcedure
             index='3'
-            imageURL={NoImage}
+            imageURL={a15}
             direction='left'
             title='Trải vải, cắt tạo bán thành phẩm'
             desc='Sau khi đã thiết kế rập, việc tiếp theo là trải vải đúng với sơ đồ. Các xưởng may lớn hiện nay họ có hệ thống máy nâng vải, máy trải vải, bàn trải vải hiện đại, được thực hiện tự động 100%. Ngược lại, với các cơ sở sản xuất nhỏ, việc trải vải cần ít nhất 2 nhân công thực hiện bằng phương pháp thủ công.

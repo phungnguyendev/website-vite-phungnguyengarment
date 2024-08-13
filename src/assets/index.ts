@@ -5,6 +5,7 @@ import a11 from './images/a11.jpg'
 import a12 from './images/a12.png'
 import a13 from './images/a13.png'
 import a14 from './images/a14.png'
+import a15 from './images/a15.jpg'
 import a2 from './images/a2.png'
 import a20 from './images/a20.jpg'
 import a21 from './images/a21.jpg'
@@ -37,6 +38,7 @@ export {
   a12,
   a13,
   a14,
+  a15,
   a2,
   a20,
   a21,

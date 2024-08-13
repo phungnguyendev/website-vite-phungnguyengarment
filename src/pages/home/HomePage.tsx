@@ -98,14 +98,14 @@ const HomePage: React.FC = () => {
         <Section className='relative gap-[40px] md:gap-[80px]'>
           <Flex className='relative h-full w-full' vertical justify='center' align='center'>
             <SectionTitle
-              className='absolute top-0 z-10 w-fit -translate-y-1/2'
+              className='absolute top-0 z-10 w-fit -translate-y-1/2 select-none'
               title='Partner'
               position='center'
               underline={false}
               size='large'
             />
             <SectionTitle
-              className='absolute top-0 z-0 -translate-y-1/2 text-7xl opacity-25 md:text-9xl'
+              className='absolute top-0 z-0 -translate-y-1/2 select-none text-7xl opacity-25 md:text-9xl'
               title='Partner'
               position='center'
               underline={false}
