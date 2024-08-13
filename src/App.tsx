@@ -7,6 +7,7 @@ import 'swiper/css/pagination'
 import Main from './components/layout/Main'
 import routes from './config/route.config'
 import CareerPostDetail from './pages/career/components/CareerPostDetail'
+import ErrorPage from './pages/ErrorPage'
 import PostDetail from './pages/post/components/PostDetail'
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path='tin-tuc-va-su-kien/:postID' element={<PostDetail />} />
         <Route path='tuyen-dung/:routeTitle' element={<CareerPostDetail />} />
       </Route>
+      <Route path='*' element={<ErrorPage />} />
     </Routes>
   )
 }

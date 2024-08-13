@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+>
   <url>
-    <loc>https://phungnguyengarment.vn/tin-tuc-va-su-kien/thu-tuong-pham-minh-chinh-den-new-delhi-bat-dau-chuyen-tham-cap-nha-nuoc-an-do</loc>
+    <loc
+      >https://phungnguyengarment.vn/tin-tuc-va-su-kien/thu-tuong-pham-minh-chinh-den-new-delhi-bat-dau-chuyen-tham-cap-nha-nuoc-an-do</loc
+    >
     <lastmod>2024-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://phungnguyengarment.vn/tin-tuc-va-su-kien/ban-hung-ca-oanh-liet-cua-hai-quan-nhan-dan-viet-nam-va-quan-dan-mien-bac</loc>
+    <loc
+      >https://phungnguyengarment.vn/tin-tuc-va-su-kien/ban-hung-ca-oanh-liet-cua-hai-quan-nhan-dan-viet-nam-va-quan-dan-mien-bac</loc
+    >
     <lastmod>2024-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://phungnguyengarment.vn/tin-tuc-va-su-kien/thanh-uy-tp-hochiminh-dang-xy-ly-can-bo-lien-quan-vu-aic-van-thinh-phat</loc>
+    <loc
+      >https://phungnguyengarment.vn/tin-tuc-va-su-kien/thanh-uy-tp-hochiminh-dang-xy-ly-can-bo-lien-quan-vu-aic-van-thinh-phat</loc
+    >
     <lastmod>2024-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://phungnguyengarment.vn/tin-tuc-va-su-kien/luat-dat-dai-can-duoc-trien-khai-tu-som-tu-xa-de-mang-lai-quyen-loi-cho-nguoi-su-dung-dat</loc>
+    <loc
+      >https://phungnguyengarment.vn/tin-tuc-va-su-kien/luat-dat-dai-can-duoc-trien-khai-tu-som-tu-xa-de-mang-lai-quyen-loi-cho-nguoi-su-dung-dat</loc
+    >
     <lastmod>2024-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://phungnguyengarment.vn/tin-tuc-va-su-kien/lanh-dao-tinh-dong-thap-va-doan-cong-tac-da-den-tham-nam-bat-tinh-hinh-hoat-dong-cua-cong-ty-tnhh-mtv-may-mac-phung-nguyen-tai-xa-tan-thanh-huyen-thanh-binh-tinh-dong-thap</loc>
+    <loc
+      >https://phungnguyengarment.vn/tin-tuc-va-su-kien/lanh-dao-tinh-dong-thap-va-doan-cong-tac-da-den-tham-nam-bat-tinh-hinh-hoat-dong-cua-cong-ty-tnhh-mtv-may-mac-phung-nguyen-tai-xa-tan-thanh-huyen-thanh-binh-tinh-dong-thap</loc
+    >
     <lastmod>2024-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
