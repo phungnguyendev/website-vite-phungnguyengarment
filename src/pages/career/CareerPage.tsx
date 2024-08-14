@@ -3,18 +3,26 @@ import { Flex, Select } from 'antd'
 import { ColumnsType } from 'antd/es/table'
 import { Link } from 'react-router-dom'
 import { a22 } from '~/assets'
-import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
 import Head from '~/components/sky-ui/Head'
 import Section from '~/components/sky-ui/Section/Section'
 import SkyTable from '~/components/sky-ui/SkyTable/SkyTable'
 import SkyTableTypography from '~/components/sky-ui/SkyTable/SkyTableTypography'
+import useSEO from '~/hooks/useSEO'
 import { numberValidatorDisplay, textValidatorDisplay } from '~/utils/helpers'
 import { useCareerViewModel } from './hooks/useCareerViewModel'
 import { RecruitmentPostTableDataType } from './type'
 
 const CareerPage = () => {
-  useTitle('Tuyển dụng')
+  useSEO({
+    title: 'Tuyển Dụng - Phụng Nguyên Garment | Gia Nhập Đội Ngũ Chúng Tôi',
+    description:
+      'Khám phá cơ hội nghề nghiệp tại Phụng Nguyên Garment. Xem các vị trí tuyển dụng hiện có và gia nhập đội ngũ làm việc chuyên nghiệp trong ngành may mặc.',
+    keywords: 'tuyển dụng, cơ hội nghề nghiệp, Phụng Nguyên Garment, việc làm may mặc, công việc thời trang',
+    type: 'website',
+    image: 'https://phungnguyengarment.vn/assets/logo.svg',
+    url: 'https://phungnguyengarment.vn/tuyen-dung'
+  })
   const viewModel = useCareerViewModel()
 
   const columns: ColumnsType<RecruitmentPostTableDataType> = [

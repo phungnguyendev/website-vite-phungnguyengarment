@@ -2,12 +2,12 @@ import { Skeleton as AntSkeleton, Col, Flex, Row, Typography } from 'antd'
 import Skeleton from 'react-loading-skeleton'
 import { About, PhungNguyenCertification, a1, a10, a11, a15, a2, a3, a8, a9 } from '~/assets'
 import { ArcheryIcon, MissionIcon, VisionIcon } from '~/assets/icons'
-import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
 import Head from '~/components/sky-ui/Head'
 import ImageView from '~/components/sky-ui/ImageView'
 import Section from '~/components/sky-ui/Section/Section'
 import SwiperSlider from '~/components/sky-ui/SwiperSlider'
+import useSEO from '~/hooks/useSEO'
 import { imageValidatorDisplay } from '~/utils/helpers'
 import AboutCard from './components/AboutCard'
 import AboutPrizeSliderCard from './components/AboutPrizeSliderCard'
@@ -16,7 +16,14 @@ import AboutQuantity from './components/AboutQuantity'
 import useAboutViewModel from './hooks/useAboutViewModel'
 
 const AboutPage = () => {
-  useTitle('Giới thiệu')
+  useSEO({
+    title: 'Giới Thiệu - Phụng Nguyên Garment | Sản Xuất Thời Trang Cao Cấp',
+    description:
+      'Phụng Nguyên Garment là công ty hàng đầu về sản xuất thời trang cao cấp, cam kết mang đến sản phẩm chất lượng và dịch vụ chuyên nghiệp.',
+    keywords: 'giới thiệu công ty, Phụng Nguyên Garment, sản xuất thời trang, may mặc cao cấp, dịch vụ chuyên nghiệp',
+    image: 'https://phungnguyengarment.vn/assets/company-factory.jpg',
+    url: 'https://phungnguyengarment.vn/gioi-thieu'
+  })
   const viewModel = useAboutViewModel()
 
   return (

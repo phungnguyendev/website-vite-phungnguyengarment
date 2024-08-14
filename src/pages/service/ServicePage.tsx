@@ -1,16 +1,23 @@
 import { Row } from 'antd'
 import { a20 } from '~/assets'
 import { InternalExporterIcon, ProgressIcon, ShakeHandIcon } from '~/assets/icons'
-import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
 import Head from '~/components/sky-ui/Head'
 import Section from '~/components/sky-ui/Section/Section'
+import useSEO from '~/hooks/useSEO'
 import ServiceCard from './components/ServiceCard'
 import ServiceProjectList from './components/projects/ServiceProjectList'
 import useServiceViewModel from './hooks/useServiceViewModel'
 
 const ServicePage = () => {
-  useTitle('Dịch vụ')
+  useSEO({
+    title: 'Dịch Vụ - Phụng Nguyên Garment | Gia Công May Mặc Cao Cấp',
+    description:
+      'Phụng Nguyên Garment cung cấp dịch vụ gia công may mặc cao cấp với quy trình sản xuất hiện đại, đảm bảo chất lượng vượt trội và tiến độ giao hàng nhanh chóng.',
+    keywords: 'dịch vụ may mặc, gia công may mặc, Phụng Nguyên Garment, sản xuất thời trang, may mặc cao cấp',
+    image: 'https://phungnguyengarment.vn/assets/company-factory.jpg',
+    url: 'https://phungnguyengarment.vn/dich-vu'
+  })
   const viewModel = useServiceViewModel()
 
   return (

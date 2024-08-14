@@ -1,4 +1,3 @@
-import a0 from './images/a0.jpg'
 import a1 from './images/a1.jpg'
 import a10 from './images/a10.png'
 import a11 from './images/a11.jpg'
@@ -17,7 +16,9 @@ import a6 from './images/a6.jpg'
 import a7 from './images/a7.png'
 import a8 from './images/a8.png'
 import a9 from './images/a9.png'
+import ProductShirt from './images/product-shirt.png'
 import About2 from './images/about2.svg'
+import CompanyFactory from './images/company-factory.jpg'
 import newsBg from './images/news-bg.jpg'
 // import About from './images/dinamon-image-phungnguyen.svg'
 import About from './images/dinamon-image-phungnguyen.png'
@@ -28,10 +29,10 @@ import NoImage from './no-image.jpg'
 export {
   About,
   About2,
+  CompanyFactory,
   Logo,
   NoImage,
   PhungNguyenCertification,
-  a0,
   a1,
   a10,
   a11,
@@ -50,5 +51,6 @@ export {
   a7,
   a8,
   a9,
+  ProductShirt,
   newsBg
 }

@@ -1,6 +1,5 @@
 import { Skeleton as AntSkeleton, Button, Col, Flex, Row, Typography } from 'antd'
 import { Link } from 'react-router-dom'
-import useTitle from '~/components/hooks/useTitle'
 import BaseLayout from '~/components/layout/BaseLayout'
 import Section from '~/components/sky-ui/Section/Section'
 import SectionTitle from '~/components/sky-ui/Section/SectionTitle'
@@ -8,16 +7,24 @@ import BannerCarousel from './components/banner/BannerCarousel'
 import Specification from './components/specification/Specification'
 // import required modules
 import Skeleton from 'react-loading-skeleton'
-import { a0 } from '~/assets'
+import { CompanyFactory } from '~/assets'
 import ImageView from '~/components/sky-ui/ImageView'
 import SwiperSlider from '~/components/sky-ui/SwiperSlider'
+import useSEO from '~/hooks/useSEO'
 import PostItem from '../post/components/PostItem'
 import ProductItem from '../product/components/ProductItem'
 import HomePartnerSlider from './components/HomePartnerSlider'
 import useHomeViewModel from './hooks/useHomeViewModel'
 
 const HomePage: React.FC = () => {
-  useTitle('Trang chủ')
+  useSEO({
+    title: 'Phụng Nguyên Garment - Thời Trang Cao Cấp và Chất Lượng',
+    description:
+      'Phụng Nguyên Garment sản xuất và phân phối thời trang cao cấp với chất lượng vượt trội và dịch vụ chuyên nghiệp.',
+    keywords: 'công ty may mặc, thời trang cao cấp, đồng phục công sở, thời trang dạo phố, Phụng Nguyên Garment',
+    image: 'https://phungnguyengarment.vn/assets/company-factory.jpg',
+    url: 'https://phungnguyengarment.vn/'
+  })
   const viewModel = useHomeViewModel()
 
   return (
@@ -39,7 +46,7 @@ const HomePage: React.FC = () => {
           <Row gutter={[20, 20]}>
             <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12}>
               <ImageView
-                src={a0}
+                src={CompanyFactory}
                 width='100%'
                 height='368px'
                 alt='img-about'
