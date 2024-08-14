@@ -12,7 +12,13 @@ const ServiceProjectCard: React.FC<Props> = ({ item, ...props }) => {
     <>
       <Col xs={24} md={8} lg={6} className='group h-[420px] overflow-hidden'>
         <Flex {...props} className='relative h-full w-full'>
-          <img src={imageValidatorDisplay(item.imageUrl)} className='z-0 h-full w-full object-cover' />
+          <img
+            src={imageValidatorDisplay(item.imageUrl)}
+            alt='image-project'
+            width='100%'
+            height='100%'
+            className='z-0 h-full w-full object-cover'
+          />
           <Flex
             justify='center'
             align='center'

@@ -15,6 +15,8 @@ const ProductItem: React.FC<Props> = ({ item, ...props }) => {
           <img
             src={imageValidatorDisplay(item.imageUrl)}
             alt='image-product'
+            width='100%'
+            height={216}
             className='pointer-events-none h-[216px] w-full object-contain '
           />
         </Flex>

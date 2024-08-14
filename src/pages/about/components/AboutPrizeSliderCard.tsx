@@ -1,14 +1,16 @@
 import { Flex, Typography } from 'antd'
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
+import useWindow from '~/components/hooks/useWindow'
 import { Prize } from '~/typing'
-import { imageValidatorDisplay, numberValidator, textValidatorDisplay } from '~/utils/helpers'
+import { breakpoint, imageValidatorDisplay, numberValidator, textValidatorDisplay } from '~/utils/helpers'
 
 interface AboutPrizeSliderCardProps {
   item: Prize
 }
 
 const AboutPrizeSliderCard: React.FC<AboutPrizeSliderCardProps> = ({ item }) => {
+  const { width } = useWindow()
   return (
     <>
       {numberValidator(item.id) ? (
@@ -16,6 +18,8 @@ const AboutPrizeSliderCard: React.FC<AboutPrizeSliderCardProps> = ({ item }) => 
           <img
             src={imageValidatorDisplay(item.imageUrl)}
             alt='image-prize'
+            width='100%'
+            height={width >= breakpoint.lg ? 550 : 450}
             className='pointer-events-none z-0 h-full w-full object-cover'
           />
           <Flex className='before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:z-10 before:bg-gradient-to-t before:from-blackFriday before:content-[""]'>

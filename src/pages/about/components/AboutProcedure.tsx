@@ -1,6 +1,7 @@
 import { ColProps, Flex, Typography } from 'antd'
 import React from 'react'
-import { cn } from '~/utils/helpers'
+import useWindow from '~/components/hooks/useWindow'
+import { breakpoint, cn } from '~/utils/helpers'
 
 const { Text, Paragraph } = Typography
 
@@ -22,6 +23,7 @@ const AboutProcedure: React.FC<AboutProcedureProps> = ({
   direction = 'left',
   ...props
 }) => {
+  const { width } = useWindow()
   return (
     <>
       <Flex {...props} vertical justify='center' align='center' className='relative h-fit w-full'>
@@ -49,7 +51,13 @@ const AboutProcedure: React.FC<AboutProcedureProps> = ({
             </Flex>
           </Flex>
           <Flex vertical gap={20} justify='start' align='center' className='h-[320px] w-full md:w-1/2 lg:h-[420px]'>
-            <img src={imageURL} className='pointer-events-none h-full w-full object-cover' />
+            <img
+              src={imageURL}
+              alt='image-procedure'
+              width={width >= breakpoint.md ? '50%' : '100%'}
+              height={width >= breakpoint.lg ? 420 : 320}
+              className='pointer-events-none h-full w-full object-cover'
+            />
           </Flex>
         </Flex>
       </Flex>

@@ -18,7 +18,7 @@ const Head: React.FC<HeadProps> = ({ imageURL, title, ...props }) => {
     <>
       <Flex {...props} className={cn('relative h-[180px] w-full md:h-[320px]', props.className)}>
         <Flex className='z-0 h-full w-full before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-black before:bg-opacity-[65%] before:content-[""]'>
-          <img src={imageURL} alt='image-head' className='h-full w-full object-cover ' />
+          <img src={imageURL} alt='image-head' width='100%' height='100%' className='h-full w-full object-cover ' />
         </Flex>
         <Flex gap={20} vertical className='absolute z-10 h-full p-5 md:p-10' justify='center' align='center'>
           <Typography.Text className='font-roboto-condensed text-3xl font-semibold text-white'>{title}</Typography.Text>

@@ -2,13 +2,13 @@ import { Skeleton as AntSkeleton, Col, Flex, Row, Typography } from 'antd'
 import Skeleton from 'react-loading-skeleton'
 import { About, PhungNguyenCertification, a1, a10, a11, a15, a2, a3, a8, a9 } from '~/assets'
 import { ArcheryIcon, MissionIcon, VisionIcon } from '~/assets/icons'
+import useWindow from '~/components/hooks/useWindow'
 import BaseLayout from '~/components/layout/BaseLayout'
 import Head from '~/components/sky-ui/Head'
-import ImageView from '~/components/sky-ui/ImageView'
 import Section from '~/components/sky-ui/Section/Section'
 import SwiperSlider from '~/components/sky-ui/SwiperSlider'
 import useSEO from '~/hooks/useSEO'
-import { imageValidatorDisplay } from '~/utils/helpers'
+import { breakpoint, imageValidatorDisplay } from '~/utils/helpers'
 import AboutCard from './components/AboutCard'
 import AboutPrizeSliderCard from './components/AboutPrizeSliderCard'
 import AboutProcedure from './components/AboutProcedure'
@@ -24,6 +24,7 @@ const AboutPage = () => {
     image: 'https://phungnguyengarment.vn/assets/company-factory.jpg',
     url: 'https://phungnguyengarment.vn/gioi-thieu'
   })
+  const { width } = useWindow()
   const viewModel = useAboutViewModel()
 
   return (
@@ -40,7 +41,9 @@ const AboutPage = () => {
                 <img
                   src={imageValidatorDisplay(About)}
                   alt='about-image'
-                  className='pointer-events-none h-[350px]  w-full object-contain md:h-[350px] md:w-[350px] xl:h-[372px] xl:w-[372px]'
+                  width={width >= breakpoint.md ? 350 : width >= breakpoint.xl ? 372 : '100%'}
+                  height={width >= breakpoint.xl ? 372 : 350}
+                  className='pointer-events-none h-[350px] w-full object-contain md:w-[350px] xl:h-[372px] xl:w-[372px]'
                 />
               </Flex>
               <Flex vertical className='w-full'>
@@ -182,8 +185,11 @@ const AboutPage = () => {
           }}
         >
           <Flex justify='center'>
-            <ImageView
+            <img
               src={PhungNguyenCertification}
+              alt='image-certificate'
+              width={width >= breakpoint.md ? '66.666667%' : width >= breakpoint.lg ? '50%' : '100%'}
+              height={width >= breakpoint.md ? '66.666667%' : width >= breakpoint.lg ? '50%' : '100%'}
               className='pointer-events-none h-full w-full object-cover  md:h-2/3 md:w-2/3 lg:h-1/2 lg:w-1/2'
             />
           </Flex>

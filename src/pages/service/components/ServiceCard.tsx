@@ -19,6 +19,7 @@ const ServiceCard: React.FC<Props> = ({ icon, title, desc, ...props }) => {
             <Flex justify='center' align='center' className='h-[52px] w-[52px] rounded-md bg-secondPrimary-fade'>
               <img
                 src={imageValidatorDisplay(icon)}
+                alt='image-service'
                 width={24}
                 height={24}
                 className='object-contain text-secondPrimary'
