@@ -8,7 +8,6 @@ import Specification from './components/specification/Specification'
 // import required modules
 import Skeleton from 'react-loading-skeleton'
 import { CompanyFactory } from '~/assets'
-import ImageView from '~/components/sky-ui/ImageView'
 import SwiperSlider from '~/components/sky-ui/SwiperSlider'
 import useSEO from '~/hooks/useSEO'
 import PostItem from '../post/components/PostItem'
@@ -45,11 +44,11 @@ const HomePage: React.FC = () => {
         >
           <Row gutter={[20, 20]}>
             <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12}>
-              <ImageView
+              <img
                 src={CompanyFactory}
-                width='100%'
-                height='368px'
                 alt='img-about'
+                width='100%'
+                height={368}
                 className='pointer-events-none object-cover '
               />
             </Col>

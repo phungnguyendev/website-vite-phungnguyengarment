@@ -25,10 +25,11 @@ const SpecificationItem: React.FC<SpecificationItemProps> = ({ item, ...props })
     >
       <Flex vertical align='center' justify='center' gap={8} className='h-60 w-full p-5'>
         <img
-          className='h-[52px] w-[52px]'
-          draggable={false}
           src={imageValidatorDisplay(item.icon)}
           alt='image-specification'
+          draggable={false}
+          width={52}
+          height={52}
         />
         <Typography.Text className='line-clamp-1 text-center font-roboto-condensed text-xl font-bold' type='secondary'>
           {item.title}
